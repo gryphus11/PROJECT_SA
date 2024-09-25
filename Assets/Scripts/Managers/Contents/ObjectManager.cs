@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ¿ÀºêÁ§Æ®ÀÇ ½ºÆù, µğ½ºÆùÀ» °ü¸®
+/// ì˜¤ë¸Œì íŠ¸ì˜ ìŠ¤í°, ë””ìŠ¤í°ì„ ê´€ë¦¬
 /// </summary>
 public class ObjectManager
 {
