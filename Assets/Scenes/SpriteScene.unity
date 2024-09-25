@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueKnight
       objectReference: {fileID: 0}
-    - target: {fileID: 2445449715794956104, guid: 4e7cf64ffb371cb48894acca31168e23, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8716166223657760422, guid: 4e7cf64ffb371cb48894acca31168e23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -381,10 +377,6 @@ PrefabInstance:
     - target: {fileID: 1937322855424467385, guid: c2c7b0db5057c134f84137188eb51c04, type: 3}
       propertyPath: m_Name
       value: Bishop
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937322855424467385, guid: c2c7b0db5057c134f84137188eb51c04, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9129715879027243707, guid: c2c7b0db5057c134f84137188eb51c04, type: 3}
       propertyPath: m_LocalPosition.x
