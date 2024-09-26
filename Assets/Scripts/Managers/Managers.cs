@@ -12,6 +12,7 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            Init();
             return _instance;
         }
     }
@@ -20,15 +21,14 @@ public class Managers : MonoBehaviour
     {
         if (_instance == null)
         {
-            GameObject go = GameObject.Find("@Managers");
+            GameObject go = GameObject.Find("Managers");
             if (go == null)
-                go = new GameObject { name = "@Managers" };
+                go = new GameObject { name = "Managers" };
 
             _instance = Utils.GetOrAddComponent<Managers>(go);
             DontDestroyOnLoad(go);
 
-            _instance._data.Init();
-            _instance._sound.Init();
+            // Init Others
         }
     }
 
@@ -64,6 +64,7 @@ public class Managers : MonoBehaviour
         _instance._sound.Clear();
         _instance._ui.Clear();
         _instance._object.Clear();
+        _instance._scene.Clear();
     }
 
 }

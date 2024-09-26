@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager
 {
@@ -11,6 +12,8 @@ public class UIManager
     UI_Base _sceneUI;
 
     Stack<UI_Base> _uiStack = new Stack<UI_Base>();
+
+    public event Action<int> OnTimeScaleChanged;
 
     public GameObject Root
     {
@@ -181,9 +184,17 @@ public class UIManager
 
     public void RefreshTimeScale()
     {
+        if (SceneManager.GetActiveScene().name != Define.SceneType.Game.ToString())
+        {
+            Time.timeScale = 1;
+            return;
+        }
+
         if (_uiStack.Count > 0)
             Time.timeScale = 0.0f;
         else
             Time.timeScale = 1.0f;
+
+        OnTimeScaleChanged?.Invoke((int)Time.timeScale);
     }
 }

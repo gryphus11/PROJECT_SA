@@ -23,7 +23,8 @@ public class SceneManagerEx
     public void ChangeScene(Define.SceneType type)
     {
         Debug.Log(CurrentScene);
-        CurrentScene.Clear();
+
+        Managers.Clear();
 
         _curSceneType = type;
         SceneManager.LoadScene(GetSceneName(type));
@@ -32,8 +33,11 @@ public class SceneManagerEx
     string GetSceneName(Define.SceneType type)
     {
         string name = System.Enum.GetName(typeof(Define.SceneType), type);
-        char[] letters = name.ToLower().ToCharArray();
-        letters[0] = char.ToUpper(letters[0]);
-        return new string(letters);
+        return name;
+    }
+
+    public void Clear()
+    {
+        CurrentScene.Clear();
     }
 }

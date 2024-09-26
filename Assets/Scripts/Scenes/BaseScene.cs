@@ -24,10 +24,13 @@ public class BaseScene : MonoBehaviour
         GameObject go = GameObject.Find("EventSystem");
         if (go == null)
         {
-            Managers.Resource.InstantiateAsync("EventSystem", null, (go) =>
-            {
-                go.name = "@EventSystem";
-            });
+            go = Managers.Resource.Instantiate("UI/EventSystem");
+
+            // 선로딩이 아닌 경우 비동기로
+            //Managers.Resource.InstantiateAsync("EventSystem", null, (go) =>
+            //{
+            //    go.name = "@EventSystem";
+            //});
         }
 
         return true;
