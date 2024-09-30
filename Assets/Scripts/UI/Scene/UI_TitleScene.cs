@@ -59,7 +59,13 @@ public class UI_TitleScene : UI_Scene
         _loadingText.text = loadedMessage;
         _loadingRotateBlur.SetActive(false);
         _moveGameSceneButton.gameObject.SetActive(true);
+        BindEvent(_moveGameSceneButton.gameObject, OnMoveGameScene);
         Debug.Log(loadedMessage);
+    }
+
+    private void OnMoveGameScene()
+    {
+        Managers.Scene.ChangeScene(Define.SceneType.Game);
     }
 
     private void OnResourceLoaded(string resourceName, int current, int total)

@@ -17,24 +17,35 @@ public class PlayerController : CreatureController
     public Action OnPlayerMove;
     #endregion
 
+    [SerializeField]
+    public GameObject Indicator;
+    [SerializeField]
+    public GameObject IndicatorSprite;
+
+    public Vector3 PlayerCenterPos { get { return Indicator.transform.position; } }
+    public Vector3 PlayerDirection { get { return (IndicatorSprite.transform.position - PlayerCenterPos).normalized; } }
+
     public override bool Init()
     {
         base.Init();
 
-        moveSpeed = 5.0f;
+        moveSpeed = 5.0f; // 임시 값 추후 캐릭터별 스테이터스에 따라 불러 올 예정
+        creatureState = CreatureState.Idle;
 
+        // 방향 콜백 등록
         Managers.Game.OnMoveDirChanged += OnMoveDirChanged;
         return true;
     }
 
     private void OnDestroy()
     {
+        // 방향 콜백 해제
         Managers.Game.OnMoveDirChanged -= OnMoveDirChanged;
     }
 
     protected override void UpdateController()
     {
-        UpdatePlayerDirection();
+        UpdateSpriteDirection();
         MovePlayer();
     }
 
@@ -45,8 +56,9 @@ public class PlayerController : CreatureController
         _moveDir = vector;
     }
 
-    void UpdatePlayerDirection()
+    void UpdateSpriteDirection()
     {
+        // 스프라이트 뒤집기
         if (_moveDir.x > 0)
             _creatureSprite.flipX = false;
         else
@@ -68,6 +80,7 @@ public class PlayerController : CreatureController
             if (creatureState != CreatureState.Moving)
                 creatureState = CreatureState.Moving;
 
+            Indicator.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * 180 / Mathf.PI);
             OnPlayerMove?.Invoke();
         }
         else
@@ -83,7 +96,6 @@ public class PlayerController : CreatureController
         base.UpdateIdle();
 
         _animator.Play("Idle");
-        Debug.Log("Anim:Idle");
     }
 
     protected override void UpdateMoving()
@@ -91,6 +103,5 @@ public class PlayerController : CreatureController
         base.UpdateMoving();
 
         _animator.Play("Move");
-        Debug.Log("Anim:Move");
     }
 }

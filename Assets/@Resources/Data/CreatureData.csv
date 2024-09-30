@@ -1,0 +1,4 @@
+﻿dataId,descriptionTextID,prefabLabel,maxHp,upMaxHp,atk,upAtk,def,movSpeed,totalExp,hpRate,atkRate,defRate,moveSpeedRate,animationLabels,iconLabel,skill
+100001,비숍,Player,100,2,5,3,5,6,200,5,5,5,5,Idle_BlueKnight|Move_BlueKnight,bishop.sprite,0
+100002,할로우나이트,Player,200,10,20,10,20,15,200,5,5,5,20,Idle_HollowKnight|Move_HollowKnight,hollowKnight.sprite,0
+200001,고블린,MonsterPrefab,39,5,2,2,0,1.5,200,1,1,1,1,Idle_Goblin|Move_Goblin,goblin.sprite,0

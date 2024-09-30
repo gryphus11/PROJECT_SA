@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1487881711953408433}
   - component: {fileID: 7423659297337038052}
   m_Layer: 5
-  m_Name: UI_JoyStick
+  m_Name: UI_Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

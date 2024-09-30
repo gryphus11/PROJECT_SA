@@ -5,7 +5,7 @@ using static Define;
 
 public class BaseScene : MonoBehaviour
 {
-    public SceneType SceneType = SceneType.Unknown;
+    public SceneType sceneType = SceneType.Unknown;
     protected bool _init = false;
 
     public void Awake()
@@ -24,7 +24,7 @@ public class BaseScene : MonoBehaviour
         GameObject go = GameObject.Find("EventSystem");
         if (go == null)
         {
-            go = Managers.Resource.Instantiate("UI/EventSystem");
+            go = Managers.Resource.Instantiate("EventSystem");
 
             // 선로딩이 아닌 경우 비동기로
             //Managers.Resource.InstantiateAsync("EventSystem", null, (go) =>

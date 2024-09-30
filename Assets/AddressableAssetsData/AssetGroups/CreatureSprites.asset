@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CreatureSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: CreatureSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1e76f184d0e54a1459e0eaeb451dd529
+  m_SerializeEntries:
+  - m_GUID: 59ffc6338f0f7434281d5d1e02f51d0e
+    m_Address: bishop.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b6c8c2cd8ecdde4f92bf6567c7a0534
+    m_Address: blue_knight.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86b567032707de2488d114e0b8a173d1
+    m_Address: hollow_knight.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 64074080df223264586e2735dfbdcdf2, type: 2}
+    - {fileID: 11400000, guid: 3f9e5e63b703621479fa092e68b198b0, type: 2}

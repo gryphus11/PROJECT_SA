@@ -11,6 +11,9 @@ public class GameManager
     public bool BGMOn { get; set; }
     public bool EffectSoundOn { get; set; }
 
+    #region 플레이어
+    public PlayerController Player { get; set; }
+
     Vector2 _moveDir;
     public Vector2 MoveDir
     {
@@ -22,6 +25,7 @@ public class GameManager
             Debug.Log(_moveDir);
         }
     }
+    #endregion
 
     public event Action<Vector2> OnMoveDirChanged;
 }

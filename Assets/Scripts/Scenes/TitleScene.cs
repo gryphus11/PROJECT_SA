@@ -9,7 +9,7 @@ public class TitleScene : BaseScene
         if(base.Init() == false)
             return false;
 
-        SceneType = Define.SceneType.Title;
+        sceneType = Define.SceneType.Title;
 
         return true;
     }

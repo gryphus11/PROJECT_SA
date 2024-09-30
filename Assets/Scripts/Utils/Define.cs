@@ -48,4 +48,13 @@ public static class Define
         OnDamaged,
         Dead
     }
+
+    #region sortingOrder
+    public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
+    public static readonly int SOUL_SORT = 105;
+
+    //소울이 이동중일때 오더 변경
+    public static readonly int UI_GAMESCENE_SORT_OPEN = 323;
+    public static readonly int SOUL_SORT_GETITEM = 322;
+    #endregion
 }

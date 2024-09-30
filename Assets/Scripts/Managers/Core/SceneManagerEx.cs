@@ -13,7 +13,7 @@ public class SceneManagerEx
         {
             if (_curSceneType != Define.SceneType.Unknown)
                 return _curSceneType;
-            return CurrentScene.SceneType;
+            return CurrentScene.sceneType;
         }
         set { _curSceneType = value; }
     }

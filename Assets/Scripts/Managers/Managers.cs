@@ -29,6 +29,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
 
             // Init Others
+            Sound.Init();
         }
     }
 

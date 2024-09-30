@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -135,7 +136,8 @@ public class UI_Joystick : UI_Scene
             _prevKeyInputDirection = _keyInputDirection;
             _keyInputDirection = GetKeyInput();
 
-            if (_prevKeyInputDirection == Vector2.zero && _keyInputDirection == Vector2.zero)
+            if ((_prevKeyInputDirection == Vector2.zero && _keyInputDirection == Vector2.zero) || 
+                _prevKeyInputDirection == _keyInputDirection)
                 return;
 
             Managers.Game.MoveDir = _keyInputDirection;
@@ -146,6 +148,13 @@ public class UI_Joystick : UI_Scene
             _keyInputDirection = Vector2.zero;
         }
 
+
+        ShowDebugPosition();
+    }
+
+    private void ShowDebugPosition()
+    {
+        #region µð¹ö±×
         _debugJoystickString.Clear();
         _debugJoystickString.Append($"Joystick Dir: {_moveDirection}");
         _debugJoystickText.text = _debugJoystickString.ToString();
@@ -153,6 +162,7 @@ public class UI_Joystick : UI_Scene
         _debugKeyString.Clear();
         _debugKeyString.Append($"Keyboard Dir: {_keyInputDirection}");
         _debugKeyText.text = _debugKeyString.ToString();
+        #endregion
     }
 
     private Vector2 GetKeyInput()

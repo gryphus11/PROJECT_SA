@@ -18,13 +18,7 @@ MonoBehaviour:
   m_GUID: 4bf95b21782d3df4e8ae855122a56361
   m_SerializeEntries:
   - m_GUID: c2c7b0db5057c134f84137188eb51c04
-    m_Address: Bishop
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e7cf64ffb371cb48894acca31168e23
-    m_Address: BlueKnight
+    m_Address: Player
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
