@@ -39,4 +39,13 @@ public static class Define
         Monster,
         Projectile,
     }
+
+    public enum CreatureState
+    {
+        Idle,
+        Skill,
+        Moving,
+        OnDamaged,
+        Dead
+    }
 }

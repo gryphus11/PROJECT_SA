@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +8,9 @@ public class UI_Joystick : UI_Scene
     Image _background;
     Image _handler;
 
+    TMP_Text _debugJoystickText;
+    TMP_Text _debugKeyText;
+
     float _joystickRadius;
     Vector2 _joystickOriginPos = Vector2.zero;
 
@@ -17,12 +18,23 @@ public class UI_Joystick : UI_Scene
     Vector2 _dragPosition = Vector2.zero;
     Vector2 _moveDirection = Vector2.zero;
 
-    public Action<Vector2> OnDragHandler { get; set; }
+    Vector2 _keyInputDirection = Vector2.zero;
+    Vector2 _prevKeyInputDirection = Vector2.zero;
+
+    System.Text.StringBuilder _debugJoystickString = new System.Text.StringBuilder();
+    System.Text.StringBuilder _debugKeyString = new System.Text.StringBuilder();
 
     enum GameObjects
     {
         JoystickBackground,
         Handler,
+        Debug,
+    }
+
+    enum Texts
+    {
+        DebugJoystickDir,
+        DebugKeyboardDir,
     }
 
     private void OnDestroy()
@@ -38,11 +50,15 @@ public class UI_Joystick : UI_Scene
         Managers.UI.OnTimeScaleChanged += OnTimeScaleChanged;
 
         BindObject(typeof(GameObjects));
-        
+        BindTMP(typeof(Texts));
+
         _handler = GetObject((int)GameObjects.Handler).GetComponent<Image>();
         _background = GetObject((int)GameObjects.JoystickBackground).GetComponent<Image>();
         _joystickRadius = _background.GetComponent<RectTransform>().sizeDelta.y * 0.5f;
         _joystickOriginPos = _background.transform.position;
+
+        _debugJoystickText = GetTMP((int)Texts.DebugJoystickDir);
+        _debugKeyText = GetTMP((int)Texts.DebugKeyboardDir);
 
         gameObject.BindEvent(OnPointerDown, null, Define.UIEvent.PointerDown);
         gameObject.BindEvent(OnPointerUp, null, Define.UIEvent.PointerUp);
@@ -63,7 +79,7 @@ public class UI_Joystick : UI_Scene
 
         _handler.transform.position = _touchPosition + (_moveDirection * moveDistance);
 
-        OnDragHandler?.Invoke(_moveDirection);
+        Managers.Game.MoveDir = _moveDirection;
     }
 
     public void OnPointerDown()
@@ -92,7 +108,7 @@ public class UI_Joystick : UI_Scene
         _dragPosition = Vector2.zero;
         _moveDirection = Vector2.zero;
 
-        OnDragHandler?.Invoke(_moveDirection);
+        Managers.Game.MoveDir = _moveDirection;
     }
 
     private void SetActiveJoyStick(bool isActive)
@@ -110,5 +126,53 @@ public class UI_Joystick : UI_Scene
         }
         else
             gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (_moveDirection == Vector2.zero)
+        {
+            _prevKeyInputDirection = _keyInputDirection;
+            _keyInputDirection = GetKeyInput();
+
+            if (_prevKeyInputDirection == Vector2.zero && _keyInputDirection == Vector2.zero)
+                return;
+
+            Managers.Game.MoveDir = _keyInputDirection;
+        }
+        else
+        {
+            _prevKeyInputDirection = Vector2.zero;
+            _keyInputDirection = Vector2.zero;
+        }
+
+        _debugJoystickString.Clear();
+        _debugJoystickString.Append($"Joystick Dir: {_moveDirection}");
+        _debugJoystickText.text = _debugJoystickString.ToString();
+
+        _debugKeyString.Clear();
+        _debugKeyString.Append($"Keyboard Dir: {_keyInputDirection}");
+        _debugKeyText.text = _debugKeyString.ToString();
+    }
+
+    private Vector2 GetKeyInput()
+    {
+        Vector2 moveDir = Vector2.zero;
+
+        if(Input.GetKey(KeyCode.W))
+            moveDir.y = 1;
+        if (Input.GetKey(KeyCode.S))
+            moveDir.y = -1;
+        if (Input.GetKey(KeyCode.A))
+            moveDir.x = -1;
+        if (Input.GetKey(KeyCode.D))
+            moveDir.x = 1;
+
+        return moveDir.normalized;
+    }
+
+    public void ToggleDebug()
+    { 
+    
     }
 }
