@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using static Define;
 
@@ -9,6 +10,10 @@ using static Define;
 public class ObjectManager
 {
     public PlayerController Player { get; private set; }
+    public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();
+    public HashSet<GemController> Gems { get; } = new HashSet<GemController>();
+    public HashSet<DropItemController> DropItems { get; } = new HashSet<DropItemController>();
+    public HashSet<ProjectileController> Projectiles { get; } = new HashSet<ProjectileController>();
 
     public T Spawn<T>(Vector3 position, int templateID = 0, string prefabName = "") where T : BaseController
     {
@@ -27,7 +32,15 @@ public class ObjectManager
         }
         else if (type == typeof(MonsterController))
         {
-            return null;
+            var creatureData = Managers.Data.CreatureDic[templateID];
+            GameObject go = Managers.Resource.Instantiate(creatureData.prefabLabel);
+            go.transform.position = position;
+            go.name = creatureData.prefabLabel;
+            MonsterController mc = go.GetOrAddComponent<MonsterController>();
+            mc.SetInfo(templateID);
+            Monsters.Add(mc);
+
+            return mc as T;
         }
         else if (type == typeof(GemController))
         {
@@ -51,6 +64,22 @@ public class ObjectManager
         }
 
         return null;
+    }
+
+    public void Despawn<T>(T obj) where T : BaseController
+    {
+        System.Type type = typeof(T);
+
+        if (type == typeof(PlayerController))
+        {
+            // ?
+        }
+
+        else if (type == typeof(MonsterController))
+        {
+            Monsters.Remove(obj as MonsterController);
+            Managers.Resource.Destroy(obj.gameObject);
+        }
     }
 
     public void Clear()

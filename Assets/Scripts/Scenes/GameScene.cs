@@ -38,7 +38,7 @@ public class GameScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_Joystick>();
         Managers.Resource.Instantiate("Map01");
-        var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, 100002);
+        var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, 100001);
 
         var cameraController = FindObjectOfType<CameraController>();
         cameraController.Target = player.transform;

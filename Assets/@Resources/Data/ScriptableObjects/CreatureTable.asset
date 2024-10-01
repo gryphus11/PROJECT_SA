@@ -21,13 +21,13 @@ MonoBehaviour:
     atk: 5
     upAtk: 3
     def: 5
-    moveSpeed: 6
+    moveSpeed: 5
     totalExp: 200
     hpRate: 5
     atkRate: 5
     defRate: 5
     moveSpeedRate: 5
-    animationLabels: Idle_BlueKnight|Move_BlueKnight
+    animationLabels: Idle_Bishop|Move_Bishop
     iconLabel: bishop.sprite
     skill: 0
   - dataId: 100002
@@ -38,7 +38,7 @@ MonoBehaviour:
     atk: 20
     upAtk: 10
     def: 20
-    moveSpeed: 15
+    moveSpeed: 10
     totalExp: 200
     hpRate: 5
     atkRate: 5
@@ -46,4 +46,38 @@ MonoBehaviour:
     moveSpeedRate: 20
     animationLabels: Idle_HollowKnight|Move_HollowKnight
     iconLabel: hollowKnight.sprite
+    skill: 0
+  - dataId: 200001
+    descriptionTextID: "\uACE0\uBE14\uB9B0"
+    prefabLabel: Monster
+    maxHp: 39
+    upMaxHp: 5
+    atk: 1
+    upAtk: 1
+    def: 0
+    moveSpeed: 2
+    totalExp: 200
+    hpRate: 0
+    atkRate: 0
+    defRate: 0
+    moveSpeedRate: 0
+    animationLabels: Idle_Goblin|Move_Goblin
+    iconLabel: goblin.sprite
+    skill: 0
+  - dataId: 200002
+    descriptionTextID: "\uB124\uD06C\uB85C\uB9E8\uC11C"
+    prefabLabel: Monster
+    maxHp: 100
+    upMaxHp: 20
+    atk: 5
+    upAtk: 2
+    def: 5
+    moveSpeed: 4
+    totalExp: 200
+    hpRate: 5
+    atkRate: 5
+    defRate: 5
+    moveSpeedRate: 5
+    animationLabels: Idle_Necromancer|Move_Necromancer
+    iconLabel: necromancer.sprite
     skill: 0

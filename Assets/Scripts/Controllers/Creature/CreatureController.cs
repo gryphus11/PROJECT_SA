@@ -36,7 +36,7 @@ public abstract class CreatureController : BaseController
     public virtual float moveSpeedRate { get; set; } = 1;
     public virtual float moveSpeed { get; set; }
 
-    public CreatureData CreatureData;
+    public CreatureData creatureData;
 
     public Vector3 centerPosition
     {
@@ -155,16 +155,22 @@ public abstract class CreatureController : BaseController
     {
         dataId = creatureId;
         Dictionary<int, Data.CreatureData> dict = Managers.Data.CreatureDic;
-        CreatureData = dict[creatureId];
+        creatureData = dict[creatureId];
         
+        InitCreatureStat();
         Init();
         SetAnimation();
+    }
+
+    public virtual void InitCreatureStat()
+    {
+
     }
 
     [ContextMenu("애니 재설정")]
     private void SetAnimation()
     {
-        var clips = CreatureData.animationLabels.Split("|");
+        var clips = creatureData.animationLabels.Split("|");
 
         foreach (var clip in clips)
         {
@@ -181,5 +187,23 @@ public abstract class CreatureController : BaseController
                 Debug.LogWarning($"애니메이션 클립 {clip}을(를) 찾을 수 없습니다.");
             }
         }
+    }
+
+    public virtual void OnDamaged(BaseController attacker, int damage)
+    {
+        if (hp <= 0)
+            return;
+
+        hp -= damage;
+        if (hp <= 0)
+        {
+            hp = 0;
+            OnDead();
+        }
+    }
+
+    protected virtual void OnDead()
+    {
+
     }
 }

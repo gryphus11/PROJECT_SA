@@ -25,6 +25,8 @@ public class GameManager
             Debug.Log(_moveDir);
         }
     }
+
+    public int KillCount { get; set; }
     #endregion
 
     public event Action<Vector2> OnMoveDirChanged;

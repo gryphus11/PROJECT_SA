@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using static Define;
 
@@ -29,7 +30,6 @@ public class PlayerController : CreatureController
     {
         base.Init();
 
-        moveSpeed = 5.0f; // 임시 값 추후 캐릭터별 스테이터스에 따라 불러 올 예정
         creatureState = CreatureState.Idle;
 
         // 방향 콜백 등록
@@ -61,7 +61,7 @@ public class PlayerController : CreatureController
         // 스프라이트 뒤집기
         if (_moveDir.x > 0)
             _creatureSprite.flipX = false;
-        else
+        else if (_moveDir.x < 0)
             _creatureSprite.flipX = true;
     }
 
@@ -103,5 +103,15 @@ public class PlayerController : CreatureController
         base.UpdateMoving();
 
         _animator.Play("Move");
+    }
+
+    public override void InitCreatureStat()
+    {
+        base.InitCreatureStat();
+
+        // 현재 케릭터의 Stat 가져오기
+        maxHp = creatureData.maxHp + (creatureData.maxHp * creatureData.hpRate * 0.01f);
+        atk = creatureData.atk + (creatureData.atk * creatureData.atkRate * 0.01f);
+        moveSpeed = creatureData.moveSpeed + (creatureData.moveSpeed * creatureData.moveSpeedRate * 0.01f);
     }
 }
