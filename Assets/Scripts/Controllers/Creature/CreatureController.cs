@@ -20,32 +20,23 @@ public abstract class CreatureController : BaseController
     public Animator _animator{ get; set; }
     private AnimatorOverrideController _overrideController;
 
-    public virtual int dataId { get; set; }
-    public virtual float hp { get; set; }
-    public virtual float maxHp { get; set; }
-    public virtual float maxHpBonusRate { get; set; } = 1;
-    public virtual float healBonusRate { get; set; } = 1;
-    public virtual float hpRegen { get; set; }
-    public virtual float atk { get; set; }
-    public virtual float attackRate { get; set; } = 1;
-    public virtual float def { get; set; }
-    public virtual float defRate { get; set; }
-    public virtual float criRate { get; set; }
-    public virtual float criDamage { get; set; } = 1.5f;
-    public virtual float damageReduction { get; set; }
-    public virtual float moveSpeedRate { get; set; } = 1;
-    public virtual float moveSpeed { get; set; }
+    public virtual int DataId { get; set; }
+    public virtual float Hp { get; set; }
+    public virtual float MaxHp { get; set; }
+    public virtual float MaxHpBonusRate { get; set; } = 1;
+    public virtual float HealBonusRate { get; set; } = 1;
+    public virtual float HpRegen { get; set; }
+    public virtual float Atk { get; set; }
+    public virtual float AttackRate { get; set; } = 1;
+    public virtual float Def { get; set; }
+    public virtual float DefRate { get; set; }
+    public virtual float CriRate { get; set; }
+    public virtual float CriDamage { get; set; } = 1.5f;
+    public virtual float DamageReduction { get; set; }
+    public virtual float MoveSpeedRate { get; set; } = 1;
+    public virtual float MoveSpeed { get; set; }
 
     public CreatureData creatureData;
-
-    public Vector3 centerPosition
-    {
-        get
-        {
-            return _offset.bounds.center;
-        }
-    }
-
 
     private Collider2D _offset;
     public Vector3 CenterPosition
@@ -57,9 +48,10 @@ public abstract class CreatureController : BaseController
     }
 
 
+    #region State Pattern
     Define.CreatureState _creatureState = Define.CreatureState.Moving;
 
-    public virtual Define.CreatureState creatureState
+    public virtual Define.CreatureState CreatureState
     {
         get { return _creatureState; }
         set
@@ -68,6 +60,7 @@ public abstract class CreatureController : BaseController
             UpdateAnimation();
         }
     }
+    #endregion
 
     void Awake()
     {
@@ -103,7 +96,7 @@ public abstract class CreatureController : BaseController
 
     public virtual void UpdateAnimation() 
     {
-        switch (creatureState)
+        switch (CreatureState)
         {
             case Define.CreatureState.Idle:
                 UpdateIdle();
@@ -153,7 +146,7 @@ public abstract class CreatureController : BaseController
     
     public void SetInfo(int creatureId)
     {
-        dataId = creatureId;
+        DataId = creatureId;
         Dictionary<int, Data.CreatureData> dict = Managers.Data.CreatureDic;
         creatureData = dict[creatureId];
         
@@ -189,15 +182,15 @@ public abstract class CreatureController : BaseController
         }
     }
 
-    public virtual void OnDamaged(BaseController attacker, int damage)
+    public virtual void OnDamaged(BaseController attacker, float damage)
     {
-        if (hp <= 0)
+        if (Hp <= 0)
             return;
 
-        hp -= damage;
-        if (hp <= 0)
+        Hp -= damage;
+        if (Hp <= 0)
         {
-            hp = 0;
+            Hp = 0;
             OnDead();
         }
     }

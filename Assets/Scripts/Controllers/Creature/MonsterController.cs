@@ -9,67 +9,6 @@ using static Define;
 
 public class MonsterController : CreatureController
 {
-    #region State Pattern
-    Define.CreatureState _creatureState = Define.CreatureState.Moving;
-    public virtual Define.CreatureState CreatureState
-    {
-        get { return _creatureState; }
-        set
-        {
-            _creatureState = value;
-            UpdateAnimation();
-        }
-    }
-
-    protected Animator _animator;
-
-    public virtual void UpdateAnimation()
-    {
-
-    }
-
-    protected override void UpdateController()
-    {
-        base.UpdateController();
-
-        switch (CreatureState)
-        {
-            case CreatureState.Idle:
-                UpdateIdle();
-                break;
-            case CreatureState.Moving:
-                UpdateMoving();
-                break;
-            case CreatureState.Skill:
-                UpdateSkill();
-                break;
-            case CreatureState.Dead:
-                UpdateDead();
-                break;
-        }
-    }
-
-    protected virtual void UpdateIdle()
-    {
-
-    }
-
-    protected virtual void UpdateMoving()
-    {
-
-    }
-
-    protected virtual void UpdateSkill()
-    {
-
-    }
-
-    protected virtual void UpdateDead()
-    {
-
-    }
-    #endregion
-
     private CancellationTokenSource _cancellationTokenSource;
 
     private bool _isDotDamageRunning = false;
@@ -98,10 +37,10 @@ public class MonsterController : CreatureController
 
         Vector3 dir = playerController.transform.position - transform.position;
 
-        Vector3 newPos = transform.position + dir.normalized * Time.fixedDeltaTime * moveSpeed;
+        Vector3 newPos = transform.position + dir.normalized * Time.fixedDeltaTime * MoveSpeed;
 
         GetComponent<Rigidbody2D>().MovePosition(newPos);
-        GetComponent<SpriteRenderer>().flipX = dir.x > 0.0f;
+        GetComponent<SpriteRenderer>().flipX = dir.x < 0.0f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -137,7 +76,7 @@ public class MonsterController : CreatureController
 
         while (true)
         {
-            target.OnDamaged(this, 2);
+            target.OnDamaged(this, Atk);
             await UniTask.Delay(1000, cancellationToken: token);
         }
     }
@@ -163,5 +102,14 @@ public class MonsterController : CreatureController
     private void OnDestroy()
     {
         UniTaskUtils.CancelTokenSource(ref _cancellationTokenSource);
+    }
+
+    public override void InitCreatureStat()
+    {
+        base.InitCreatureStat();
+
+        MaxHp = creatureData.maxHp;
+        Atk = creatureData.atk;
+        MoveSpeed = creatureData.moveSpeed;
     }
 }

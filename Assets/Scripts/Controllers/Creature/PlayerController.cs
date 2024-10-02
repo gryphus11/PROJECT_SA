@@ -30,7 +30,7 @@ public class PlayerController : CreatureController
     {
         base.Init();
 
-        creatureState = CreatureState.Idle;
+        CreatureState = CreatureState.Idle;
 
         // 방향 콜백 등록
         Managers.Game.OnMoveDirChanged += OnMoveDirChanged;
@@ -67,26 +67,26 @@ public class PlayerController : CreatureController
 
     void MovePlayer()
     {
-        if (creatureState == CreatureState.OnDamaged)
+        if (CreatureState == CreatureState.OnDamaged)
             return;
 
         _rigidBody.velocity = Vector2.zero;
 
-        Vector3 dir = _moveDir * moveSpeed * Time.deltaTime;
+        Vector3 dir = _moveDir * MoveSpeed * Time.deltaTime;
         transform.position += dir;
 
         if (dir != Vector3.zero)
         {
-            if (creatureState != CreatureState.Moving)
-                creatureState = CreatureState.Moving;
+            if (CreatureState != CreatureState.Moving)
+                CreatureState = CreatureState.Moving;
 
             Indicator.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * 180 / Mathf.PI);
             OnPlayerMove?.Invoke();
         }
         else
         {
-            if (creatureState != CreatureState.Idle)
-                creatureState = CreatureState.Idle;
+            if (CreatureState != CreatureState.Idle)
+                CreatureState = CreatureState.Idle;
             _rigidBody.velocity = Vector2.zero;
         }
     }
@@ -110,8 +110,10 @@ public class PlayerController : CreatureController
         base.InitCreatureStat();
 
         // 현재 케릭터의 Stat 가져오기
-        maxHp = creatureData.maxHp + (creatureData.maxHp * creatureData.hpRate * 0.01f);
-        atk = creatureData.atk + (creatureData.atk * creatureData.atkRate * 0.01f);
-        moveSpeed = creatureData.moveSpeed + (creatureData.moveSpeed * creatureData.moveSpeedRate * 0.01f);
+        MaxHp = creatureData.maxHp + (creatureData.maxHp * creatureData.hpRate * 0.01f);
+        Hp = MaxHp;
+        
+        Atk = creatureData.atk + (creatureData.atk * creatureData.atkRate * 0.01f);
+        MoveSpeed = creatureData.moveSpeed + (creatureData.moveSpeed * creatureData.moveSpeedRate * 0.01f);
     }
 }

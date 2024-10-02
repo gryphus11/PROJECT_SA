@@ -52,7 +52,7 @@ MonoBehaviour:
     prefabLabel: Monster
     maxHp: 39
     upMaxHp: 5
-    atk: 1
+    atk: 10
     upAtk: 1
     def: 0
     moveSpeed: 2
@@ -69,7 +69,7 @@ MonoBehaviour:
     prefabLabel: Monster
     maxHp: 100
     upMaxHp: 20
-    atk: 5
+    atk: 20
     upAtk: 2
     def: 5
     moveSpeed: 4

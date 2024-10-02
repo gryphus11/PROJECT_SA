@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creatureSprite: {fileID: 0}
-  CreatureData:
+  creatureData:
     dataId: 0
-    descriptionTextID: 0
+    descriptionTextID: 
     prefabLabel: 
     maxHp: 100
     upMaxHp: 0
@@ -206,7 +206,6 @@ MonoBehaviour:
     def: 50
     moveSpeed: 3
     totalExp: 3
-    projectileSpeed: 3
     hpRate: 0
     atkRate: 0
     defRate: 0
