@@ -1,0 +1,78 @@
+{
+  "creatures": [
+    {
+      "dataId": 100001,
+      "descriptionTextID": "비숍",
+      "prefabLabel": "Player",
+      "maxHp": 100.0,
+      "upMaxHp": 2.0,
+      "atk": 5.0,
+      "upAtk": 3.0,
+      "def": 5.0,
+      "moveSpeed": 6.0,
+      "totalExp": 200.0,
+      "hpRate": 5.0,
+      "atkRate": 5.0,
+      "defRate": 5.0,
+      "moveSpeedRate": 5.0,
+      "iconLabel": "bishop.sprite",
+      "animationLabels": [
+        "Idle_Bishop",
+        "Move_Bishop"
+      ],
+      "learnableSkill": [
+        10001,
+        10011
+      ],
+      "defaultSkill": 10001
+    },
+    {
+      "dataId": 100002,
+      "descriptionTextID": "할로우나이트",
+      "prefabLabel": "Player",
+      "maxHp": 200.0,
+      "upMaxHp": 10.0,
+      "atk": 20.0,
+      "upAtk": 10.0,
+      "def": 20.0,
+      "moveSpeed": 15.0,
+      "totalExp": 200.0,
+      "hpRate": 5.0,
+      "atkRate": 5.0,
+      "defRate": 5.0,
+      "moveSpeedRate": 20.0,
+      "iconLabel": "hollowKnight.sprite",
+      "animationLabels": [
+        "Idle_HollowKnight",
+        "Move_HollowKnight"
+      ],
+      "learnableSkill": [
+        10021
+      ],
+      "defaultSkill": 10021
+    },
+    {
+      "dataId": 200001,
+      "descriptionTextID": "고블린",
+      "prefabLabel": "Monster",
+      "maxHp": 39.0,
+      "upMaxHp": 5.0,
+      "atk": 2.0,
+      "upAtk": 2.0,
+      "def": 0.0,
+      "moveSpeed": 1.5,
+      "totalExp": 200.0,
+      "hpRate": 1.0,
+      "atkRate": 1.0,
+      "defRate": 1.0,
+      "moveSpeedRate": 1.0,
+      "iconLabel": "goblin.sprite",
+      "animationLabels": [
+        "Idle_Goblin",
+        "Move_Goblin"
+      ],
+      "learnableSkill": [],
+      "defaultSkill": 0
+    }
+  ]
+}

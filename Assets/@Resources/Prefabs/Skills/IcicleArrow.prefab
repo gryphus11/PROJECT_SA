@@ -10365,7 +10365,7 @@ GameObject:
   - component: {fileID: 7376487658665652581}
   - component: {fileID: 7993449689437273971}
   m_Layer: 0
-  m_Name: Ice Projectile
+  m_Name: IcicleArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

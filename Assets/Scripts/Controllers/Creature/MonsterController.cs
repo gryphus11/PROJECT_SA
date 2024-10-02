@@ -54,7 +54,7 @@ public class MonsterController : CreatureController
         GetComponent<SpriteRenderer>().flipX = _moveDir.x < 0.0f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (!player.IsValid())
@@ -69,7 +69,7 @@ public class MonsterController : CreatureController
         TaskStartDotDamage(player).Forget();
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (!player.IsValid())
@@ -79,6 +79,16 @@ public class MonsterController : CreatureController
             return;
 
         UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+       
     }
 
     protected override void OnDead()

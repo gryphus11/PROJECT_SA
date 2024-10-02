@@ -1,0 +1,226 @@
+{
+  "waves": [
+    {
+      "StageIndex": 1,
+      "WaveIndex": 1,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 3,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 0.5,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.73,
+      "GreenGemDropRate": 0.27,
+      "BlueGemDropRate": 0.0,
+      "YellowGemDropRate": 0.0,
+      "EliteDropItemId": []
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 2,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 13,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [
+        200002
+      ],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 1.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.73,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.0,
+      "EliteDropItemId": [
+        60002,
+        60006
+      ]
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 3,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 23,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 1.5,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.73,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.0,
+      "EliteDropItemId": []
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 4,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 33,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [
+        200002
+      ],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 2.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.73,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.0,
+      "EliteDropItemId": [
+        60002,
+        60006
+      ]
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 5,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 43,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 3.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.0,
+      "BlueGemDropRate": 0.73,
+      "YellowGemDropRate": 0.27,
+      "EliteDropItemId": []
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 6,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 53,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [
+        200002
+      ],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 4.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.0,
+      "BlueGemDropRate": 0.73,
+      "YellowGemDropRate": 0.27,
+      "EliteDropItemId": [
+        60002,
+        60006
+      ]
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 7,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 63,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 5.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.0,
+      "BlueGemDropRate": 0.73,
+      "YellowGemDropRate": 0.27,
+      "EliteDropItemId": []
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 8,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 73,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [
+        200002
+      ],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 6.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.67,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.07,
+      "EliteDropItemId": [
+        60002,
+        60006
+      ]
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 9,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 83,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 7.0,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.67,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.07,
+      "EliteDropItemId": []
+    },
+    {
+      "StageIndex": 1,
+      "WaveIndex": 10,
+      "SpawnInterval": 3.0,
+      "OnceSpawnCount": 93,
+      "MonsterId": [
+        200001
+      ],
+      "EleteId": [
+        200002
+      ],
+      "BossId": null,
+      "RemainsTime": 60.0,
+      "FirstMonsterSpawnRate": 1.0,
+      "HpIncreaseRate": 7.5,
+      "nonDropRate": 0.25,
+      "SmallGemDropRate": 0.0,
+      "GreenGemDropRate": 0.67,
+      "BlueGemDropRate": 0.27,
+      "YellowGemDropRate": 0.07,
+      "EliteDropItemId": []
+    }
+  ]
+}

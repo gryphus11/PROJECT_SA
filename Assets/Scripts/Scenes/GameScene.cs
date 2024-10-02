@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class GameScene : BaseScene
 {
@@ -38,9 +39,14 @@ public class GameScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_Joystick>();
         Managers.Resource.Instantiate("Map01");
-        var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, 100001);
-        var monster = Managers.Object.Spawn<MonsterController>(player.transform.position + (Vector3.up * 10.0f), 200001);
+        var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, 100002);
 
+        for (int i = 0; i < 5; ++i)
+        {
+            var randomPos = player.transform.position + (Vector3)Random.insideUnitCircle * 5.0f;
+            Managers.Object.Spawn<MonsterController>(randomPos, 200001);
+        }
+        
         var cameraController = FindObjectOfType<CameraController>();
         cameraController.Target = player.transform;
     }

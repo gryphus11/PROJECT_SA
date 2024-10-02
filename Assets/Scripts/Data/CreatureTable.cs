@@ -26,14 +26,14 @@ namespace Data
         public float atkRate;
         public float defRate;
         public float moveSpeedRate ;
-        public string animationLabels;
         public string iconLabel;
-        public int skill;
+        public List<string> animationLabels;
+        public List<int> learnableSkill;
+        public int defaultSkill;
     }
 
     [Serializable]
-    [CreateAssetMenu(fileName = "CreatureTable", menuName = "Make Table/CreatureTable")]
-    public class CreatureDataLoader : ScriptableObject, ILoader<int, CreatureData>
+    public class CreatureDataLoader : ILoader<int, CreatureData>
     {
         public List<CreatureData> creatures = new List<CreatureData>();
         public Dictionary<int, CreatureData> MakeDict()

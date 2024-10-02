@@ -1,52 +1,53 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using System;
 using UnityEngine;
-using static Define;
 
 namespace Data
 {
-    #region SkillData - Xml
+    [Serializable]
     public class SkillData
     {
-        [XmlAttribute]
-        public int templateID;
-
-        [XmlAttribute]
-        public string name;
-
-        //[XmlAttribute(AttributeName = "type")]
-        //public SkillType skillType;
-
-        //[XmlAttribute]
-        //public int PrevID;
-        //[XmlAttribute]
-        //public int NextID;
-
-        [XmlAttribute]
-        public string prefab;
-
-        [XmlAttribute]
-        public int damage;
-
-        [XmlAttribute]
-        public int speed;
+        public int DataId;
+        public string Name;
+        public string Description;
+        public string PrefabLabel; //프리팹 경로
+        public string IconLabel;//아이콘 경로
+        public string SoundLabel;// 발동사운드 경로
+        public string Category;//스킬 카테고리
+        public float CoolTime; // 쿨타임
+        public float DamageMultiplier; //스킬데미지 (곱하기)
+        public float ProjectileSpacing;// 발사체 사이 간격
+        public float Duration; //스킬 지속시간
+        public float RecognitionRange;//인식범위
+        public int NumProjectiles;// 회당 공격횟수
+        public string CastingSound; // 시전사운드
+        public float AngleBetweenProj;// 발사체 사이 각도
+        public float AttackInterval; //공격간격
+        public int NumBounce;//바운스 횟수
+        public float BounceSpeed;// 바운스 속도
+        public float BounceDist;//바운스 거리
+        public int NumPenerations; //관통 횟수
+        public string HitSoundLabel; // 히트사운드
+        public float ProjRange; //투사체 사거리
+        public float MinCoverage; //최소 효과 적용 범위
+        public float MaxCoverage; // 최대 효과 적용 범위
+        public float RoatateSpeed; // 회전 속도
+        public float ProjSpeed; //발사체 속도
+        public float ScaleMultiplier;
     }
 
-    [Serializable, XmlRoot("SkillDatas")]
+
+    [Serializable]
     public class SkillDataLoader : ILoader<int, SkillData>
     {
-        [XmlElement("SkillData")]
         public List<SkillData> skills = new List<SkillData>();
 
         public Dictionary<int, SkillData> MakeDict()
         {
-            Dictionary<int, SkillData> playerDataDict = new Dictionary<int, SkillData>();
+            Dictionary<int, SkillData> dict = new Dictionary<int, SkillData>();
             foreach (SkillData skill in skills)
-                playerDataDict.Add(skill.templateID, skill);
-            return playerDataDict;
+                dict.Add(skill.DataId, skill);
+            return dict;
         }
     }
-    #endregion
 }

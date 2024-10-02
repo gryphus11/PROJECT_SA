@@ -28,14 +28,6 @@ public class ExplosionForce2DTest : MonoBehaviour
 
                 mc.OnDamaged(null, 0);
                 return;
-                // Rigidbody2D가 있는 경우에만 폭발력 적용
-                Rigidbody2D rb = collider.attachedRigidbody;
-
-                if (rb != null)
-                {
-                    // Rigidbody2D에 폭발력 추가
-                    rb.AddExplosionForce(explosionForce, _explosionPosition, explosionRadius);
-                }
             }
         }
     }

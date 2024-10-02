@@ -1,3 +1,4 @@
+using DG.DemiEditor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -158,6 +159,23 @@ public static class CsvToScriptableObjectUpdater
             return bool.Parse(stringValue);
         else if (fieldType.IsEnum)
             return Enum.Parse(fieldType, stringValue);
+        else if (fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(List<>))
+        {
+            // 리스트 타입인 경우, 문자열을 '|' 구분자로 나누어 리스트로 변환
+            Type elementType = fieldType.GetGenericArguments()[0];
+            IList list = (IList)Activator.CreateInstance(fieldType);
+
+            string[] elements = stringValue.Split('|');
+            foreach (string element in elements)
+            {
+                if (element.IsNullOrEmpty())
+                    continue;
+
+                object listElementValue = ConvertValue(element, elementType);
+                list.Add(listElementValue);
+            }
+            return list;
+        }
         else
             throw new NotSupportedException($"Field type {fieldType.Name} is not supported.");
     }

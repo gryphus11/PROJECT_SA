@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6925858516864812474}
   - component: {fileID: 4513834482951862696}
   - component: {fileID: 2193845071823464873}
-  - component: {fileID: 540858872705608310}
-  m_Layer: 0
+  - component: {fileID: 5981059418337423594}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     skill: 0
   Indicator: {fileID: 5305714990171329854}
   IndicatorSprite: {fileID: 3530179646448567230}
---- !u!61 &540858872705608310
-BoxCollider2D:
+--- !u!58 &5981059418337423594
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -203,19 +203,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.125}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 4, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0.35}
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.4
 --- !u!1 &2770588580004655612
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +217,7 @@ GameObject:
   - component: {fileID: 1378645934428874168}
   - component: {fileID: 8519624140800931758}
   - component: {fileID: 8650549037756956824}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6059390983879697432}
   - component: {fileID: 772525537089968496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DirectionArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +376,7 @@ GameObject:
   - component: {fileID: 1206757412032211849}
   - component: {fileID: 7518521146528452693}
   - component: {fileID: 3844222831420222157}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9056596875401143152}
   - component: {fileID: 435742770446725158}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8979780628423688732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IndicatorPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +573,7 @@ GameObject:
   - component: {fileID: 519505563477161709}
   - component: {fileID: 2395144068797121345}
   - component: {fileID: 336249113738253551}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +650,7 @@ GameObject:
   - component: {fileID: 2162732527002943406}
   - component: {fileID: 4509741693471502952}
   - component: {fileID: 5745637129223755985}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: UI_HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7729091491097481641}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8842144639584649194}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

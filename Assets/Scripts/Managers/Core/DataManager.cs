@@ -17,10 +17,18 @@ public interface ILoader<Key, Value>
 public class DataManager
 {
     public Dictionary<int, Data.CreatureData> CreatureDic { get; private set; } = new Dictionary<int, Data.CreatureData>();
+    public Dictionary<int, Data.DropItemData> DropDic { get; private set; } = new Dictionary<int, Data.DropItemData>();
+    public Dictionary<int, Data.WaveData> WaveDic { get; private set; } = new Dictionary<int, Data.WaveData>();
+    public Dictionary<int, Data.LevelUpExpData> LevelUpExpDic { get; private set; } = new Dictionary<int, Data.LevelUpExpData>();
+    public Dictionary<int, Data.SkillData> SkillDic { get; private set; } = new Dictionary<int, Data.SkillData>();
 
     public void Init()
     {
-        CreatureDic = LoadScriptable<Data.CreatureDataLoader, int, Data.CreatureData>("CreatureTable").MakeDict();
+        CreatureDic     = LoadJson<Data.CreatureDataLoader, int, Data.CreatureData>("CreatureTable").MakeDict();
+        DropDic         = LoadJson<Data.DropItemDataLoader, int, Data.DropItemData>("DropItemTable").MakeDict();
+        WaveDic         = LoadJson<Data.WaveDataLoader, int, Data.WaveData>("WaveTable").MakeDict();
+        LevelUpExpDic   = LoadJson<Data.LevelUpExpDataLoader, int, Data.LevelUpExpData>("LevelUpExpTable").MakeDict();
+        SkillDic        = LoadJson<Data.SkillDataLoader, int, Data.SkillData>("SkillTable").MakeDict();
     }
 
     #region Json

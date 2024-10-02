@@ -17,8 +17,32 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 081626e3a1dae9c4b830a2c22cc86dfd
   m_SerializeEntries:
-  - m_GUID: 6d14fe6a3381b3c489e9bcaa5c03a1d2
+  - m_GUID: 875efd77951304645bc97b8f81b9829f
     m_Address: CreatureTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 321302059a61a4e4a81399b5d081c8a7
+    m_Address: DropItemTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da29ae35cfd4d454c81ea0f0bb0d4903
+    m_Address: LevelUpExpTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2df826ca2491f4fa9979243f831b38
+    m_Address: SkillTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0538bab45ff28f848bdccf8f04a89bf9
+    m_Address: WaveTable
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

@@ -163,7 +163,7 @@ public abstract class CreatureController : BaseController
     [ContextMenu("애니 재설정")]
     private void SetAnimation()
     {
-        var clips = creatureData.animationLabels.Split("|");
+        var clips = creatureData.animationLabels;
 
         foreach (var clip in clips)
         {

@@ -48,6 +48,13 @@ public static class Define
         OnDamaged,
         Dead
     }
+    public enum DropItemType
+    {
+        Potion,
+        Magnet,
+        DropBox,
+        Bomb
+    }
 
     #region sortingOrder
     public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
