@@ -53,8 +53,11 @@ public static class Define
     public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
     public static readonly int SOUL_SORT = 105;
 
-    //소울이 이동중일때 오더 변경
     public static readonly int UI_GAMESCENE_SORT_OPEN = 323;
     public static readonly int SOUL_SORT_GETITEM = 322;
     #endregion
+
+    public static float KNOCKBACK_TIME = 0.1f;// 밀려나는시간
+    public static float KNOCKBACK_SPEED = 10;  // 속도 
+    public static float KNOCKBACK_COOLTIME = 0.5f;
 }
