@@ -60,6 +60,30 @@ public abstract class CreatureController : BaseController
             UpdateAnimation();
         }
     }
+
+    public virtual void UpdateAnimation()
+    {
+        switch (CreatureState)
+        {
+            case Define.CreatureState.Idle:
+                UpdateIdle();
+                break;
+            case Define.CreatureState.Skill:
+                UpdateSkill();
+                break;
+            case Define.CreatureState.Moving:
+                UpdateMoving();
+                break;
+            case Define.CreatureState.Dead:
+                UpdateDead();
+                break;
+        }
+    }
+
+    protected virtual void UpdateIdle() { }
+    protected virtual void UpdateSkill() { }
+    protected virtual void UpdateMoving() { }
+    protected virtual void UpdateDead() { }
     #endregion
 
     void Awake()
@@ -94,29 +118,7 @@ public abstract class CreatureController : BaseController
         return true;
     }
 
-    public virtual void UpdateAnimation() 
-    {
-        switch (CreatureState)
-        {
-            case Define.CreatureState.Idle:
-                UpdateIdle();
-                break;
-            case Define.CreatureState.Skill:
-                UpdateSkill();
-                break;
-            case Define.CreatureState.Moving:
-                UpdateMoving();
-                break;
-            case Define.CreatureState.Dead:
-                UpdateDead();
-                break;
-        }
-    }
-
-    protected virtual void UpdateIdle() { }
-    protected virtual void UpdateSkill() { }
-    protected virtual void UpdateMoving() { }
-    protected virtual void UpdateDead() { }
+    
     
     public void OverrideAnimation(string stateName, AnimationClip newClip)
     {
@@ -182,7 +184,7 @@ public abstract class CreatureController : BaseController
         }
     }
 
-    public virtual void OnDamaged(BaseController attacker, float damage)
+    public virtual void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
     {
         if (Hp <= 0)
             return;

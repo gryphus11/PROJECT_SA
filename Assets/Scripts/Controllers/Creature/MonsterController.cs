@@ -120,9 +120,9 @@ public class MonsterController : CreatureController
         UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
     }
 
-    public override void OnDamaged(BaseController attacker, float damage)
+    public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
     {
-        base.OnDamaged(attacker, damage);
+        base.OnDamaged(attacker, skill, damage);
 
         KnockBackTask().Forget();
     }
@@ -180,7 +180,7 @@ public class MonsterController : CreatureController
 
         while (true)
         {
-            target.OnDamaged(this, Atk);
+            target.OnDamaged(this, damage: Atk);
             await UniTask.Delay(1000, cancellationToken: token);
         }
     }

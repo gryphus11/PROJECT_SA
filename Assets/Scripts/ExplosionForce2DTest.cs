@@ -26,7 +26,7 @@ public class ExplosionForce2DTest : MonoBehaviour
                     continue;
 
 
-                mc.OnDamaged(null, 0);
+                mc.OnDamaged(null, damage: 0);
                 return;
             }
         }

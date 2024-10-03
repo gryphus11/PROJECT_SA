@@ -12,7 +12,9 @@ public static class UniTaskUtils
         if (cts == null)
             return;
 
-        cts.Cancel();
+        if(!cts.IsCancellationRequested)
+            cts.Cancel();
+
         cts.Dispose();
         cts = null;
     }

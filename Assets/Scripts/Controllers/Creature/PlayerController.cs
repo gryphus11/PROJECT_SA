@@ -26,6 +26,8 @@ public class PlayerController : CreatureController
     public Vector3 PlayerCenterPos { get { return Indicator.transform.position; } }
     public Vector3 PlayerDirection { get { return (IndicatorSprite.transform.position - PlayerCenterPos).normalized; } }
 
+    public SkillBook Skills = new SkillBook();
+
     public override bool Init()
     {
         base.Init();

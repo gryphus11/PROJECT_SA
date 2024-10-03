@@ -56,6 +56,17 @@ public static class Define
         Bomb
     }
 
+    /// <summary>
+    /// 스킬의 인덱스를 정의
+    /// </summary>
+    public enum SkillType
+    {
+        None = 0,
+        IcicleArrow = 10001,       //100001 ~ 100005 
+        ThunderStorm = 10011,
+        Slash = 10021,
+    }
+
     #region sortingOrder
     public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
     public static readonly int SOUL_SORT = 105;
@@ -67,4 +78,7 @@ public static class Define
     public static float KNOCKBACK_TIME = 0.1f;// 밀려나는시간
     public static float KNOCKBACK_SPEED = 10;  // 속도 
     public static float KNOCKBACK_COOLTIME = 0.5f;
+
+    public static int MAX_SKILL_LEVEL = 6;
+    public static int MAX_SKILL_COUNT = 6;
 }
