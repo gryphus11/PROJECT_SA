@@ -20,6 +20,7 @@ public abstract class CreatureController : BaseController
     public Animator _animator{ get; set; }
     private AnimatorOverrideController _overrideController;
 
+
     public virtual int DataId { get; set; }
     public virtual float Hp { get; set; }
     public virtual float MaxHp { get; set; }
@@ -38,6 +39,8 @@ public abstract class CreatureController : BaseController
 
     public CreatureData creatureData;
 
+    public SkillBook Skills;
+
     private Collider2D _offset;
     public Vector3 CenterPosition
     {
@@ -46,6 +49,8 @@ public abstract class CreatureController : BaseController
             return _offset.bounds.center;
         }
     }
+
+    public bool IsMonster { get; protected set; } = false;
 
 
     #region State Pattern
@@ -94,7 +99,8 @@ public abstract class CreatureController : BaseController
     public override bool Init()
     {
         base.Init();
-
+        
+        Skills = gameObject.GetOrAddComponent<SkillBook>();
         _animator = GetComponent<Animator>();
         if (_animator != null && _animator.runtimeAnimatorController != null)
         {
@@ -200,5 +206,15 @@ public abstract class CreatureController : BaseController
     protected virtual void OnDead()
     {
 
+    }
+
+    protected virtual void InitSkill()
+    {
+        foreach (int skillId in creatureData.learnableSkill)
+        {
+            SkillType type = SkillData.GetSkillTypeFromInt(skillId);
+            if (type != SkillType.None)
+                Skills.AddSkill(type);
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,17 +27,19 @@ public class PlayerController : CreatureController
     public Vector3 PlayerCenterPos { get { return Indicator.transform.position; } }
     public Vector3 PlayerDirection { get { return (IndicatorSprite.transform.position - PlayerCenterPos).normalized; } }
 
-    public SkillBook Skills = new SkillBook();
-
     public override bool Init()
     {
         base.Init();
 
         CreatureState = CreatureState.Idle;
-
         // 방향 콜백 등록
         Managers.Game.OnMoveDirChanged += OnMoveDirChanged;
         return true;
+    }
+
+    private void Start()
+    {
+        InitSkill();
     }
 
     private void OnDestroy()
@@ -117,5 +120,20 @@ public class PlayerController : CreatureController
         
         Atk = creatureData.atk + (creatureData.atk * creatureData.atkRate * 0.01f);
         MoveSpeed = creatureData.moveSpeed + (creatureData.moveSpeed * creatureData.moveSpeedRate * 0.01f);
+    }
+
+    protected override void InitSkill()
+    {
+        base.InitSkill();
+        var skillType = SkillData.GetSkillTypeFromInt(creatureData.defaultSkill);
+        if (Skills.HasSkill(skillType))
+        {
+            Skills.LevelUpSkill(skillType);
+        }
+        else
+        {
+            Skills.AddSkill(skillType);
+            Skills.LevelUpSkill(SkillData.GetSkillTypeFromInt(creatureData.defaultSkill));
+        }
     }
 }

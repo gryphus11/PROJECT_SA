@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using UnityEngine;
 using static Define;
 
@@ -65,4 +66,22 @@ public class SkillBase : BaseController
         ProjectileController pc = Managers.Object.Spawn<ProjectileController>(startPos, prefabName: prefabName);
         pc.SetInfo(Owner, startPos, dir, targetPos, skill);
     }
+
+    protected CancellationTokenSource _cancelTokenSource = new CancellationTokenSource();
+    
+    public virtual void StopSkill()
+    {
+        CancelTask();
+    }
+
+    protected virtual void OnDisable()
+    {
+        CancelTask();
+    }
+
+    protected void CancelTask()
+    {
+        UniTaskUtils.CancelTokenSource(ref _cancelTokenSource);
+        _cancelTokenSource = new CancellationTokenSource();
+    }    
 }

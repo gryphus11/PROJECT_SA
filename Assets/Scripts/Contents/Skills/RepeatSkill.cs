@@ -13,8 +13,7 @@ public abstract class RepeatSkill : SkillBase
     }
 
     #region 스킬 동작
-    UniTaskCompletionSource _startSkill;
-    CancellationTokenSource _disableCts = new CancellationTokenSource();
+    protected UniTaskCompletionSource _startSkill;
 
     public override void ActivateSkill()
     {
@@ -35,7 +34,7 @@ public abstract class RepeatSkill : SkillBase
     protected virtual async UniTask StartSkill()
     {
         _startSkill = new UniTaskCompletionSource();
-        CancellationTokenSource cts = CancellationTokenSource.CreateLinkedTokenSource(_disableCts.Token, destroyCancellationToken);
+        CancellationTokenSource cts = CancellationTokenSource.CreateLinkedTokenSource(_cancelTokenSource.Token, destroyCancellationToken);
 
         // 데이터의 쿨타입에 따라 반복 호출됩니다.
         int coolTimeMilliSec = (int)(SkillData.CoolTime * 1000.0f);
@@ -44,16 +43,11 @@ public abstract class RepeatSkill : SkillBase
         {
             await UniTask.Delay(coolTimeMilliSec, cancellationToken: cts.Token);
 
-            if (SkillData.CoolTime != 0)
+            if (SkillData.CoolTime != 0 && string.IsNullOrEmpty(SkillData.CastingSound) == false)
                 Managers.Sound.Play(Define.Sound.Effect, SkillData.CastingSound);
+
             DoSkillJob();
         }
     }
     #endregion
-
-    private void OnDisable()
-    {
-        UniTaskUtils.CancelTokenSource(ref _disableCts);
-        _disableCts = new CancellationTokenSource();
-    }
 }

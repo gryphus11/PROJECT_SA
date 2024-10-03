@@ -21,20 +21,20 @@ public class SkillBook : MonoBehaviour
     /// </summary>
     public List<SkillBase> SkillList { get { return _skillList; } }
 
+    /// <summary>
+    /// 레벨 1 이상의 스킬들만 반환
+    /// </summary>
     public List<SkillBase> ActivatedSkills
     {
         get { return SkillList.Where(skill => skill.IsLearnedSkill).ToList(); }
     }
 
-    [SerializeField]
-    public Dictionary<Define.SkillType, int> SavedBattleSkill = new Dictionary<SkillType, int>();
-
-    public event Action UpdateSkillUi;
-    public ObjectType _ownerType;
+    public event Action onSkillChanged;
+    public ObjectType OwnerType { get; protected set; }
 
     public void Awake()
     {
-        _ownerType = GetComponent<CreatureController>().ObjectType;
+        OwnerType = GetComponent<CreatureController>().ObjectType;
 
     }
 
@@ -47,7 +47,7 @@ public class SkillBook : MonoBehaviour
 
     }
 
-    public void AddSkill(Define.SkillType skillType, int skillId = 0)
+    public void AddSkill(Define.SkillType skillType)
     {
         string className = skillType.ToString();
 
@@ -60,42 +60,37 @@ public class SkillBook : MonoBehaviour
             if (go != null)
             {
                 SkillBase skill = go.GetOrAddComponent<SkillBase>();
-                AddList(skill, skillType);
+                AddList(skill);
             }
         }
         else
         {
             // 투사체형은
             RepeatSkill skillBase = gameObject.GetComponent(Type.GetType(className)) as RepeatSkill;
-            AddList(skillBase, skillType);
+            AddList(skillBase);
         }
     }
 
-    private void AddList(SkillBase skill, SkillType skillType)
+    private void AddList(SkillBase skill)
     {
         SkillList.Add(skill);
-        if (SavedBattleSkill.ContainsKey(skillType))
-            SavedBattleSkill[skillType] = skill.Level;
-        else
-            SavedBattleSkill.Add(skillType, skill.Level);
     }
 
-
-    public void AddActiavtedSkills(SkillBase skill)
+    public bool HasSkill(SkillType skillType)
     {
-        ActivatedSkills.Add(skill);
+        return _skillList.Find(skill => skill.SkillType == skillType) != null;
     }
-
 
     bool _stopped = false;
 
+    [ContextMenu("스킬 중단")]
     public void StopSkills()
     {
         _stopped = true;
 
         foreach (var skill in ActivatedSkills)
         {
-            skill.StopAllCoroutines();
+            skill.StopSkill();
         }
     }
 
@@ -103,37 +98,31 @@ public class SkillBook : MonoBehaviour
     {
         for (int i = 0; i < SkillList.Count; i++)
         {
+            // 스킬 타입이 같은 스킬을 찾아 레벨업
             if (SkillList[i].SkillType == skillType)
             {
                 SkillList[i].OnLevelUp();
-                if (SavedBattleSkill.ContainsKey(skillType))
-                {
-                    SavedBattleSkill[skillType] = SkillList[i].Level;
-                }
-                UpdateSkillUi?.Invoke();
+                OnSkillBookChanged();
             }
         }
     }
 
     public void OnSkillBookChanged()
     {
-        UpdateSkillUi?.Invoke();
-    }
-
-    public void Clear()
-    {
-        SavedBattleSkill.Clear();
+        onSkillChanged?.Invoke();
     }
 
     #region 스킬 가챠
-    public SkillBase RecommandDropSkill()
+    public SkillBase RecommendDropSkill()
     {
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
-        List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
 
+        // 배운 스킬중 레벨이 5 미만인 스킬을 추천
+        List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
         List<SkillBase> recommendSkills = activeSkills.FindAll(s => s.Level < 5);
+
+        // 섞기
         recommendSkills.Shuffle();
-        //Util.Shuffle(recommandSkills);
         return recommendSkills[0];
     }
 
@@ -142,10 +131,11 @@ public class SkillBook : MonoBehaviour
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
         List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
 
-        //1. 이미 6개의 스킬을 배웠으면 배운 스킬중 5렙 미만인 스킬을 추천
+        // 이미 최대 갯수의 스킬을 배웠으면 배운 스킬중 5렙 미만인 스킬을 추천
         if (activeSkills.Count == MAX_SKILL_COUNT)
         {
             List<SkillBase> recommendSkills = activeSkills.FindAll(s => s.Level < MAX_SKILL_LEVEL);
+            
             recommendSkills.Shuffle();
             return recommendSkills.Take(3).ToList();
         }

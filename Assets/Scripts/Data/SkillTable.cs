@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using static Define;
 
 namespace Data
 {
@@ -34,6 +35,23 @@ namespace Data
         public float RoatateSpeed; // 회전 속도
         public float ProjSpeed; //발사체 속도
         public float ScaleMultiplier;
+
+        public static SkillType GetSkillTypeFromInt(int value)
+        {
+            foreach (SkillType skillType in Enum.GetValues(typeof(SkillType)))
+            {
+                int minValue = (int)skillType;
+                int maxValue = minValue + 5; // 100501~ 100506 사이 값이면 100501값 리턴
+
+                if (value >= minValue && value <= maxValue)
+                {
+                    return skillType;
+                }
+            }
+
+            Debug.LogError($" Get skill Type Failed : {value}");
+            return SkillType.None;
+        }
     }
 
 

@@ -10,17 +10,19 @@ using static Define;
 
 public class MonsterController : CreatureController
 {
-    private CancellationTokenSource _dotDamageCancelToken;
+    private CancellationTokenSource _dotDamageCancelToken = new CancellationTokenSource();
 
     private bool _isDotDamageRunning = false;
 
     Vector3 _moveDir = Vector3.zero;
 
+    public event Action<MonsterController> onMonsterInfoUpdate;
     public override bool Init()
     {
         if (!base.Init())
             return false;
 
+        IsMonster = true;
         _animator = GetComponent<Animator>();
         ObjectType = ObjectType.Monster;
         CreatureState = CreatureState.Moving;
@@ -33,6 +35,7 @@ public class MonsterController : CreatureController
         base.InitCreatureStat();
 
         MaxHp = creatureData.maxHp;
+        Hp = MaxHp;
         Atk = creatureData.atk;
         MoveSpeed = creatureData.moveSpeed;
     }
@@ -78,7 +81,7 @@ public class MonsterController : CreatureController
         if (!this.IsValid())
             return;
 
-        UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
+        _dotDamageCancelToken.Cancel();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -90,14 +93,28 @@ public class MonsterController : CreatureController
     {
        
     }
+    
+    public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
+    {
+        if (skill != null)
+        {
+            // 사운드 예정
+        }
+
+        float totalDmg = Managers.Game.Player.Atk * skill.SkillData.DamageMultiplier;
+        base.OnDamaged(attacker, skill, totalDmg);
+        InvokeMonsterData();
+
+        KnockBackTask().Forget();
+    }
 
     protected override void OnDead()
     {
         base.OnDead();
+        InvokeMonsterData();
 
-        UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
 
-        var gemController = Managers.Object.Spawn<GemController>(transform.position, 0);
+        //var gemController = Managers.Object.Spawn<GemController>(transform.position, 0);
 
         Managers.Object.Despawn(this);
 
@@ -106,29 +123,23 @@ public class MonsterController : CreatureController
 
     private void OnEnable()
     {
+        UniTaskUtils.CancelTokenSource(ref _disableCancelToken);
         _disableCancelToken = new CancellationTokenSource();
     }
 
     private void OnDisable()
     {
-        UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
-        UniTaskUtils.CancelTokenSource(ref _disableCancelToken);
+        _disableCancelToken.Cancel();
     }
 
     private void OnDestroy()
     {
-        UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
+        _dotDamageCancelToken.Cancel();
     }
 
-    public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
-    {
-        base.OnDamaged(attacker, skill, damage);
-
-        KnockBackTask().Forget();
-    }
 
     private UniTaskCompletionSource _knockbackCompleteSource = null;
-    private CancellationTokenSource _disableCancelToken;
+    private CancellationTokenSource _disableCancelToken = null;
 
     private async UniTask KnockBackTask()
     {
@@ -144,8 +155,16 @@ public class MonsterController : CreatureController
         _knockbackCompleteSource = new UniTaskCompletionSource();
 
         float elapsed = 0;
-
-        var token = CancellationTokenSource.CreateLinkedTokenSource(_disableCancelToken.Token, destroyCancellationToken).Token;
+        CancellationToken token;
+        
+        try
+        {
+            token = CancellationTokenSource.CreateLinkedTokenSource(_disableCancelToken.Token, destroyCancellationToken).Token;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
         Debug.Log("KnockBackTask Start");
 
         while (true)
@@ -185,5 +204,11 @@ public class MonsterController : CreatureController
         }
     }
 
-
+    public void InvokeMonsterData()
+    {
+        if (this.IsValid() && gameObject.IsValid() && ObjectType != ObjectType.Monster)
+        {
+            onMonsterInfoUpdate?.Invoke(this);
+        }
+    }
 }
