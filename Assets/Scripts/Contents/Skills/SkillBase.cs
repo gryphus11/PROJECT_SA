@@ -71,17 +71,17 @@ public class SkillBase : BaseController
     
     public virtual void StopSkill()
     {
-        CancelTask();
+        _cancelTokenSource.Cancel();
+    }
+
+    private void OnEnable()
+    {
+        UniTaskUtils.CancelTokenSource(ref _cancelTokenSource);
+        _cancelTokenSource = new CancellationTokenSource();
     }
 
     protected virtual void OnDisable()
     {
-        CancelTask();
+        _cancelTokenSource.Cancel();
     }
-
-    protected void CancelTask()
-    {
-        UniTaskUtils.CancelTokenSource(ref _cancelTokenSource);
-        _cancelTokenSource = new CancellationTokenSource();
-    }    
 }

@@ -69,10 +69,10 @@ public static class Define
 
     #region sortingOrder
     public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
-    public static readonly int SOUL_SORT = 105;
+    public static readonly int DROP_SORT = 105;
 
     public static readonly int UI_GAMESCENE_SORT_OPEN = 323;
-    public static readonly int SOUL_SORT_GETITEM = 322;
+    public static readonly int DROP_GETITEM_SORT = 322;
     #endregion
 
     public static float KNOCKBACK_TIME = 0.1f;// 밀려나는시간

@@ -65,7 +65,8 @@ public class UI_TitleScene : UI_Scene
 
     private void OnMoveGameScene()
     {
-        Managers.Scene.ChangeScene(Define.SceneType.Game);
+        // 일단 씬 이동 막아둠. Game 씬에서 리소스를 읽은 뒤에 초기화하도록 임시코드
+        //Managers.Scene.ChangeScene(Define.SceneType.Game);
     }
 
     private void OnResourceLoaded(string resourceName, int current, int total)

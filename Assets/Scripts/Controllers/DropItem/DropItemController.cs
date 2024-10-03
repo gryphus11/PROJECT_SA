@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,39 +9,41 @@ public class DropItemController : BaseController
     public float CollectDist { get; set; } = 4.0f;
     public Coroutine _coroutine;
     public Define.ObjectType itemType;
+
+    UniTaskCompletionSource _uniTaskCompletionSource = null;
     public override bool Init()
     {
-
         base.Init();
         return true;
     }
 
-    virtual public void OnDisable()
+    public virtual void OnDisable()
     {
-        if (_coroutine != null)
+        if (_uniTaskCompletionSource != null)
         {
-            StopCoroutine(_coroutine);
-            _coroutine = null;
+            _uniTaskCompletionSource.TrySetCanceled();
+            _uniTaskCompletionSource = null;
         }
     }
 
     public void OnEnable()
     {
-        GetComponent<SpriteRenderer>().sortingOrder = Define.SOUL_SORT;
+        GetComponent<SpriteRenderer>().sortingOrder = Define.DROP_SORT;
     }
 
     public virtual void GetItem()
     {
-        GetComponent<SpriteRenderer>().sortingOrder = Define.SOUL_SORT_GETITEM;
-        //Managers.Game.CurrentMap.Grid.Remove(this);
+        GetComponent<SpriteRenderer>().sortingOrder = Define.DROP_GETITEM_SORT;
     }
 
     public virtual void CompleteGetItem()
     {
     }
 
-    public IEnumerator CoCheckDistance()
+    public async UniTask CheckDistanceTask()
     {
+        _uniTaskCompletionSource = new UniTaskCompletionSource();
+
         while (this.IsValid() == true)
         {
             float dist = Vector3.Distance(gameObject.transform.position, Managers.Game.Player.PlayerCenterPos);
@@ -49,10 +52,10 @@ public class DropItemController : BaseController
             if (dist < 1f)
             {
                 CompleteGetItem();
-                yield break;
+                return;
             }
 
-            yield return new WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate();
         }
     }
 }

@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 using static Define;
@@ -78,7 +77,7 @@ public class SkillBook : MonoBehaviour
 
     public bool HasSkill(SkillType skillType)
     {
-        return _skillList.Find(skill => skill.SkillType == skillType) != null;
+        return _skillList.Find(skill => skill.name == skillType.ToString()) != null;
     }
 
     bool _stopped = false;
@@ -112,7 +111,7 @@ public class SkillBook : MonoBehaviour
         onSkillChanged?.Invoke();
     }
 
-    #region 스킬 가챠
+    #region 스킬 선택 관련
     public SkillBase RecommendDropSkill()
     {
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
