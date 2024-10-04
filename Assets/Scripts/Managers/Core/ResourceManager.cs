@@ -250,7 +250,7 @@ public class ResourceManager
         if (go == null)
             return;
 
-        Debug.Log($"####Destroy : {go.GetInstanceID()}");
+        //Debug.Log($"####Destroy : {go.GetInstanceID()}");
 
         // 풀에 넣기 성공했다면 리턴
         if (Managers.Pool.Push(go))

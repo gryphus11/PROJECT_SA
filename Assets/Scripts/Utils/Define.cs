@@ -77,7 +77,7 @@ public static class Define
 
     public static float KNOCKBACK_TIME = 0.1f;// 밀려나는시간
     public static float KNOCKBACK_SPEED = 10;  // 속도 
-    public static float KNOCKBACK_COOLTIME = 0.5f;
+    public static float KNOCKBACK_COOLTIME = 0.2f;
 
     public static int MAX_SKILL_LEVEL = 6;
     public static int MAX_SKILL_COUNT = 6;

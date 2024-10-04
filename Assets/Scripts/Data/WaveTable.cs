@@ -26,15 +26,26 @@ namespace Data
     }
 
     [Serializable]
-    public class WaveDataLoader : ILoader<int, WaveData>
+    public class WaveDataLoader : ILoader<int, List<WaveData>>
     {
         public List<WaveData> waves = new List<WaveData>();
 
-        public Dictionary<int, WaveData> MakeDict()
+        public Dictionary<int, List<WaveData>> MakeDict()
         {
-            Dictionary<int, WaveData> dict = new Dictionary<int, WaveData>();
+            Dictionary<int, List<WaveData>> dict = new Dictionary<int, List<WaveData>>();
+            
             foreach (WaveData wave in waves)
-                dict.Add(wave.WaveIndex, wave);
+            {
+                if (dict.ContainsKey(wave.StageIndex))
+                {
+                    dict[wave.StageIndex].Add(wave);
+                }
+                else
+                {
+                    dict.Add(wave.WaveIndex, new List<WaveData>());
+                }
+            }
+
             return dict;
         }
     }

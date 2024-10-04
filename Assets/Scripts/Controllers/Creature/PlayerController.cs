@@ -33,7 +33,7 @@ public class PlayerController : CreatureController
 
         CreatureState = CreatureState.Idle;
         // 방향 콜백 등록
-        Managers.Game.OnMoveDirChanged += OnMoveDirChanged;
+        Managers.Game.onMoveDirChanged += OnMoveDirChanged;
         return true;
     }
 
@@ -45,7 +45,7 @@ public class PlayerController : CreatureController
     private void OnDestroy()
     {
         // 방향 콜백 해제
-        Managers.Game.OnMoveDirChanged -= OnMoveDirChanged;
+        Managers.Game.onMoveDirChanged -= OnMoveDirChanged;
     }
 
     protected override void UpdateController()

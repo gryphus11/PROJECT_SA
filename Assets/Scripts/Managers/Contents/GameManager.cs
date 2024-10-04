@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Data;
 
 /// <summary>
 /// 게임의 전반적인 상황을 다룸
@@ -21,13 +22,25 @@ public class GameManager
         set
         {
             _moveDir = value;
-            OnMoveDirChanged?.Invoke(_moveDir);
-            Debug.Log(_moveDir);
+            onMoveDirChanged?.Invoke(_moveDir);
         }
     }
 
     public int KillCount { get; set; }
     #endregion
 
-    public event Action<Vector2> OnMoveDirChanged;
+    public event Action<Vector2> onMoveDirChanged;
+
+    public WaveData CurrentWaveData
+    {
+        get { return WaveArray[CurrentWaveIndex]; }
+    }
+
+    public List<WaveData> WaveArray { get; set; }
+
+    public int CurrentWaveIndex { get; set; } = 0;
+
+    public int SelectedPlayerID { get; set; } = 100002;
+
+    public float TimeRemaining { get; set; } = 60;
 }

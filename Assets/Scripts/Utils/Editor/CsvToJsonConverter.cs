@@ -17,15 +17,6 @@ public static class CsvToJsonConverter
     private const string JsonName = "Table.json";
 
 #if UNITY_EDITOR
-    [MenuItem("Tools/DeleteGameData ")]
-    public static void DeleteGameData()
-    {
-        PlayerPrefs.DeleteAll();
-        string path = Application.persistentDataPath + "/SaveData.json";
-        if (File.Exists(path))
-            File.Delete(path);
-    }
-
     [MenuItem("Tools/ParseExcel %#K")]
     public static void ParseExcel()
     {

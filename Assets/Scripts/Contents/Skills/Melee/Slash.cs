@@ -90,9 +90,11 @@ public class Slash : RepeatSkill
 
         if (creature == null)
             return;
-        
+
         if (creature.IsMonster)
+        {
             creature.OnDamaged(Managers.Game.Player, this);
+        }
     }
 
     public override void OnChangedSkillData()

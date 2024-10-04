@@ -57,7 +57,7 @@ public class MonsterController : CreatureController
         GetComponent<SpriteRenderer>().flipX = _moveDir.x < 0.0f;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (!player.IsValid())
@@ -72,7 +72,7 @@ public class MonsterController : CreatureController
         TaskStartDotDamage(player).Forget();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (!player.IsValid())
@@ -82,16 +82,6 @@ public class MonsterController : CreatureController
             return;
 
         _dotDamageCancelToken.Cancel();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-       
     }
     
     public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
@@ -165,7 +155,6 @@ public class MonsterController : CreatureController
         {
             Debug.Log(e);
         }
-        Debug.Log("KnockBackTask Start");
 
         while (true)
         {
@@ -178,7 +167,6 @@ public class MonsterController : CreatureController
 
             Vector2 nextVec = dir.normalized * KNOCKBACK_SPEED * Time.fixedDeltaTime;
             _rigidBody.MovePosition(_rigidBody.position + nextVec);
-            Debug.Log($"KnockBackTask MovePosition : {_rigidBody.position}");
             await UniTask.NextFrame(cancellationToken: token);
         }
 

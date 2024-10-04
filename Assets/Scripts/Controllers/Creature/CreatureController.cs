@@ -147,7 +147,7 @@ public abstract class CreatureController : BaseController
         _animator.Rebind();         // 런타임 중 변경 사항 반영
         _animator.Update(0);        // 즉시 변경 사항 적용
 
-        Debug.Log($"애니메이션 {stateName}이(가) {newClip.name}으로 교체되었습니다.");
+        //Debug.Log($"애니메이션 {stateName}이(가) {newClip.name}으로 교체되었습니다.");
 
         UpdateAnimation();
     }

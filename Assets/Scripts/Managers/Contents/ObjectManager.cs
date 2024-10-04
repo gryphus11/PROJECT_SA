@@ -33,7 +33,7 @@ public class ObjectManager
         else if (type == typeof(MonsterController))
         {
             var creatureData = Managers.Data.CreatureDic[templateID];
-            GameObject go = Managers.Resource.Instantiate(creatureData.prefabLabel);
+            GameObject go = Managers.Resource.Instantiate(creatureData.prefabLabel, pooling: true);
             go.transform.position = position;
             go.name = creatureData.prefabLabel;
             MonsterController mc = go.GetOrAddComponent<MonsterController>();
