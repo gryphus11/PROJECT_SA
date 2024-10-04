@@ -1,8 +1,10 @@
+using Cysharp.Threading.Tasks.Triggers;
 using Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using static Define;
 
@@ -27,7 +29,7 @@ public class PlayerController : CreatureController
     public Vector3 PlayerCenterPos { get { return Indicator.transform.position; } }
     public Vector3 PlayerDirection { get { return (IndicatorSprite.transform.position - PlayerCenterPos).normalized; } }
     
-    public float ItemCollectRadius { get; } = 2.0f;
+    public float ItemCollectRadius { get; } = 1.5f;
 
     public int Level
     {
@@ -229,9 +231,50 @@ public class PlayerController : CreatureController
             Skills.LevelUpSkill(SkillData.GetSkillTypeFromInt(creatureData.defaultSkill));
         }
     }
+
+    public Grid GridForGizmo { get; set; }
+
     private void OnDrawGizmos()
     {
+        if (GridForGizmo == null)
+            return;
+
+        // 기즈모를 그릴 위치와 반경 설정
+        Vector3 pos = transform.position;
+        float radius = ItemCollectRadius;
+
+        // 각 코너의 위치 계산
+        Vector3Int left = GridForGizmo.WorldToCell(pos + new Vector3(-radius, 0.0f));
+        Vector3Int right = GridForGizmo.WorldToCell(pos + new Vector3(radius, 0.0f));
+        Vector3Int top = GridForGizmo.WorldToCell(pos + new Vector3(0.0f, radius));
+        Vector3Int bottom = GridForGizmo.WorldToCell(pos + new Vector3(0.0f, -radius));
+
+        int minX = left.x;
+        int minY = bottom.y;
+        int maxX = right.x;
+        int maxY = top.y;
+
+        // 그리드 셀을 색칠하는 기즈모 설정
+        Gizmos.color = Color.yellow;
+
+        // minX ~ maxX, minY ~ maxY 사이의 셀들을 순회하며 기즈모를 그리드 셀 위치에 맞게 그리기
+        for (int x = minX; x <= maxX; ++x)
+        {
+            for (int y = minY; y <= maxY; ++y)
+            {
+                Vector3Int cellPos = new Vector3Int(x, y, 0);
+                Vector3 worldPos = GridForGizmo.CellToWorld(cellPos);
+
+                // 그리드 셀의 중심 위치 계산
+                Vector3 cellCenter = worldPos + GridForGizmo.cellSize / 2;
+
+                // 셀의 경계를 그리는 사각형 그리기
+                Gizmos.DrawWireCube(cellCenter, GridForGizmo.cellSize);
+            }
+        }
+
+        // 플레이어의 위치를 중심으로 하는 원 그리기
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, ItemCollectRadius);
+        Gizmos.DrawWireSphere(pos, radius);
     }
 }

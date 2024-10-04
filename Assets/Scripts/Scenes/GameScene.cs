@@ -64,7 +64,7 @@ public class GameScene : BaseScene
         Managers.Game.CurrentMap = mapObj.GetOrAddComponent<MapController>();
 
         // 범위 디버그용
-        Managers.Game.CurrentMap.GetComponent<GridController>().player = player;
+        player.GridForGizmo = Managers.Game.CurrentMap.GetComponent<Grid>();
 
         _ui = Managers.UI.ShowSceneUI<UI_GameScene>();
 
