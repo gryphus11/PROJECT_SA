@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 320
   m_Sprite: {fileID: 4723107735738678597, guid: 59ffc6338f0f7434281d5d1e02f51d0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,9 +166,11 @@ MonoBehaviour:
     atkRate: 0
     defRate: 0
     moveSpeedRate: 0
-    animationLabels: 
     iconLabel: 
-    skill: 0
+    animationLabels: []
+    learnableSkill: 
+    defaultSkill: 0
+  Skills: {fileID: 0}
   Indicator: {fileID: 5305714990171329854}
   IndicatorSprite: {fileID: 3530179646448567230}
 --- !u!58 &5981059418337423594

@@ -38,6 +38,12 @@ public static class Define
         Player,
         Monster,
         Projectile,
+        Gem,
+        Map,
+        DropBox,
+        Potion,
+        Magnet,
+        Bomb,
     }
 
     public enum CreatureState
@@ -81,4 +87,11 @@ public static class Define
 
     public static int MAX_SKILL_LEVEL = 6;
     public static int MAX_SKILL_COUNT = 6;
+
+    #region º¸¼® °æÇèÄ¡ È¹µæ·®
+    public const int SMALL_EXP_AMOUNT = 1;
+    public const int GREEN_EXP_AMOUNT = 2;
+    public const int BLUE_EXP_AMOUNT = 5;
+    public const int MAGENTA_EXP_AMOUNT = 10;
+    #endregion
 }

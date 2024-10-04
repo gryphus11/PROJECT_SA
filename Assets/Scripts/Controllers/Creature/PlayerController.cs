@@ -26,6 +26,54 @@ public class PlayerController : CreatureController
 
     public Vector3 PlayerCenterPos { get { return Indicator.transform.position; } }
     public Vector3 PlayerDirection { get { return (IndicatorSprite.transform.position - PlayerCenterPos).normalized; } }
+    
+    public float ItemCollectRadius { get; } = 2.0f;
+
+    public int Level
+    {
+        get { return Managers.Game.Level; }
+        set { Managers.Game.Level = value; }
+    }
+
+    public float TotalExp
+    {
+        get { return Managers.Game.TotalExp; }
+        set { Managers.Game.TotalExp = value; }
+    }
+
+    public float Exp { 
+        get { return Managers.Game.Exp; } 
+        set {
+            Managers.Game.Exp = value;
+
+            // 레벨업 체크
+            int level = Level;
+            while (true)
+            {
+                //만렙인경우 break;
+                LevelUpExpData nextLevel;
+                if (Managers.Data.LevelUpExpDic.TryGetValue(level + 1, out nextLevel) == false)
+                    break;
+
+                LevelUpExpData currentLevel;
+                Managers.Data.LevelUpExpDic.TryGetValue(level, out currentLevel);
+                if (Managers.Game.Exp < currentLevel.TotalExp)
+                    break;
+                level++;
+            }
+
+            if (level != Level)
+            {
+                Level = level;
+                LevelUpExpData currentLevel;
+                Managers.Data.LevelUpExpDic.TryGetValue(level, out currentLevel);
+                TotalExp = currentLevel.TotalExp;
+                LevelUp(Level);
+
+            }
+
+            OnPlayerDataUpdated?.Invoke();
+        } }
 
     public override bool Init()
     {
@@ -52,9 +100,50 @@ public class PlayerController : CreatureController
     {
         UpdateSpriteDirection();
         MovePlayer();
+        CollectDropItem();
     }
 
+    protected void CollectDropItem()
+    { 
+        List<DropItemController> items = Managers.Game.CurrentMap.Grid.GatherObjects(transform.position, ItemCollectRadius);
 
+        foreach (DropItemController item in items)
+        {
+            Vector3 dir = item.transform.position - transform.position;
+            switch (item.itemType)
+            {
+                // 아이템에 따라 수집 형태를 추가 가능
+                case ObjectType.Gem :
+                    float cd = item.CollectDistance;
+                    if (dir.sqrMagnitude <= cd * cd)
+                    {
+                        item.GetItem();
+                    }
+                    break;
+            }
+        }
+    }
+
+    void LevelUp(int level = 0)
+    {
+        if (Level > 1)
+            OnPlayerLevelUp?.Invoke();
+
+        UpdateCreatureStat();
+    }
+
+    protected override void UpdateCreatureStat()
+    {
+        base.UpdateCreatureStat();
+
+        InitCreatureStat(false);
+
+        MaxHp *= MaxHpBonusRate;
+        Hp *= MaxHpBonusRate;
+        Atk *= AttackRate;
+        Def *= DefRate;
+        MoveSpeed *= MoveSpeedRate;
+    }
 
     private void OnMoveDirChanged(Vector2 vector)
     {
@@ -110,16 +199,20 @@ public class PlayerController : CreatureController
         _animator.Play("Move");
     }
 
-    public override void InitCreatureStat()
+    public override void InitCreatureStat(bool isFullHp = true)
     {
-        base.InitCreatureStat();
-
         // 현재 케릭터의 Stat 가져오기
-        MaxHp = creatureData.maxHp + (creatureData.maxHp * creatureData.hpRate * 0.01f);
-        Hp = MaxHp;
-        
-        Atk = creatureData.atk + (creatureData.atk * creatureData.atkRate * 0.01f);
-        MoveSpeed = creatureData.moveSpeed + (creatureData.moveSpeed * creatureData.moveSpeedRate * 0.01f);
+        MaxHp = Managers.Game.Character.MaxHp;
+        Atk = Managers.Game.Character.Atk;
+        MoveSpeed = creatureData.moveSpeed * creatureData.moveSpeedRate;
+
+        MaxHp *= MaxHpBonusRate;
+        Atk *= AttackRate;
+        Def *= DefRate;
+        MoveSpeed *= MoveSpeedRate;
+
+        if (isFullHp == true)
+            Hp = MaxHp;
     }
 
     protected override void InitSkill()
@@ -135,5 +228,10 @@ public class PlayerController : CreatureController
             Skills.AddSkill(skillType);
             Skills.LevelUpSkill(SkillData.GetSkillTypeFromInt(creatureData.defaultSkill));
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, ItemCollectRadius);
     }
 }

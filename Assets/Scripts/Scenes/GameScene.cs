@@ -52,11 +52,19 @@ public class GameScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_Joystick>();
         
+        Managers.Game.Character = new CharacterStatus();
+        Managers.Game.Character.SetInfo(Managers.Game.SelectedPlayerID);
+
         var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, Managers.Game.SelectedPlayerID);
         var cameraController = FindObjectOfType<CameraController>();
         cameraController.Target = player.transform;
 
-        Managers.Resource.Instantiate("Map01");
+        var mapObj = Managers.Resource.Instantiate("Map01");
+        mapObj.transform.position = Vector3.zero;
+        Managers.Game.CurrentMap = mapObj.GetOrAddComponent<MapController>();
+
+        // 범위 디버그용
+        Managers.Game.CurrentMap.GetComponent<GridController>().player = player;
 
         _ui = Managers.UI.ShowSceneUI<UI_GameScene>();
 

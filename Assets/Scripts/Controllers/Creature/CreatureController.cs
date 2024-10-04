@@ -163,7 +163,7 @@ public abstract class CreatureController : BaseController
         SetAnimation();
     }
 
-    public virtual void InitCreatureStat()
+    public virtual void InitCreatureStat(bool isFullHp = true)
     {
 
     }
@@ -216,5 +216,10 @@ public abstract class CreatureController : BaseController
             if (type != SkillType.None)
                 Skills.AddSkill(type);
         }
+    }
+
+    protected virtual void UpdateCreatureStat()
+    { 
+    
     }
 }

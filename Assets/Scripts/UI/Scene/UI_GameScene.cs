@@ -35,7 +35,7 @@ public class UI_GameScene : UI_Scene
     public void OnSecondChange(int time)
     {
         GetTMP((int)Texts.WaveTimerText).text = $"Wave Time : {time}";
-        if (time == 0)
+        if (time < 0)
             GetTMP((int)Texts.WaveTimerText).text = "";
     }
 

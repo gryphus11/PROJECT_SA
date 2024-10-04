@@ -1,10 +1,5 @@
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 
@@ -16,7 +11,7 @@ public class MonsterController : CreatureController
 
     Vector3 _moveDir = Vector3.zero;
 
-    public event Action<MonsterController> onMonsterInfoUpdate;
+    public event System.Action<MonsterController> onMonsterInfoUpdate;
     public override bool Init()
     {
         base.Init();
@@ -37,9 +32,9 @@ public class MonsterController : CreatureController
         return true;
     }
 
-    public override void InitCreatureStat()
+    public override void InitCreatureStat(bool isFullHp = true)
     {
-        base.InitCreatureStat();
+        base.InitCreatureStat(isFullHp);
 
         MaxHp = creatureData.maxHp;
         Hp = MaxHp;
@@ -110,7 +105,11 @@ public class MonsterController : CreatureController
         base.OnDead();
         InvokeMonsterData();
 
-
+        if (Random.value >= Managers.Game.CurrentWaveData.nonDropRate)
+        {
+            var gemController = Managers.Object.Spawn<GemController>(transform.position);
+            gemController.SetInfo(Managers.Game.GetCurrentWaveGemInfo());
+        }
         //var gemController = Managers.Object.Spawn<GemController>(transform.position, 0);
 
         Managers.Object.Despawn(this);
@@ -160,14 +159,7 @@ public class MonsterController : CreatureController
         float elapsed = 0;
         CancellationToken token;
         
-        try
-        {
-            token = CancellationTokenSource.CreateLinkedTokenSource(_disableCancelToken.Token, destroyCancellationToken).Token;
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-        }
+        token = CancellationTokenSource.CreateLinkedTokenSource(_disableCancelToken.Token, destroyCancellationToken).Token;
 
         while (true)
         {

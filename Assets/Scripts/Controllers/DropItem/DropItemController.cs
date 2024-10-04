@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class DropItemController : BaseController
 {
-    public float CollectDist { get; set; } = 4.0f;
+    public float CollectDistance { get; set; } = 4.0f;
     public Coroutine _coroutine;
     public Define.ObjectType itemType;
+    
+    public float moveSpeed = 15.0f;
+    public float completeGetDistance = 1.0f;
 
-    UniTaskCompletionSource _uniTaskCompletionSource = null;
+    protected UniTaskCompletionSource _moveToPlayerTask = null;
     public override bool Init()
     {
         base.Init();
@@ -19,10 +22,10 @@ public class DropItemController : BaseController
 
     public virtual void OnDisable()
     {
-        if (_uniTaskCompletionSource != null)
+        if (_moveToPlayerTask != null)
         {
-            _uniTaskCompletionSource.TrySetCanceled();
-            _uniTaskCompletionSource = null;
+            _moveToPlayerTask.TrySetCanceled();
+            _moveToPlayerTask = null;
         }
     }
 
@@ -40,16 +43,16 @@ public class DropItemController : BaseController
     {
     }
 
-    public async UniTask CheckDistanceTask()
+    public virtual async UniTask MoveToPlayerTask()
     {
-        _uniTaskCompletionSource = new UniTaskCompletionSource();
+        _moveToPlayerTask = new UniTaskCompletionSource();
 
         while (this.IsValid() == true)
         {
-            float dist = Vector3.Distance(gameObject.transform.position, Managers.Game.Player.PlayerCenterPos);
+            float distance = Vector3.Distance(gameObject.transform.position, Managers.Game.Player.PlayerCenterPos);
 
-            transform.position = Vector3.MoveTowards(transform.position, Managers.Game.Player.PlayerCenterPos, Time.deltaTime * 15.0f);
-            if (dist < 1f)
+            transform.position = Vector3.MoveTowards(transform.position, Managers.Game.Player.PlayerCenterPos, Time.deltaTime * moveSpeed);
+            if (distance < completeGetDistance)
             {
                 CompleteGetItem();
                 return;

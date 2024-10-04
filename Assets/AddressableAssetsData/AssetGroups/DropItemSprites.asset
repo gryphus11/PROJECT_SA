@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DropItemSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: DropItemSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 72b07d7b653ab1341bac423e9bc9547a
+  m_SerializeEntries:
+  - m_GUID: 319159ff849d044b2be78807e0c47ba8
+    m_Address: SmallGem.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4222b5d95864d99a14bf2020e70194
+    m_Address: GreenGem.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7f3c32c855a846c5bb5d8c57de050fd
+    m_Address: BlueGem.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d363c86f558114e2f97ec9fb6a23bf08
+    m_Address: MagentaGem.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3326ff843a3efb6469c4bf595aeb3de5, type: 2}
+    - {fileID: 11400000, guid: 15aec899ef88b5b439169622d3fc62c5, type: 2}

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace Data
         public List<int> EliteDropItemId = new List<int>();
     }
 
-    [Serializable]
+    [System.Serializable]
     public class WaveDataLoader : ILoader<int, List<WaveData>>
     {
         public List<WaveData> waves = new List<WaveData>();

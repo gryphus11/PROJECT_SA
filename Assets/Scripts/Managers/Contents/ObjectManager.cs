@@ -44,7 +44,13 @@ public class ObjectManager
         }
         else if (type == typeof(GemController))
         {
-            return null;
+            GameObject go = Managers.Resource.Instantiate("Gem", pooling: true);
+            GemController gc = go.GetOrAddComponent<GemController>();
+            go.transform.position = position;
+            Gems.Add(gc);
+            Managers.Game.CurrentMap.Grid.Add(gc);
+
+            return gc as T;
         }
         else if (type == typeof(PotionController))
         {
@@ -74,11 +80,16 @@ public class ObjectManager
         {
             // ?
         }
-
         else if (type == typeof(MonsterController))
         {
             Monsters.Remove(obj as MonsterController);
             Managers.Resource.Destroy(obj.gameObject);
+        }
+        else if (type == typeof(GemController))
+        {
+            Gems.Remove(obj as GemController);
+            Managers.Resource.Destroy(obj.gameObject);
+            Managers.Game.CurrentMap.Grid.Remove(obj as GemController);
         }
     }
 

@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+public struct GridArea
+{
+    public int minX;
+    public int minY;
+    public int maxX;
+    public int maxY;
+}
+
 /// <summary>
 /// 셀 안에 있는 오브젝트를 관리
 /// </summary>
 class Cell
 { 
     // 오브젝트를 종류별 구분 관리해도 좋을 듯
-    public HashSet<GameObject> Objects { get; } = new HashSet<GameObject>();
+    public HashSet<DropItemController> Objects { get; } = new HashSet<DropItemController>();
 }
 
 /// <summary>
@@ -28,7 +37,7 @@ public class GridController : BaseController
         return true;
     }
 
-    public void Add(GameObject go)
+    public void Add(DropItemController go)
     { 
         var cellPos = _grid.WorldToCell(go.transform.position);
         var cell = GetCell(cellPos);
@@ -38,7 +47,7 @@ public class GridController : BaseController
         cell.Objects.Add(go);
     }
 
-    public void Remove(GameObject go)
+    public void Remove(DropItemController go)
     {
         var cellPos = _grid.WorldToCell(go.transform.position);
         var cell = GetCell(cellPos);
@@ -62,9 +71,9 @@ public class GridController : BaseController
         return cell;
     }
 
-    public List<GameObject> GatherObjects(Vector3 pos, float radius)
+    public List<DropItemController> GatherObjects(Vector3 pos, float radius)
     { 
-        List<GameObject> objects = new List<GameObject>();
+        List<DropItemController> objects = new List<DropItemController>();
 
         Vector3Int left = _grid.WorldToCell(pos + new Vector3(-radius, 0.0f));
         Vector3Int right = _grid.WorldToCell(pos + new Vector3(radius, 0.0f));
@@ -90,5 +99,51 @@ public class GridController : BaseController
         }
 
         return objects;
+    }
+
+
+    public PlayerController player;
+
+    private void OnDrawGizmos()
+    {
+        if (player == null)
+            return;
+
+        if (_grid == null)
+            return;
+
+        // 기즈모를 그릴 위치와 반경 설정
+        Vector3 pos = player.CenterPosition;
+        float radius = player.ItemCollectRadius;
+
+        // 각 코너의 위치 계산
+        Vector3Int left = _grid.WorldToCell(pos + new Vector3(-radius, 0.0f));
+        Vector3Int right = _grid.WorldToCell(pos + new Vector3(radius, 0.0f));
+        Vector3Int top = _grid.WorldToCell(pos + new Vector3(0.0f, radius));
+        Vector3Int bottom = _grid.WorldToCell(pos + new Vector3(0.0f, -radius));
+
+        int minX = left.x;
+        int minY = bottom.y;
+        int maxX = right.x;
+        int maxY = top.y;
+
+        // 그리드 셀을 색칠하는 기즈모 설정
+        Gizmos.color = Color.yellow;
+
+        // minX ~ maxX, minY ~ maxY 사이의 셀들을 순회하며 기즈모를 그리드 셀 위치에 맞게 그리기
+        for (int x = minX; x <= maxX; ++x)
+        {
+            for (int y = minY; y <= maxY; ++y)
+            {
+                Vector3Int cellPos = new Vector3Int(x, y, 0);
+                Vector3 worldPos = _grid.CellToWorld(cellPos);
+
+                // 그리드 셀의 중심 위치 계산
+                Vector3 cellCenter = worldPos + _grid.cellSize / 2;
+
+                // 셀의 경계를 그리는 사각형 그리기
+                Gizmos.DrawWireCube(cellCenter, _grid.cellSize);
+            }
+        }
     }
 }
