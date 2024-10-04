@@ -36,14 +36,12 @@ namespace Data
             
             foreach (WaveData wave in waves)
             {
-                if (dict.ContainsKey(wave.StageIndex))
-                {
-                    dict[wave.StageIndex].Add(wave);
-                }
-                else
+                if (dict.ContainsKey(wave.StageIndex) == false)
                 {
                     dict.Add(wave.WaveIndex, new List<WaveData>());
                 }
+
+                dict[wave.StageIndex].Add(wave);
             }
 
             return dict;
