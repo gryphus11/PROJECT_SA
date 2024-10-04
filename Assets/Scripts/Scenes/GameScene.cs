@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using Data;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class GameScene : BaseScene
@@ -67,6 +66,10 @@ public class GameScene : BaseScene
         if (_spawningPool == null)
             _spawningPool = gameObject.AddComponent<SpawningPool>();
 
+        onWaveStart = _ui.OnWaveStart;
+        onSecondChange = _ui.OnSecondChange;
+        onWaveEnd = _ui.OnWaveEnd;
+
         StartWave(Managers.Game.WaveArray[Managers.Game.CurrentWaveIndex]);
     }
 
@@ -127,7 +130,7 @@ public class GameScene : BaseScene
 
         _game.TimeRemaining -= Time.deltaTime;
 
-        int currentMinute = Mathf.FloorToInt(_game.TimeRemaining / _game.CurrentWaveData.RemainsTime); // 웨이브 시간 이슈 수정 #Neo 
+        int currentMinute = Mathf.FloorToInt(_game.TimeRemaining / _game.CurrentWaveData.RemainsTime);
         int currentSecond = (int)_game.TimeRemaining;
 
         if (currentSecond != _lastSecond)

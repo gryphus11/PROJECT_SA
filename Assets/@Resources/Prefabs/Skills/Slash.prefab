@@ -73759,6 +73759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swingParticles: []
+  _overlapColliders: []
 --- !u!1 &5371548328781201241
 GameObject:
   m_ObjectHideFlags: 0
@@ -83572,7 +83573,7 @@ GameObject:
   - component: {fileID: 1013767160905632855}
   - component: {fileID: 1641259829796679237}
   m_Layer: 0
-  m_Name: Slesh3
+  m_Name: Slash3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

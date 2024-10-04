@@ -22,20 +22,10 @@ public class UI_Joystick : UI_Scene
     Vector2 _keyInputDirection = Vector2.zero;
     Vector2 _prevKeyInputDirection = Vector2.zero;
 
-    System.Text.StringBuilder _debugJoystickString = new System.Text.StringBuilder();
-    System.Text.StringBuilder _debugKeyString = new System.Text.StringBuilder();
-
     enum GameObjects
     {
         JoystickBackground,
         Handler,
-        Debug,
-    }
-
-    enum Texts
-    {
-        DebugJoystickDir,
-        DebugKeyboardDir,
     }
 
     private void OnDestroy()
@@ -51,15 +41,11 @@ public class UI_Joystick : UI_Scene
         Managers.UI.OnTimeScaleChanged += OnTimeScaleChanged;
 
         BindObject(typeof(GameObjects));
-        BindTMP(typeof(Texts));
 
         _handler = GetObject((int)GameObjects.Handler).GetComponent<Image>();
         _background = GetObject((int)GameObjects.JoystickBackground).GetComponent<Image>();
         _joystickRadius = _background.GetComponent<RectTransform>().sizeDelta.y * 0.5f;
         _joystickOriginPos = _background.transform.position;
-
-        _debugJoystickText = GetTMP((int)Texts.DebugJoystickDir);
-        _debugKeyText = GetTMP((int)Texts.DebugKeyboardDir);
 
         gameObject.BindEvent(OnPointerDown, null, Define.UIEvent.PointerDown);
         gameObject.BindEvent(OnPointerUp, null, Define.UIEvent.PointerUp);
@@ -148,21 +134,6 @@ public class UI_Joystick : UI_Scene
             _keyInputDirection = Vector2.zero;
         }
 
-
-        ShowDebugPosition();
-    }
-
-    private void ShowDebugPosition()
-    {
-        #region µð¹ö±×
-        _debugJoystickString.Clear();
-        _debugJoystickString.Append($"Joystick Dir: {_moveDirection}");
-        _debugJoystickText.text = _debugJoystickString.ToString();
-
-        _debugKeyString.Clear();
-        _debugKeyString.Append($"Keyboard Dir: {_keyInputDirection}");
-        _debugKeyText.text = _debugKeyString.ToString();
-        #endregion
     }
 
     private Vector2 GetKeyInput()
@@ -179,10 +150,5 @@ public class UI_Joystick : UI_Scene
             moveDir.x = 1;
 
         return moveDir.normalized;
-    }
-
-    public void ToggleDebug()
-    { 
-    
     }
 }

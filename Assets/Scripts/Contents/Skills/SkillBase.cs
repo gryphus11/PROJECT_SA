@@ -8,6 +8,27 @@ using System.Threading;
 using UnityEngine;
 using static Define;
 
+[System.Serializable]
+public class OverlapCollider2D
+{
+    // 감지할 콜라이더
+    public Collider2D targetCollider;
+
+    // 필터 설정 (레이어, 충돌 판정 등)
+    public ContactFilter2D contactFilter;
+
+    public List<Collider2D> GetObjectsInCollider()
+    {
+        // 결과를 저장할 리스트
+        List<Collider2D> results = new List<Collider2D>();
+
+        // targetCollider와 겹치는 콜라이더들을 감지
+        targetCollider.OverlapCollider(contactFilter, results);
+
+        return results;
+    }
+}
+
 public class SkillBase : BaseController
 {
     public CreatureController Owner { get; set; }

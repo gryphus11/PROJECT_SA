@@ -19,13 +19,20 @@ public class MonsterController : CreatureController
     public event Action<MonsterController> onMonsterInfoUpdate;
     public override bool Init()
     {
-        if (!base.Init())
-            return false;
+        base.Init();
 
         IsMonster = true;
         _animator = GetComponent<Animator>();
         ObjectType = ObjectType.Monster;
         CreatureState = CreatureState.Moving;
+
+        UniTaskUtils.CancelTokenSource(ref _dotDamageCancelToken);
+
+        if (_knockbackCompleteSource != null)
+        {
+            _knockbackCompleteSource.TrySetCanceled();
+            _knockbackCompleteSource = null;
+        }
 
         return true;
     }
@@ -120,11 +127,17 @@ public class MonsterController : CreatureController
     private void OnDisable()
     {
         _disableCancelToken.Cancel();
+        if (_knockbackCompleteSource != null)
+        {
+            _knockbackCompleteSource.TrySetCanceled();
+            _knockbackCompleteSource = null;
+        }
     }
 
     private void OnDestroy()
     {
-        _dotDamageCancelToken.Cancel();
+        if(_dotDamageCancelToken != null)
+            _dotDamageCancelToken.Cancel();
     }
 
 
