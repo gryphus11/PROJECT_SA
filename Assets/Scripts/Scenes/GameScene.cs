@@ -17,6 +17,7 @@ public class GameScene : BaseScene
     GameManager _game;
     bool isGameEnd = false;
     private int _lastSecond = 0;
+    UI_GameScene _ui;
 
     protected override bool Init()
     {
@@ -57,6 +58,8 @@ public class GameScene : BaseScene
         cameraController.Target = player.transform;
 
         Managers.Resource.Instantiate("Map01");
+
+        _ui = Managers.UI.ShowSceneUI<UI_GameScene>();
 
         Managers.Game.CurrentWaveIndex = 0;
         Managers.Game.WaveArray = Managers.Data.WaveDic[1];
