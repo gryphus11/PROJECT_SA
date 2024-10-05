@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 471041839}
   - component: {fileID: 471041841}
   - component: {fileID: 471041840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrailBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &471041839
 Transform:
   m_ObjectHideFlags: 0
@@ -87,15 +87,33 @@ TrailRenderer:
         time: 0
         value: 1
         inSlope: 0
-        outSlope: 0
+        outSlope: -0.64870715
         tangentMode: 69
         weightedMode: 0
         inWeight: 0
         outWeight: 0.14482757
       - serializedVersion: 3
+        time: 0.49612397
+        value: 0.67816085
+        inSlope: -0.64870715
+        outSlope: -1.1228698
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.79914945
+        value: 0.33790267
+        inSlope: -1.1228698
+        outSlope: -1.6823587
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: -0
+        value: 0
+        inSlope: -1.6823587
         outSlope: 0
         tangentMode: 69
         weightedMode: 0
@@ -170,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467228190250843191}
   - component: {fileID: 467228190250843188}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FadeLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,13 +283,13 @@ GameObject:
   - component: {fileID: 645986219727366100}
   - component: {fileID: 645986219727366099}
   - component: {fileID: 707301645}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &645986219727366100
 Transform:
   m_ObjectHideFlags: 0
@@ -341,15 +359,33 @@ TrailRenderer:
         time: 0
         value: 1
         inSlope: 0
-        outSlope: 0
+        outSlope: -0.69066775
         tangentMode: 69
         weightedMode: 0
         inWeight: 0
         outWeight: 0.14482757
       - serializedVersion: 3
+        time: 0.5043206
+        value: 0.651682
+        inSlope: -0.69066775
+        outSlope: -1.0267503
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7982904
+        value: 0.34984848
+        inSlope: -1.0267503
+        outSlope: -1.7344164
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: -0
+        value: 0
+        inSlope: -1.7344164
         outSlope: 0
         tangentMode: 69
         weightedMode: 0
@@ -425,7 +461,7 @@ GameObject:
   - component: {fileID: 7939571462636359077}
   - component: {fileID: 1769559299610911158}
   - component: {fileID: 3034357592680838626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +544,7 @@ GameObject:
   - component: {fileID: 2648373233233208502}
   - component: {fileID: 3096076730317903230}
   - component: {fileID: 5213913711547786828}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SnowFlakes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5350,7 +5386,7 @@ GameObject:
   - component: {fileID: 8157958861206438595}
   - component: {fileID: 1381147632315959038}
   - component: {fileID: 8125215506971043701}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceFlares
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10325,7 +10361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968521327543585331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10364,7 +10400,7 @@ GameObject:
   - component: {fileID: 7258936774047215837}
   - component: {fileID: 7376487658665652581}
   - component: {fileID: 7993449689437273971}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IcicleArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

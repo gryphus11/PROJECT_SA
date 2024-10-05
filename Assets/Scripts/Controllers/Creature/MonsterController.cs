@@ -83,7 +83,8 @@ public class MonsterController : CreatureController
         if (!this.IsValid())
             return;
 
-        _dotDamageCancelToken.Cancel();
+        if(_dotDamageCancelToken != null)
+            _dotDamageCancelToken.Cancel();
     }
     
     public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)

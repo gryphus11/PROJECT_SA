@@ -63,9 +63,6 @@ public class GameScene : BaseScene
         mapObj.transform.position = Vector3.zero;
         Managers.Game.CurrentMap = mapObj.GetOrAddComponent<MapController>();
 
-        // 범위 디버그용
-        player.GridForGizmo = Managers.Game.CurrentMap.GetComponent<Grid>();
-
         _ui = Managers.UI.ShowSceneUI<UI_GameScene>();
 
         Managers.Game.CurrentWaveIndex = 0;

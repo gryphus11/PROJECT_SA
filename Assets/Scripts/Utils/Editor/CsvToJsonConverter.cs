@@ -59,18 +59,18 @@ public static class CsvToJsonConverter
             skillData.RecognitionRange = ConvertValue<float>(row[i++]);
             skillData.NumProjectiles = ConvertValue<int>(row[i++]);
             skillData.CastingSound = ConvertValue<string>(row[i++]);
-            skillData.AngleBetweenProj = ConvertValue<float>(row[i++]);
+            skillData.AngleBetweenProject = ConvertValue<float>(row[i++]);
             skillData.AttackInterval = ConvertValue<float>(row[i++]);
             skillData.NumBounce = ConvertValue<int>(row[i++]);
             skillData.BounceSpeed = ConvertValue<float>(row[i++]);
-            skillData.BounceDist = ConvertValue<float>(row[i++]);
-            skillData.NumPenerations = ConvertValue<int>(row[i++]);
+            skillData.BounceDistance = ConvertValue<float>(row[i++]);
+            skillData.NumPenetrations = ConvertValue<int>(row[i++]);
             skillData.HitSoundLabel = ConvertValue<string>(row[i++]);
-            skillData.ProjRange = ConvertValue<float>(row[i++]);
+            skillData.ProjectileRange = ConvertValue<float>(row[i++]);
             skillData.MinCoverage = ConvertValue<float>(row[i++]);
             skillData.MaxCoverage = ConvertValue<float>(row[i++]);
-            skillData.RoatateSpeed = ConvertValue<float>(row[i++]);
-            skillData.ProjSpeed = ConvertValue<float>(row[i++]);
+            skillData.RotateSpeed = ConvertValue<float>(row[i++]);
+            skillData.ProjectileSpeed = ConvertValue<float>(row[i++]);
             skillData.ScaleMultiplier = ConvertValue<float>(row[i++]);
             loader.skills.Add(skillData);
         }

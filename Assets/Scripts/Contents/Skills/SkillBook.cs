@@ -39,7 +39,7 @@ public class SkillBook : MonoBehaviour
 
     public void LoadSkill(Define.SkillType skillType, int level)
     {
-        //모든스킬은 0으로 시작함. 레벨 수 만큼 레벨업ㅎ ㅏ기
+        //모든스킬은 0으로 시작함. 레벨 수 만큼 레벨업
         AddSkill(skillType);
         for (int i = 0; i < level; i++)
             LevelUpSkill(skillType);
@@ -65,7 +65,7 @@ public class SkillBook : MonoBehaviour
         else
         {
             // 투사체형은
-            RepeatSkill skillBase = gameObject.GetComponent(Type.GetType(className)) as RepeatSkill;
+            RepeatSkill skillBase = gameObject.AddComponent(Type.GetType(className)) as RepeatSkill;
             AddList(skillBase);
         }
     }
@@ -77,7 +77,7 @@ public class SkillBook : MonoBehaviour
 
     public bool HasSkill(SkillType skillType)
     {
-        return _skillList.Find(skill => skill.name == skillType.ToString()) != null;
+        return _skillList.Find(skill => skill.GetComponent(Type.GetType(skillType.ToString()))) != null;
     }
 
     bool _stopped = false;

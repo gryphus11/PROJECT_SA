@@ -22,18 +22,18 @@ namespace Data
         public float RecognitionRange;//인식범위
         public int NumProjectiles;// 회당 공격횟수
         public string CastingSound; // 시전사운드
-        public float AngleBetweenProj;// 발사체 사이 각도
+        public float AngleBetweenProject;// 발사체 사이 각도
         public float AttackInterval; //공격간격
         public int NumBounce;//바운스 횟수
         public float BounceSpeed;// 바운스 속도
-        public float BounceDist;//바운스 거리
-        public int NumPenerations; //관통 횟수
+        public float BounceDistance;//바운스 거리
+        public int NumPenetrations; //관통 횟수
         public string HitSoundLabel; // 히트사운드
-        public float ProjRange; //투사체 사거리
+        public float ProjectileRange; //투사체 사거리
         public float MinCoverage; //최소 효과 적용 범위
         public float MaxCoverage; // 최대 효과 적용 범위
-        public float RoatateSpeed; // 회전 속도
-        public float ProjSpeed; //발사체 속도
+        public float RotateSpeed; // 회전 속도
+        public float ProjectileSpeed; //발사체 속도
         public float ScaleMultiplier;
 
         public static SkillType GetSkillTypeFromInt(int value)

@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ProjectileController : SkillBase
 {
-    public SkillBase Skill;
+    public SkillBase Skill { get; set; }
     Vector2 _spawnPos;
     Vector3 _dir = Vector3.zero;
     Vector3 _target = Vector3.zero;
@@ -15,12 +15,8 @@ public class ProjectileController : SkillBase
     Rigidbody2D _rigid;
     int _numPenetrations;
     public int _bounceCount = 1;
-    GameObject _meteorShadow;
 
     List<CreatureController> _enteredColliderList = new List<CreatureController>();
-
-    private CancellationTokenSource _disableCts = new CancellationTokenSource();
-    private UniTaskCompletionSource _dotDamageSrc = null;
 
     public void SetInfo(CreatureController owner, Vector2 position, Vector2 dir, Vector2 target, SkillBase skill)
     {
@@ -32,19 +28,19 @@ public class ProjectileController : SkillBase
         _rigid = GetComponent<Rigidbody2D>();
         _target = target;
         transform.localScale = Vector3.one * Skill.SkillData.ScaleMultiplier;
-        _numPenetrations = skill.SkillData.NumPenerations;
+        _numPenetrations = skill.SkillData.NumPenetrations;
         _bounceCount = skill.SkillData.NumBounce;
 
 
+        // 투사체가 특정한 선행 동작이 필요하다면 여기에 구현
         switch (skill.SkillType)
         {
-            case Define.SkillType.IcicleArrow:
+            // 기본은 특정 방향으로 발사
+            default:
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, _dir);
+                _numPenetrations = Skill.SkillData.NumPenetrations;
+                _rigid.velocity = _dir * Skill.SkillData.ProjectileSpeed;
                 break;
-            case Define.SkillType.ThunderStorm:
-                break;
-            case Define.SkillType.Slash:
-                break;
-
         }
 
         if (gameObject.activeInHierarchy)
@@ -54,11 +50,11 @@ public class ProjectileController : SkillBase
 
     private async UniTask DestroyTask()
     {
-        CancellationTokenSource src = CancellationTokenSource.CreateLinkedTokenSource(_disableCts.Token, destroyCancellationToken);
+        CancellationTokenSource src = CancellationTokenSource.CreateLinkedTokenSource(_cancelTokenSource.Token, destroyCancellationToken);
 
         while (true)
         {
-            await UniTask.Delay(7000, cancellationToken: src.Token);
+            await UniTask.Delay(5000, cancellationToken: src.Token);
             DestroyProjectile();
         }
     }
@@ -66,28 +62,6 @@ public class ProjectileController : SkillBase
     public void DestroyProjectile()
     {
         Managers.Object.Despawn(this);
-        //
-    }
-
-    private async UniTask StartDotDamageTask()
-    {
-        _dotDamageSrc = new UniTaskCompletionSource();
-        CancellationTokenSource src = CancellationTokenSource.CreateLinkedTokenSource(_disableCts.Token, destroyCancellationToken);
-        
-        while (true)
-        {
-            await UniTask.Delay(1000, cancellationToken: src.Token);
-
-            foreach (CreatureController target in _enteredColliderList)
-            {
-                target.OnDamaged(Owner, Skill);
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -109,6 +83,7 @@ public class ProjectileController : SkillBase
                 }
                 break;
             default:
+                _enteredColliderList.Add(creature);
                 break;
         }
         creature.OnDamaged(Owner, Skill);
@@ -116,6 +91,8 @@ public class ProjectileController : SkillBase
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        // 트리거 충돌이 끝날 때까지 작용을 해야하는 스킬의 동작
+
         CreatureController target = collision.transform.GetComponent<CreatureController>();
         if (target.IsValid() == false)
             return;
@@ -124,17 +101,5 @@ public class ProjectileController : SkillBase
             return;
 
         _enteredColliderList.Remove(target);
-
-        if (_enteredColliderList.Count == 0 && _dotDamageSrc != null)
-        {
-            _dotDamageSrc.TrySetResult();
-            _dotDamageSrc = null;
-        }
-    }
-
-    private void OnDisable()
-    {
-        UniTaskUtils.CancelTokenSource(ref _disableCts);
-        _disableCts = new CancellationTokenSource();
     }
 }

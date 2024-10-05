@@ -82,10 +82,11 @@ public class SkillBase : BaseController
         UpdateSkillData();
     }
 
-    protected virtual void GenerateProjectile(CreatureController Owner, string prefabName, Vector3 startPos, Vector3 dir, Vector3 targetPos, SkillBase skill)
+    protected virtual ProjectileController GenerateProjectile(CreatureController Owner, string prefabName, Vector3 startPos, Vector3 dir, Vector3 targetPos, SkillBase skill)
     {
         ProjectileController pc = Managers.Object.Spawn<ProjectileController>(startPos, prefabName: prefabName);
         pc.SetInfo(Owner, startPos, dir, targetPos, skill);
+        return pc;
     }
 
     protected CancellationTokenSource _cancelTokenSource = new CancellationTokenSource();

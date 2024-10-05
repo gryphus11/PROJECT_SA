@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6400250855791687911}
   - component: {fileID: 505163971447277389}
   - component: {fileID: 6195164384956506679}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashAsh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 3168795092002820081}
   - component: {fileID: 3494532133976632986}
   - component: {fileID: 6976945996630226759}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashSmokeDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9829,7 +9829,7 @@ GameObject:
   - component: {fileID: 2495428923547014709}
   - component: {fileID: 2742390266185707199}
   - component: {fileID: 9018622257163179079}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash Orange1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14676,7 +14676,7 @@ GameObject:
   - component: {fileID: 4965816963168264228}
   - component: {fileID: 681480636064471646}
   - component: {fileID: 3787648011675105978}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash Orange2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19524,7 +19524,7 @@ GameObject:
   - component: {fileID: 7521296062591145782}
   - component: {fileID: 8286340409074451332}
   - component: {fileID: 6906734224674189244}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24390,7 +24390,7 @@ GameObject:
   - component: {fileID: 8573477689566577634}
   - component: {fileID: 122016505996856653}
   - component: {fileID: 1016716804683927038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashAsh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29300,7 +29300,7 @@ GameObject:
   - component: {fileID: 4223050079703660746}
   - component: {fileID: 2774591517047912725}
   - component: {fileID: 3121904146678270709}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34166,7 +34166,7 @@ GameObject:
   - component: {fileID: 3323330955784500394}
   - component: {fileID: 3323330955784500396}
   - component: {fileID: 3323330955784500395}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39075,7 +39075,7 @@ GameObject:
   - component: {fileID: 3323330956035109804}
   - component: {fileID: 3323330956035109806}
   - component: {fileID: 3323330956035109805}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44100,7 +44100,7 @@ GameObject:
   - component: {fileID: 3323330956840094386}
   - component: {fileID: 3323330956840094388}
   - component: {fileID: 3323330956840094387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arcs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49009,7 +49009,7 @@ GameObject:
   - component: {fileID: 3323330957456792100}
   - component: {fileID: 3323330957456792102}
   - component: {fileID: 3323330957456792101}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53968,7 +53968,7 @@ GameObject:
   - component: {fileID: 3323330957868475610}
   - component: {fileID: 3323330957868475609}
   - component: {fileID: 2699831681026412990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFXR Electric Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58932,7 +58932,7 @@ GameObject:
   - component: {fileID: 752445150502274340}
   - component: {fileID: 5964061013218315223}
   - component: {fileID: 8941838768614616632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63832,7 +63832,7 @@ GameObject:
   - component: {fileID: 4136878289416668699}
   - component: {fileID: 2920210130148440520}
   - component: {fileID: 1555321754888099401}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68741,7 +68741,7 @@ GameObject:
   - component: {fileID: 1672520013737835728}
   - component: {fileID: 4090304416606756675}
   - component: {fileID: 3991051224636838001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73642,7 +73642,7 @@ GameObject:
   - component: {fileID: 8334620672915344387}
   - component: {fileID: 7430563173716172698}
   - component: {fileID: -4487515473161602434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73771,7 +73771,7 @@ GameObject:
   - component: {fileID: 1134165340921937976}
   - component: {fileID: 1291248067716643406}
   - component: {fileID: 959072091141192438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Small arcs after
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78671,7 +78671,7 @@ GameObject:
   - component: {fileID: 6743306458000439335}
   - component: {fileID: 3067442798484193173}
   - component: {fileID: 5895735954557837568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83572,7 +83572,7 @@ GameObject:
   - component: {fileID: 2405359700539770162}
   - component: {fileID: 1013767160905632855}
   - component: {fileID: 1641259829796679237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slash3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88438,7 +88438,7 @@ GameObject:
   - component: {fileID: 970160841284035490}
   - component: {fileID: 1469324461574650404}
   - component: {fileID: 2818605084058886801}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashSmokeDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93347,7 +93347,7 @@ GameObject:
   - component: {fileID: 1979674379272153743}
   - component: {fileID: 2113888805258745861}
   - component: {fileID: 8542888904007044478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98256,7 +98256,7 @@ GameObject:
   - component: {fileID: 4121730466981918643}
   - component: {fileID: 9004237680038691213}
   - component: {fileID: 347966879283344398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103156,7 +103156,7 @@ GameObject:
   - component: {fileID: 8955707048817381533}
   - component: {fileID: 1644707162888009013}
   - component: {fileID: 8036611645175254755}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlashSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108065,7 +108065,7 @@ GameObject:
   - component: {fileID: 2865605720095560345}
   - component: {fileID: 959929709090387203}
   - component: {fileID: 6113544991211926917}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

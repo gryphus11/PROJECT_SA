@@ -66,7 +66,12 @@ public class ObjectManager
         }
         else if (type == typeof(ProjectileController))
         {
-            return null;
+            GameObject go = Managers.Resource.Instantiate(prefabName, pooling: true);
+            ProjectileController pc = go.GetOrAddComponent<ProjectileController>();
+            go.transform.position = position;
+            Projectiles.Add(pc);
+
+            return pc as T;
         }
 
         return null;
@@ -89,7 +94,12 @@ public class ObjectManager
         {
             Gems.Remove(obj as GemController);
             Managers.Resource.Destroy(obj.gameObject);
-            Managers.Game.CurrentMap.Grid.Remove(obj as GemController);
+            Managers.Game.CurrentMap.Grid.Remove(obj as GemController); 
+        }
+        else if (type == typeof(ProjectileController))
+        {
+            Projectiles.Remove(obj as ProjectileController);
+            Managers.Resource.Destroy(obj.gameObject);
         }
     }
 
