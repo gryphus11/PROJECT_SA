@@ -77,6 +77,37 @@ public class PlayerController : CreatureController
             OnPlayerDataUpdated?.Invoke();
         } }
 
+    public float ExpRatio
+    {
+        get
+        {
+            LevelUpExpData currentLevelData;
+            if (Managers.Data.LevelUpExpDic.TryGetValue(Level, out currentLevelData))
+            {
+                int currentLevelExp = currentLevelData.TotalExp;
+                int nextLevelExp = currentLevelExp;
+                int previousLevelExp = 0;
+
+                LevelUpExpData prevLevelData;
+                if (Managers.Data.LevelUpExpDic.TryGetValue(Level - 1, out prevLevelData))
+                {
+                    previousLevelExp = prevLevelData.TotalExp;
+                }
+
+                // 만렙이 아닌 경우
+                LevelUpExpData nextLevelData;
+                if (Managers.Data.LevelUpExpDic.TryGetValue(Level + 1, out nextLevelData))
+                {
+                    nextLevelExp = nextLevelData.TotalExp;
+                }
+
+                return (float)(Exp - previousLevelExp) / (currentLevelExp - previousLevelExp);
+            }
+
+            return 0f;
+        }
+    }
+
     public override bool Init()
     {
         base.Init();
@@ -230,11 +261,5 @@ public class PlayerController : CreatureController
             Skills.AddSkill(skillType);
             Skills.LevelUpSkill(SkillData.GetSkillTypeFromInt(creatureData.defaultSkill));
         }
-    }
-
-
-    private void OnDrawGizmos()
-    {
-        
     }
 }

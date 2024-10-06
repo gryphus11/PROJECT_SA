@@ -72,6 +72,7 @@ public class ProjectileController : SkillBase
         if (this.IsValid() == false)
             return;
 
+        // 투사체가 대상에 히트했을 때의 동작을 정의
         switch (Skill.SkillType)
         {
             case Define.SkillType.IcicleArrow:

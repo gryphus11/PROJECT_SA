@@ -55,6 +55,16 @@ public class UIManager
     }
 
     #region 선로드가 완료된 리소스에 한해서 사용합니다.
+    public T MakeSubItem<T>(Transform parent = null, string key = null, bool pooling = true) where T : UI_Base
+    {
+        if (string.IsNullOrEmpty(key))
+            key = typeof(T).Name;
+
+        var subItem = Managers.Resource.Instantiate(key, parent, pooling);
+        subItem.transform.SetParent(parent);
+        return subItem.gameObject.GetOrAddComponent<T>();
+    }
+
     public T ShowSceneUI<T>(string key = null) where T : UI_Base
     {
         if (string.IsNullOrEmpty(key))
@@ -78,7 +88,7 @@ public class UIManager
     #endregion
 
     #region 비동기로딩시 사용합니다.
-    public void MakeSubItem<T>(Transform parent = null, string key = null, Action<T> callback = null) where T : UI_Base
+    public void MakeSubItemAsync<T>(Transform parent = null, string key = null, Action<T> callback = null) where T : UI_Base
     {
         if (string.IsNullOrEmpty(key))
             key = typeof(T).Name;

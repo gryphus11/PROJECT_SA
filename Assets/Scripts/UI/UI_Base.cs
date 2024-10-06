@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -181,4 +182,9 @@ public class UI_Base : MonoBehaviour
         }
     }
 
+    public void PopupOpenAnimation(GameObject contentObject)
+    {
+        contentObject.transform.localScale = new Vector3(0.8f, 0.8f, 1);
+        contentObject.transform.DOScale(1f, 0.1f).SetEase(Ease.InOutBack).SetUpdate(true);
+    }
 }

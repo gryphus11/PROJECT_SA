@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class UI_GameScene : UI_Scene
 {
+    GameManager _game;
+
     enum Texts
     {
         WaveNumberText,
         WaveTimerText,
         KillCountText,
+        LevelText
     }
 
     enum Sliders
@@ -21,6 +24,9 @@ public class UI_GameScene : UI_Scene
         if (base.Init() == false)
             return false;
 
+        _game = Managers.Game;
+
+        _game.Player.OnPlayerLevelUp = OnPlayerLevelUp;
         BindTMP(typeof(Texts));
         BindSlider(typeof(Sliders));
 
@@ -47,5 +53,18 @@ public class UI_GameScene : UI_Scene
     private void Update()
     {
         GetTMP((int)Texts.KillCountText).text = $"Kill Count : {Managers.Game.KillCount}";
+    }
+
+    private void OnPlayerLevelUp()
+    {
+        List<SkillBase> list = Managers.Game.Player.Skills.RecommendSkills();
+
+        if (list.Count > 0)
+        {
+            Managers.UI.ShowPopup<UI_SkillSelectPopup>();
+        }
+
+        GetSlider((int)Sliders.LevelSlider).value = _game.Player.ExpRatio;
+        GetTMP((int)Texts.LevelText).text = $"{_game.Player.Level}";
     }
 }
