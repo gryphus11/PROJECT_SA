@@ -130,6 +130,13 @@ public class ObjectManager
         return false;
     }
 
+    public void ShowDamageFont(Vector2 pos, float damage, float healAmount, Transform parent, bool isCritical = false)
+    {
+        GameObject go = Managers.Resource.Instantiate("DamageFont", pooling: true);
+        DamageFont damageText = go.GetOrAddComponent<DamageFont>();
+        damageText.SetInfo(pos, damage, healAmount, parent, isCritical);
+    }
+
     public void Clear()
     { }
 }
