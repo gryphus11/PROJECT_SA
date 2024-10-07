@@ -5361,7 +5361,6 @@ GameObject:
   - component: {fileID: 7493796544539922431}
   - component: {fileID: 7493796544539922428}
   - component: {fileID: 7493796544539922429}
-  - component: {fileID: 6227776335016804464}
   m_Layer: 0
   m_Name: BulletBody
   m_TagString: Untagged
@@ -5434,27 +5433,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6227776335016804464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7493796544539922419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac48c258e6feed744be20f90f502feb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numericPropertyName: _HsvShift
-  scrollSpeed: 0
-  backAndForth: 0
-  maxValue: 1
-  applyModulo: 0
-  modulo: 360
-  stopAtValue: 0
-  stopValue: 0
-  mat: {fileID: 0}
 --- !u!1 &7493796545001643755
 GameObject:
   m_ObjectHideFlags: 0
