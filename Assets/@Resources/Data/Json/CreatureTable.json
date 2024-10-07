@@ -21,7 +21,10 @@
         "Move_Bishop"
       ],
       "learnableSkill": [
-        10001
+        10001,
+        10011,
+        10021,
+        10031
       ],
       "defaultSkill": 10001
     },
@@ -46,9 +49,11 @@
         "Move_HollowKnight"
       ],
       "learnableSkill": [
-        10021
+        10021,
+        10011,
+        10031
       ],
-      "defaultSkill": 10021
+      "defaultSkill": 10031
     },
     {
       "dataId": 200001,

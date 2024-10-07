@@ -69,8 +69,9 @@ public static class Define
     {
         None = 0,
         IcicleArrow = 10001,       //100001 ~ 100005 
-        ThunderStorm = 10011,
+        Lightning = 10011,
         Slash = 10021,
+        Sanctuary = 10031,
     }
 
     #region sortingOrder

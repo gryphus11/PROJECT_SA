@@ -97,10 +97,16 @@ public class MonsterController : CreatureController
             // 사운드 예정
         }
 
-        float totalDmg = Managers.Game.Player.Atk * skill.SkillData.DamageMultiplier;
-        base.OnDamaged(attacker, skill, totalDmg);
-        InvokeMonsterData();
-
+        try
+        {
+            float totalDmg = Managers.Game.Player.Atk * skill.SkillData.DamageMultiplier;
+            base.OnDamaged(attacker, skill, totalDmg);
+            InvokeMonsterData();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
         KnockBackTask().Forget();
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using static Define;
@@ -101,6 +102,32 @@ public class ObjectManager
             Projectiles.Remove(obj as ProjectileController);
             Managers.Resource.Destroy(obj.gameObject);
         }
+    }
+
+    public List<MonsterController> GetMonsterWithinCamera(int count = 1)
+    {
+        List<MonsterController> monsterList = Monsters.ToList().Where(monster => IsWithInCamera(Camera.main.WorldToViewportPoint(monster.CenterPosition)) == true).ToList();
+        monsterList.Shuffle();
+
+        int min = Mathf.Min(count, monsterList.Count);
+
+        List<MonsterController> monsters = monsterList.Take(min).ToList();
+
+        if (monsters.Count == 0) return null;
+
+        while (monsters.Count < count)
+        {
+            monsters.Add(monsters.Last());
+        }
+
+        return monsterList.Take(count).ToList();
+    }
+
+    bool IsWithInCamera(Vector3 pos)
+    {
+        if (pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1)
+            return true;
+        return false;
     }
 
     public void Clear()

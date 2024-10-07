@@ -23,14 +23,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c37b240658c96fe46980fc2d31710fea
-    m_Address: Lightning
+  - m_GUID: 50ea79a6fadb1b74d8e1162e7803aa7e
+    m_Address: Slash
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 50ea79a6fadb1b74d8e1162e7803aa7e
-    m_Address: Slash
+  - m_GUID: 365e5d4a95625414b961ab26e474f8aa
+    m_Address: Sanctuary
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c37b240658c96fe46980fc2d31710fea
+    m_Address: Lightning
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 using static Define;
@@ -51,7 +52,7 @@ public class SkillBook : MonoBehaviour
         string className = skillType.ToString();
 
         // Melee 타입
-        if (skillType == SkillType.Slash)
+        if (skillType == SkillType.Slash || skillType == SkillType.Sanctuary)
         {
             // Melee 타입은 시전자를 부모로 붙어 생성
             GameObject go = Managers.Resource.Instantiate(skillType.ToString(), gameObject.transform);
@@ -59,6 +60,7 @@ public class SkillBook : MonoBehaviour
             if (go != null)
             {
                 SkillBase skill = go.GetOrAddComponent<SkillBase>();
+                skill.Owner = GetComponent<CreatureController>();
                 AddList(skill);
             }
         }
@@ -66,6 +68,7 @@ public class SkillBook : MonoBehaviour
         {
             // 투사체형은
             RepeatSkill skillBase = gameObject.AddComponent(Type.GetType(className)) as RepeatSkill;
+            skillBase.Owner = GetComponent<CreatureController>();
             AddList(skillBase);
         }
     }

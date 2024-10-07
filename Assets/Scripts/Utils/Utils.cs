@@ -66,4 +66,12 @@ public class Utils
 
         return randomPoint;
     }
+
+    public static Color HexToColor(string color)
+    {
+        Color parsedColor;
+        ColorUtility.TryParseHtmlString("#" + color, out parsedColor);
+
+        return parsedColor;
+    }
 }
