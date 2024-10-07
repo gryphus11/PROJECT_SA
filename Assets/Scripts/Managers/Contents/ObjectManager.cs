@@ -1,3 +1,4 @@
+using Data;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,18 @@ public class ObjectManager
 
             return mc as T;
         }
+        else if (type == typeof(EliteController))
+        {
+            var creatureData = Managers.Data.CreatureDic[templateID];
+            GameObject go = Managers.Resource.Instantiate($"{creatureData.prefabLabel}", pooling: true);
+            EliteController mc = go.GetOrAddComponent<EliteController>();
+            go.transform.position = position;
+            mc.SetInfo(templateID);
+            go.name = creatureData.prefabLabel;
+            Monsters.Add(mc);
+
+            return mc as T;
+        }
         else if (type == typeof(GemController))
         {
             GameObject go = Managers.Resource.Instantiate("Gem", pooling: true);
@@ -53,17 +66,15 @@ public class ObjectManager
 
             return gc as T;
         }
-        else if (type == typeof(PotionController))
-        {
-            return null;
-        }
-        else if (type == typeof(BombController))
-        {
-            return null;
-        }
         else if (type == typeof(MagnetController))
         {
-            return null;
+            GameObject go = Managers.Resource.Instantiate("Magnet", pooling: true);
+            MagnetController mc = go.GetOrAddComponent<MagnetController>();
+            go.transform.position = position;
+            DropItems.Add(mc);
+            Managers.Game.CurrentMap.Grid.Add(mc);
+
+            return mc as T;
         }
         else if (type == typeof(ProjectileController))
         {
@@ -91,11 +102,21 @@ public class ObjectManager
             Monsters.Remove(obj as MonsterController);
             Managers.Resource.Destroy(obj.gameObject);
         }
+        else if (type == typeof(EliteController))
+        {
+            Monsters.Remove(obj as EliteController);
+            Managers.Resource.Destroy(obj.gameObject);
+        }
         else if (type == typeof(GemController))
         {
             Gems.Remove(obj as GemController);
             Managers.Resource.Destroy(obj.gameObject);
             Managers.Game.CurrentMap.Grid.Remove(obj as GemController); 
+        }
+        else if (type == typeof(MagnetController))
+        {
+            Managers.Resource.Destroy(obj.gameObject);
+            Managers.Game.CurrentMap.Grid.Remove(obj as MagnetController);
         }
         else if (type == typeof(ProjectileController))
         {
@@ -135,6 +156,14 @@ public class ObjectManager
         GameObject go = Managers.Resource.Instantiate("DamageFont", pooling: true);
         DamageFont damageText = go.GetOrAddComponent<DamageFont>();
         damageText.SetInfo(pos, damage, healAmount, parent, isCritical);
+    }
+
+    public void CollectAllItems()
+    {
+        foreach (GemController gem in Gems.ToList())
+        {
+            gem.GetItem();
+        }
     }
 
     public void Clear()

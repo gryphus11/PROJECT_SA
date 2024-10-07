@@ -39,6 +39,11 @@ public class MonsterController : CreatureController
 
         float waveRate = Managers.Game.CurrentWaveData.HpIncreaseRate;
 
+        if (ObjectType == ObjectType.Elite)
+        {
+            Debug.Log("!!");
+        }
+
         MaxHp = (creatureData.maxHp + (creatureData.upMaxHp * (creatureData.hpRate + waveRate)));
         Atk = (creatureData.atk + (creatureData.upAtk * creatureData.atkRate));
         Hp = MaxHp;
@@ -123,7 +128,7 @@ public class MonsterController : CreatureController
         Managers.Game.Player.KillCount++;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         UniTaskUtils.CancelTokenSource(ref _disableCancelToken);
         _disableCancelToken = new CancellationTokenSource();
@@ -131,7 +136,9 @@ public class MonsterController : CreatureController
 
     private void OnDisable()
     {
-        _disableCancelToken.Cancel();
+        if(_disableCancelToken != null)
+            _disableCancelToken.Cancel();
+
         if (_knockbackCompleteSource != null)
         {
             _knockbackCompleteSource.TrySetCanceled();

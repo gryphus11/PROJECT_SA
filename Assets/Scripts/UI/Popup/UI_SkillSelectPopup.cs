@@ -43,7 +43,7 @@ public class UI_SkillSelectPopup : UI_Popup
         BindImage(typeof(Images));
         BindUI<VerticalLayoutGroup>(typeof(VerticalLayoutGroups));
         SetRecommendSkills();
-        
+
         List<SkillBase> activeSkills = Managers.Game.Player.Skills.SkillList.Where(skill => skill.IsLearnedSkill).ToList();
 
         for (int i = 0; i < activeSkills.Count; i++)

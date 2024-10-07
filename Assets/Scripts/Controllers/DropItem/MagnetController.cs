@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class MagnetController : DropItemController
 {
-    // Start is called before the first frame update
-    void Start()
+    Data.DropItemData _dropItemData;
+
+    public override bool Init()
     {
-        
+        base.Init();
+        transform.localScale = Vector3.one * 0.5f;
+        itemType = Define.ObjectType.Magnet;
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void GetItem()
     {
+        base.GetItem();
         
+        if (_moveToPlayerTask == null && this.IsValid())
+        {
+            MoveToPlayerTask().Forget();
+        }
+    }
+
+    public void SetInfo(Data.DropItemData data)
+    {
+        _dropItemData = data;
+        CollectDistance = Define.DROP_ITEM_COLLECT_DISTANCE;
+        GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(_dropItemData.SpriteName);
+
+    }
+
+    public override void CompleteGetItem()
+    {
+        Managers.Object.CollectAllItems();
+        Managers.Object.Despawn(this);
     }
 }

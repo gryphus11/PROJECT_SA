@@ -11,7 +11,6 @@ public class DropItemController : BaseController
     public Define.ObjectType itemType;
     
     public float moveSpeed = 15.0f;
-    public float completeGetDistance = 1.0f;
 
     protected UniTaskCompletionSource _moveToPlayerTask = null;
     public override bool Init()
@@ -52,7 +51,7 @@ public class DropItemController : BaseController
             float distance = Vector3.Distance(gameObject.transform.position, Managers.Game.Player.PlayerCenterPos);
 
             transform.position = Vector3.MoveTowards(transform.position, Managers.Game.Player.PlayerCenterPos, Time.deltaTime * moveSpeed);
-            if (distance < completeGetDistance)
+            if (distance < CollectDistance)
             {
                 CompleteGetItem();
                 return;

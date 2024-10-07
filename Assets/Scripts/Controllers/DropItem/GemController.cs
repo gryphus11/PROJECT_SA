@@ -48,7 +48,6 @@ public class GemController : DropItemController
     public override bool Init()
     {
         moveSpeed = 30.0f;
-        completeGetDistance = 0.4f;
 
         itemType = Define.ObjectType.Gem;
         base.Init();

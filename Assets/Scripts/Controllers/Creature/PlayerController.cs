@@ -159,6 +159,7 @@ public class PlayerController : CreatureController
             {
                 // 아이템에 따라 수집 형태를 추가 가능
                 case ObjectType.Gem :
+                case ObjectType.Magnet:
                     float cd = item.CollectDistance;
                     if (dir.sqrMagnitude <= cd * cd)
                     {

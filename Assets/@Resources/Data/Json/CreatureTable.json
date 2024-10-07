@@ -49,11 +49,12 @@
         "Move_HollowKnight"
       ],
       "learnableSkill": [
-        10021,
+        10001,
         10011,
+        10021,
         10031
       ],
-      "defaultSkill": 10031
+      "defaultSkill": 10021
     },
     {
       "dataId": 200001,
@@ -81,7 +82,7 @@
     {
       "dataId": 200002,
       "descriptionTextID": "네크로맨서",
-      "prefabLabel": "Monster",
+      "prefabLabel": "Elite",
       "maxHp": 350.0,
       "upMaxHp": 5.0,
       "atk": 2.0,

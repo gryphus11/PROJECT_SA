@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4513834482951862696}
   - component: {fileID: 8089529070420114156}
   m_Layer: 7
-  m_Name: Monster
+  m_Name: Elite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
