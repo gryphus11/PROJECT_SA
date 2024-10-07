@@ -3,6 +3,7 @@ using Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,7 @@ using static Define;
 public class PlayerController : CreatureController
 {
     Vector2 _moveDir = Vector2.zero;
+    CancellationTokenSource _cancellationToken = new CancellationTokenSource();
 
     #region Action
     public Action OnPlayerDataUpdated;
@@ -105,6 +107,16 @@ public class PlayerController : CreatureController
             }
 
             return 0f;
+        }
+    }
+
+    public int KillCount
+    {
+        get { return Managers.Game.KillCount; }
+        set
+        {
+            Managers.Game.KillCount = value;
+            OnPlayerDataUpdated?.Invoke();
         }
     }
 
@@ -261,5 +273,23 @@ public class PlayerController : CreatureController
             Skills.AddSkill(skillType);
             Skills.LevelUpSkill(SkillData.GetSkillTypeFromInt(creatureData.defaultSkill));
         }
+    }
+
+    public void StopAllTask()
+    { 
+        _cancellationToken.Cancel();
+    }
+
+    public override void OnDamaged(BaseController attacker, SkillBase skill = null, float damage = 0)
+    {
+        base.OnDamaged(attacker, skill, damage);
+
+
+    }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        OnPlayerDead?.Invoke();
     }
 }

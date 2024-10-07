@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Data;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 /// <summary>
 /// 게임의 전반적인 상황을 다룸
 /// </summary>
 public class GameManager
 {
+    public bool IsGameEnd { get; set; } = false;
     public bool BGMOn { get; set; }
     public bool EffectSoundOn { get; set; }
 
@@ -70,5 +72,12 @@ public class GameManager
         else if (rand < yellowGemChance)
             return new GemInfo(GemInfo.GemType.Magenta, half);
         return null;
+    }
+
+    public void GameOver()
+    {
+        IsGameEnd = true;
+        Player.StopAllTask();
+        Managers.UI.ShowPopup<UI_GameOverPopup>().SetInfo();
     }
 }

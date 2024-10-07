@@ -15,7 +15,7 @@
       "atkRate": 2.0,
       "defRate": 2.0,
       "moveSpeedRate": 2.0,
-      "iconLabel": "bishop.sprite",
+      "iconLabel": "bishop_idle.sprite",
       "animationLabels": [
         "Idle_Bishop",
         "Move_Bishop"
@@ -40,7 +40,7 @@
       "atkRate": 2.0,
       "defRate": 2.0,
       "moveSpeedRate": 2.0,
-      "iconLabel": "hollowKnight.sprite",
+      "iconLabel": "hollow_knight_idle.sprite",
       "animationLabels": [
         "Idle_HollowKnight",
         "Move_HollowKnight"

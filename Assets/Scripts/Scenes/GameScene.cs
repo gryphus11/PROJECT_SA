@@ -17,6 +17,7 @@ public class GameScene : BaseScene
     bool isGameEnd = false;
     private int _lastSecond = 0;
     UI_GameScene _ui;
+    PlayerController _player;
 
     protected override bool Init()
     {
@@ -51,13 +52,17 @@ public class GameScene : BaseScene
         Managers.Data.Init();
 
         Managers.UI.ShowSceneUI<UI_Joystick>();
-        
+
+        Managers.Game.IsGameEnd = false;
         Managers.Game.Character = new CharacterStatus();
         Managers.Game.Character.SetInfo(Managers.Game.SelectedPlayerID);
 
-        var player = Managers.Object.Spawn<PlayerController>(Vector3.zero, Managers.Game.SelectedPlayerID);
+        _player = Managers.Object.Spawn<PlayerController>(Vector3.zero, Managers.Game.SelectedPlayerID);
         var cameraController = FindObjectOfType<CameraController>();
-        cameraController.Target = player.transform;
+        cameraController.Target = _player.transform;
+        
+        _player.OnPlayerDead -= OnPlayerDead;
+        _player.OnPlayerDead += OnPlayerDead;
 
         var mapObj = Managers.Resource.Instantiate("Map01");
         mapObj.transform.position = Vector3.zero;
@@ -126,6 +131,11 @@ public class GameScene : BaseScene
 
             StartWave(_game.WaveArray[_game.CurrentWaveIndex]);
         }
+        else
+        {
+            isGameEnd = true;
+            Managers.Game.GameOver();
+        }
     }
 
     private void Update()
@@ -147,6 +157,14 @@ public class GameScene : BaseScene
         {
             //wave Á¾·á
             WaveEnd();
+        }
+    }
+
+    void OnPlayerDead()
+    {
+        if (Managers.Game.IsGameEnd == false)
+        {
+            Managers.Game.GameOver();
         }
     }
 }

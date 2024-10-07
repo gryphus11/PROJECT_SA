@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using System;
 using UnityEngine;
+using System.Linq;
 
 namespace Data
 {
-    [Serializable]
+    [System.Serializable]
     public class CreatureData
     {
         public int dataId;
@@ -30,9 +30,26 @@ namespace Data
         public List<string> animationLabels;
         public List<int> learnableSkill;
         public int defaultSkill;
+
+        public static List<CreatureData> GetPlayerCreatureData() 
+        {
+            List<CreatureData> playerCharacters = new List<CreatureData>();
+
+            var creatures = Managers.Data.CreatureDic;
+
+            foreach ( var creature in creatures ) 
+            {
+                if (creature.Key < 200000)
+                {
+                    playerCharacters.Add(creature.Value);
+                }
+            }
+
+            return playerCharacters;
+        }
     }
 
-    [Serializable]
+    [System.Serializable]
     public class CreatureDataLoader : ILoader<int, CreatureData>
     {
         public List<CreatureData> creatures = new List<CreatureData>();

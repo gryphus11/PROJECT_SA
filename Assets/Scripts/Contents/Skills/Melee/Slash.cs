@@ -8,8 +8,8 @@ public class Slash : RepeatSkill
     [SerializeField]
     private List<ParticleSystem> _swingParticles = new List<ParticleSystem>();
 
-    [SerializeField]
-    private List<OverlapCollider2D> _overlapColliders = new List<OverlapCollider2D>();
+    //[SerializeField]
+    //private List<OverlapCollider2D> _overlapColliders = new List<OverlapCollider2D>();
 
     float _radian;
 
@@ -28,14 +28,15 @@ public class Slash : RepeatSkill
         for (int i = 0; i < transform.childCount; ++i)
         {
             var particleSystem = transform.GetChild(i).GetComponent<ParticleSystem>();
-            var collider = transform.GetChild(i).GetComponent<Collider2D>();
+            
+            //var collider = transform.GetChild(i).GetComponent<Collider2D>();
 
-            if (collider != null)
-            {
-                var overlap = new OverlapCollider2D { targetCollider = collider };
-                overlap.contactFilter.SetLayerMask(LayerMask.GetMask("Monster"));
-                _overlapColliders.Add(overlap);
-            }
+            //if (collider != null)
+            //{
+            //    var overlap = new OverlapCollider2D { targetCollider = collider };
+            //    overlap.contactFilter.SetLayerMask(LayerMask.GetMask("Monster"));
+            //    _overlapColliders.Add(overlap);
+            //}
 
             if (particleSystem == null)
                 continue;
@@ -73,19 +74,19 @@ public class Slash : RepeatSkill
                 SetParticles(index);
                 var particle = _swingParticles[index];
                 particle.gameObject.SetActive(true);
-                var targets = _overlapColliders[index].GetObjectsInCollider();
+                //var targets = _overlapColliders[index].GetObjectsInCollider();
 
-                foreach (var target in targets)
-                {
-                    CreatureController creature = target.GetComponent<CreatureController>();
-                    if (creature.IsValid() == false)
-                        continue;
+                //foreach (var target in targets)
+                //{
+                //    CreatureController creature = target.GetComponent<CreatureController>();
+                //    if (creature.IsValid() == false)
+                //        continue;
 
-                    if (creature.IsMonster)
-                    {
-                        creature.OnDamaged(Managers.Game.Player, this);
-                    }
-                }
+                //    if (creature.IsMonster)
+                //    {
+                //        creature.OnDamaged(Managers.Game.Player, this);
+                //    }
+                //}
 
                 float duration = particle.main.duration;
                 await UniTask.Delay((int)((duration + SkillData.AttackInterval) * 1000), cancellationToken: cts.Token);
@@ -111,6 +112,18 @@ public class Slash : RepeatSkill
     public override void OnChangedSkillData()
     {
         transform.localScale = Vector3.one * SkillData.ScaleMultiplier;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CreatureController creature = collision.GetComponent<CreatureController>();
+        if (creature.IsValid() == false)
+            return;
+
+        if (creature.IsMonster)
+        {
+            creature.OnDamaged(Managers.Game.Player, this);
+        }
     }
 
     protected override void DoSkillJob()

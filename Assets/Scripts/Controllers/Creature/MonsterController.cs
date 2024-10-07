@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Data;
 using System.Threading;
 using UnityEngine;
 using static Define;
@@ -36,10 +37,12 @@ public class MonsterController : CreatureController
     {
         base.InitCreatureStat(isFullHp);
 
-        MaxHp = creatureData.maxHp;
+        float waveRate = Managers.Game.CurrentWaveData.HpIncreaseRate;
+
+        MaxHp = (creatureData.maxHp + (creatureData.upMaxHp * (creatureData.hpRate + waveRate)));
+        Atk = (creatureData.atk + (creatureData.upAtk * creatureData.atkRate));
         Hp = MaxHp;
-        Atk = creatureData.atk;
-        MoveSpeed = creatureData.moveSpeed;
+        MoveSpeed = creatureData.moveSpeed * creatureData.moveSpeedRate;
     }
 
     private void FixedUpdate()
@@ -115,7 +118,7 @@ public class MonsterController : CreatureController
 
         Managers.Object.Despawn(this);
 
-        Managers.Game.KillCount++;
+        Managers.Game.Player.KillCount++;
     }
 
     private void OnEnable()

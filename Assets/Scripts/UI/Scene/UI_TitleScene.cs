@@ -59,14 +59,13 @@ public class UI_TitleScene : UI_Scene
         _loadingText.text = loadedMessage;
         _loadingRotateBlur.SetActive(false);
         _moveGameSceneButton.gameObject.SetActive(true);
-        BindEvent(_moveGameSceneButton.gameObject, OnMoveGameScene);
+        BindEvent(_moveGameSceneButton.gameObject, OnMoveLobbyScene);
         Debug.Log(loadedMessage);
     }
 
-    private void OnMoveGameScene()
+    private void OnMoveLobbyScene()
     {
-        // 일단 씬 이동 막아둠. Game 씬에서 리소스를 읽은 뒤에 초기화하도록 임시코드
-        //Managers.Scene.ChangeScene(Define.SceneType.Game);
+        Managers.Scene.ChangeScene(Define.SceneType.Lobby);
     }
 
     private void OnResourceLoaded(string resourceName, int current, int total)
