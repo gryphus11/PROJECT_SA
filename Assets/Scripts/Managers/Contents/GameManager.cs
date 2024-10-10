@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Data;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 /// <summary>
 /// 게임의 전반적인 상황을 다룸
