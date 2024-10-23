@@ -166,6 +166,29 @@ public class ObjectManager
         }
     }
 
+    public List<Transform> GetFindMonstersInFanShape(Vector3 origin, Vector3 forward, float radius = 2, float angleRange = 80)
+    {
+        List<Transform> listMonster = new List<Transform>();
+        LayerMask targetLayer = LayerMask.GetMask("Monster", "Boss");
+        RaycastHit2D[] _targets = Physics2D.CircleCastAll(origin, radius, Vector2.zero, 0, targetLayer);
+
+        // 타겟중에 부채꼴 안에 있는것만 리스트에 넣는다.
+        foreach (RaycastHit2D target in _targets)
+        {
+            // '타겟-origin 벡터'와 '내 정면 벡터'를 내적
+            float dot = Vector3.Dot((target.transform.position - origin).normalized, forward);
+            // 두 벡터 모두 단위 벡터이므로 내적 결과에 cos의 역을 취해서 theta를 구함
+            float theta = Mathf.Acos(dot);
+            // angleRange와 비교하기 위해 degree로 변환
+            float degree = Mathf.Rad2Deg * theta;
+            // 시야각 판별
+            if (degree <= angleRange / 2f)
+                listMonster.Add(target.transform);
+        }
+
+        return listMonster;
+    }
+
     public void Clear()
     { }
 }

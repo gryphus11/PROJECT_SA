@@ -73,6 +73,7 @@ public static class Define
         Lightning = 10011,
         Slash = 10021,
         Sanctuary = 10031,
+        BounceArrow = 10041,
     }
 
     #region sortingOrder

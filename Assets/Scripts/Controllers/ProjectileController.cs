@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -33,7 +33,6 @@ public class ProjectileController : SkillBase
         _numPenetrations = skill.SkillData.NumPenetrations;
         _bounceCount = skill.SkillData.NumBounce;
 
-
         // 투사체가 특정한 선행 동작이 필요하다면 여기에 구현
         switch (skill.SkillType)
         {
@@ -41,6 +40,12 @@ public class ProjectileController : SkillBase
                 {
                     LightningTask().Forget();
                     _rigid.velocity = Vector2.zero;
+                }
+                break;
+            case Define.SkillType.BounceArrow:
+                {
+                    _bounceCount = Skill.SkillData.NumBounce;
+                    _rigid.velocity = _dir * Skill.SkillData.ProjectileSpeed;
                 }
                 break;
             // 기본은 특정 방향으로 발사
@@ -93,6 +98,17 @@ public class ProjectileController : SkillBase
                 {
                     _rigid.velocity = Vector3.zero;
                     DestroyProjectile();
+                }
+                break;
+            case Define.SkillType.BounceArrow:
+                {
+                    _bounceCount--;
+                    BounceProjectile(creature);
+                    if (_bounceCount < 0)
+                    {
+                        _rigid.velocity = Vector3.zero;
+                        DestroyProjectile();
+                    }
                 }
                 break;
             default:
@@ -149,5 +165,26 @@ public class ProjectileController : SkillBase
         }
         await UniTask.Delay(500);
         DestroyProjectile();
+    }
+
+    void BounceProjectile(CreatureController creature)
+    {
+        List<Transform> list = new List<Transform>();
+        list = Managers.Object.GetFindMonstersInFanShape(creature.CenterPosition, _dir, 5.5f, 240);
+
+        List<Transform> sortedList = (from t in list
+                                      orderby Vector3.Distance(t.position, transform.position) descending
+                                      select t).ToList();
+
+        if (sortedList.Count == 0)
+        {
+            DestroyProjectile();
+        }
+        else
+        {
+            int index = Random.Range(sortedList.Count / 2, sortedList.Count);
+            _dir = (sortedList[index].position - transform.position).normalized;
+            _rigid.velocity = _dir * Skill.SkillData.BounceSpeed;
+        }
     }
 }

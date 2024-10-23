@@ -44,7 +44,8 @@ class Pool
 
     public void Push(GameObject poolObject)
     {
-        _pool.Release(poolObject);
+        if(poolObject.activeSelf)
+            _pool.Release(poolObject);
     }
 
     #region 오브젝트 풀 함수
