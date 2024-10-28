@@ -22,6 +22,7 @@ public class Sanctuary : RepeatSkill
         gameObject.SetActive(true);
 
         OnChangedSkillData();
+        StartDotDamageTask().Forget();
     }
 
     public override void OnLevelUp()
@@ -55,8 +56,8 @@ public class Sanctuary : RepeatSkill
 
         target.OnDamaged(Managers.Game.Player, this);
 
-        if (_dotCompletionSrc == null)
-            StartDotDamageTask().Forget();
+        //if (_dotCompletionSrc == null)
+        //    StartDotDamageTask().Forget();
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -67,11 +68,11 @@ public class Sanctuary : RepeatSkill
 
         _targets.Remove(target);
 
-        if (_targets.Count == 0 && _dotCompletionSrc != null)
-        {
-            _dotCompletionSrc.TrySetResult();
-            _dotCompletionSrc = null;
-        }
+        //if (_targets.Count == 0 && _dotCompletionSrc != null)
+        //{
+        //    _dotCompletionSrc.TrySetResult();
+        //    _dotCompletionSrc = null;
+        //}
     }
 
     protected async UniTask StartDotDamageTask()
@@ -80,7 +81,7 @@ public class Sanctuary : RepeatSkill
 
         while (true)
         {
-            await UniTask.Delay(300);
+            await UniTask.Delay(500);
 
             List<CreatureController> list = _targets.ToList();
 
@@ -100,5 +101,14 @@ public class Sanctuary : RepeatSkill
     protected override void DoSkillJob()
     {
 
+    }
+
+    private void OnDestroy()
+    {
+        if (_targets.Count == 0 && _dotCompletionSrc != null)
+        {
+            _dotCompletionSrc.TrySetResult();
+            _dotCompletionSrc = null;
+        }
     }
 }

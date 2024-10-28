@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc0ca3fa49bd31d40802b63a7f13886f
+    m_Address: SpinCutter.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
   m_SchemaSet:

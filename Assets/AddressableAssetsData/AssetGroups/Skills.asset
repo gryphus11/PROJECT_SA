@@ -47,6 +47,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cd68ba36c127fd4a9a76047e38926ff
+    m_Address: SpinCutter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 385a5af43f22682479cfe50f178b051e
+    m_Address: Meteor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b59dd9ba08c0db4a89a58c2b3b95686
+    m_Address: MeteorExplosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
   m_SchemaSet:

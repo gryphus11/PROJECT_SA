@@ -1,10 +1,10 @@
 ﻿DataId,Name,Description,PrefabLabel,IconLabel,SoundLabel,Category,CoolTime,DamageMultiplier,ProjectileSpacing,Duration,RecognitionRange,NumProjectiles,CastingSound,AngleBetweenProj,AttackInterval,NumBounce,BounceSpeed,BounceDist,NumPenerations,HitSound,ProjRange,MinCoverage,MaxCoverage,RoatateSpeed,ProjSpeed,ScaleMultiplier
-10001,아이시클 에로우,전방을 향해 부채꼴의 얼음 화살을 발사한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,1,1.28,0,0,8,3,,10,0,0,0,0,3,,0,0,8,0,30,1
-10002,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.9,1.53,0,0,8,5,,10,0,0,0,0,3,,0,0,8,0,30,1.1
-10003,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.81,1.58,0,0,8,7,,10,0,0,0,0,4,,0,0,8,0,30,1.2
-10004,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.73,1.85,0,0,8,9,,10,0,0,0,0,4,,0,0,8,0,30,1.3
-10005,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.66,1.93,0,0,8,11,,10,0,0,0,0,5,,0,0,8,0,30,1.5
-10006,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.59,2.04,0,0,8,13,,10,0,0,0,0,6,,0,0,8,0,30,1.5
+10001,아이시클 에로우,전방을 향해 부채꼴의 얼음 화살을 발사한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,1,1.28,0,0,8,3,,10,0,0,0,0,3,,0,0,8,0,15,1
+10002,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.9,1.53,0,0,8,5,,10,0,0,0,0,3,,0,0,8,0,15,1.1
+10003,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.81,1.58,0,0,8,7,,10,0,0,0,0,4,,0,0,8,0,15,1.2
+10004,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.73,1.85,0,0,8,9,,10,0,0,0,0,4,,0,0,8,0,15,1.3
+10005,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.66,1.93,0,0,8,11,,10,0,0,0,0,5,,0,0,8,0,15,1.5
+10006,아이시클 에로우,피해량이 증가하고 화살의 개수가 2회 증가한다.,IcicleArrow,IcicleArrow.sprite,0,IcicleArrow,0.59,2.04,0,0,8,13,,10,0,0,0,0,6,,0,0,8,0,15,1.5
 10011,라이트닝,주변 무작위 위치에 번개를 지속적으로 떨어트린다.,Lightning,Lightning.sprite,0,Lightning,5,1.3,0,0,8,2,,0,0.5,0,0,0,0,,0,0,8,0,15,1
 10012,라이트닝,피해량이 증가하고 투사체의 개수가 1회 증가한다.,Lightning,Lightning.sprite,0,Lightning,4.5,1.36,0,0,8,3,,0,0.5,0,0,0,0,,0,0,8,0,15,1
 10013,라이트닝,피해량이 증가하고 투사체의 개수가 1회 증가한다.,Lightning,Lightning.sprite,0,Lightning,4.05,1.41,0,0,8,4,,0,0.5,0,0,0,0,,0,0,8,0,15,1
@@ -18,14 +18,20 @@
 10025,참격,피해량이 증가하고 공격 범위가 10% 증가한다.,Slash,Slash.sprite,0,Slash,0.2,4.75,0.15,0,8,2,,12,0.1,0,0,0,0,,0,0,8,0,20,1.8
 10026,참격,피해량이 증가하고 공격 범위가 10% 증가한다.,Slash,Slash.sprite,0,Slash,0.1,4.98,0.15,0,8,2,,12,0.1,0,0,0,0,,0,0,8,0,20,2
 10031,성역,주변의 적에게 지속피해를 주는 영역을 전개한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.41,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,1
-10032,성역,피해량이 증가하고 영역 범위가 30% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.39,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,1.5
-10033,성역,피해량이 증가하고 영역 범위가 20% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.46,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,2
-10034,성역,피해량이 증가하고 영역 범위가 20% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.55,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,2.5
-10035,성역,피해량이 증가하고 영역 범위가 10% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.67,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,3
-10036,성역,피해량이 증가하고 영역 범위가 10% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.81,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,3.5
+10032,성역,피해량이 증가하고 영역 범위가 20% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.39,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,1.2
+10033,성역,피해량이 증가하고 영역 범위가 20% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.46,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,1.4
+10034,성역,피해량이 증가하고 영역 범위가 20% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.55,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,1.6
+10035,성역,피해량이 증가하고 영역 범위가 40% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.67,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,2
+10036,성역,피해량이 증가하고 영역 범위가 50% 증가한다.,Sanctuary,Sanctuary.sprite,0,Sanctuary,0,0.81,0,0,8,1,,0,0,0,0,0,0,,3,0,8,0,20,2.5
 10041,바운스 애로우,주변의 적에게 닿으면 굴절되는 화살을 발사한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,2,0.6,0.04,0,8,4,,0,0,3,10,2,0,,0,0,8,0,30,1
 10042,바운스 애로우,피해량이 증가하고 개수가 2회 증가한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,1.8,0.67,0.04,0,8,6,,0,0,3,10,2,0,,0,0,8,0,30,1.1
 10043,바운스 애로우,피해량이 증가하고 개수가 2회 증가한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,1.62,0.74,0.04,0,8,8,,0,0,4,10,2,0,,0,0,8,0,30,1.2
 10044,바운스 애로우,피해량이 증가하고 개수가 3회 증가한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,1.46,0.78,0.04,0,8,11,,0,0,4,20,2,0,,0,0,8,0,30,1.3
 10045,바운스 애로우,피해량이 증가하고 개수가 3회 증가한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,1.31,0.82,0.04,0,8,14,,0,0,5,20,2,0,,0,0,8,0,30,1.5
 10046,바운스 애로우,피해량이 증가하고 개수가 4회 증가한다.,BounceArrow,BounceArrow.sprite,0,BounceArrow,1.18,0.9,0.04,0,8,18,,0,0,5,20,2,0,,0,0,8,0,30,1.5
+10051,스핀 커터,전방을 향해 경로의 적들을 공격하고 되돌아오는 투사체를 발사한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,1.3,0,1.3,8,1,,30,0,0,0,0,0,,3,0,8,0,3.5,1
+10052,스핀 커터,피해량이 증가하고 투사체의 개수가 1개 증가한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,1.4,0,1.6,8,2,,30,0,0,0,0,0,,4,0,8,0,3.5,1
+10053,스핀 커터,피해량이 증가하고 투사체의 개수가 1개 증가한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,1.52,0,1.9,8,3,,30,0,0,0,0,0,,5,0,8,0,3.5,1.1
+10054,스핀 커터,피해량이 증가하고 투사체의 개수가 1개 증가한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,1.67,0,2.2,8,4,,30,0,0,0,0,0,,6,0,8,0,3.5,1.2
+10055,스핀 커터,피해량이 증가하고 투사체의 개수가 1개 증가한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,1.87,0,2.5,8,5,,30,0,0,0,0,0,,7,0,8,0,3.5,1.4
+10056,스핀 커터,피해량이 증가하고 투사체의 개수가 1개 증가한다.,SpinCutter,SpinCutter.sprite,0,SpinCutter,3,2.08,0,2.5,8,6,,30,0,0,0,0,0,,7,0,8,0,3.5,1.4

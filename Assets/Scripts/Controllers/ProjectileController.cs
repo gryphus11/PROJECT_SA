@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using DG.Tweening;
+using System.Collections;
 
 public class ProjectileController : SkillBase
 {
@@ -48,6 +50,10 @@ public class ProjectileController : SkillBase
                     _rigid.velocity = _dir * Skill.SkillData.ProjectileSpeed;
                 }
                 break;
+            case Define.SkillType.SpinCutter:
+                if (gameObject.activeInHierarchy)
+                    WindCutterTask().Forget();
+                break;
             // 기본은 특정 방향으로 발사
             default:
                 {
@@ -87,8 +93,6 @@ public class ProjectileController : SkillBase
         if (this.IsValid() == false)
             return;
 
-        _enteredColliderList.Add(creature);
-
         // 투사체가 대상에 히트했을 때의 동작을 정의
         switch (Skill.SkillType)
         {
@@ -110,6 +114,11 @@ public class ProjectileController : SkillBase
                         DestroyProjectile();
                     }
                 }
+                break;
+            case Define.SkillType.SpinCutter:
+                _enteredColliderList.Add(creature);
+                if (_dotSrc == null)
+                    StartDotDamageTask(Define.ONE_SECOND_TO_MILLISEC).Forget();
                 break;
             default:
                 break;
@@ -146,9 +155,15 @@ public class ProjectileController : SkillBase
         {
             await UniTask.Delay(dotMilliSec);
 
-            foreach (CreatureController target in _enteredColliderList)
+            for (int i = 0; i < _enteredColliderList.Count; ++i)
             {
-                target.OnDamaged(Owner, Skill);
+                if (_enteredColliderList.Count <= i)
+                    continue;
+
+                var target = _enteredColliderList[i];
+
+                if(target.IsValid())
+                    target.OnDamaged(Owner, Skill);
             }
         }
     }
@@ -185,6 +200,39 @@ public class ProjectileController : SkillBase
             int index = Random.Range(sortedList.Count / 2, sortedList.Count);
             _dir = (sortedList[index].position - transform.position).normalized;
             _rigid.velocity = _dir * Skill.SkillData.BounceSpeed;
+        }
+    }
+
+    async UniTask WindCutterTask()
+    {
+        Vector3 targePoint = Managers.Game.Player.PlayerCenterPos + _dir * Skill.SkillData.ProjectileSpeed;
+        transform.localScale = Vector3.zero;
+        transform.localScale = Vector3.one * Skill.SkillData.ScaleMultiplier;
+
+        Sequence seq = DOTween.Sequence();
+        // 1. 목표지점까지 빠르게 도착
+        // 2. 도착수 약간 더 전진
+        // 3. 되돌아옴
+
+        float projectileTravelTime = 1f; // 발사체가 목표지점까지 가는데 걸리는시간
+        float secondSeqStartTime = 0.7f; // 두번쨰 시퀀스 시작시간
+        float secondSeqDuringTime = 1.8f; //두번째 시퀀스 유지시간
+
+        seq.Append(transform.DOMove(targePoint, projectileTravelTime).SetEase(Ease.OutExpo))
+            .Insert(secondSeqStartTime, transform.DOMove(targePoint + _dir, secondSeqDuringTime).SetEase(Ease.Linear));
+
+        await UniTask.Delay((int)(Skill.SkillData.Duration * 1000.0f));
+
+        while (true)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, Managers.Game.Player.PlayerCenterPos, Time.deltaTime * Skill.SkillData.ProjectileSpeed * 4f);
+            if (Managers.Game.Player.PlayerCenterPos == transform.position)
+            {
+                DestroyProjectile();
+                break;
+            }
+
+            await UniTask.WaitForFixedUpdate();
         }
     }
 }

@@ -74,6 +74,7 @@ public static class Define
         Slash = 10021,
         Sanctuary = 10031,
         BounceArrow = 10041,
+        SpinCutter = 10051,
     }
 
     #region sortingOrder
@@ -88,10 +89,12 @@ public static class Define
 
     public static float KNOCKBACK_TIME = 0.1f;// 밀려나는시간
     public static float KNOCKBACK_SPEED = 10;  // 속도 
-    public static float KNOCKBACK_COOLTIME = 0.2f;
+    public static float KNOCKBACK_COOLTIME = 0.7f;
 
     public static int MAX_SKILL_LEVEL = 6;
     public static int MAX_SKILL_COUNT = 6;
+
+    public const int ONE_SECOND_TO_MILLISEC = 1000;
 
     #region 보석 경험치 획득량
     public const int SMALL_EXP_AMOUNT = 1;
