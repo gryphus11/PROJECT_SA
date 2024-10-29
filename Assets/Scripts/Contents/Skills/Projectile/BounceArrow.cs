@@ -44,7 +44,7 @@ public class BounceArrow : RepeatSkill
                         continue;
                     Vector3 dir = target[i].CenterPosition - Managers.Game.Player.CenterPosition;
                     Vector3 startPos = Managers.Game.Player.CenterPosition;
-                    GenerateProjectile(Managers.Game.Player, prefabName, startPos, dir.normalized, Vector3.zero, this);
+                    GenerateProjectile<BounceArrowProjectileController>(Managers.Game.Player, prefabName, startPos, dir.normalized, Vector3.zero, this);
                 }
 
                 await UniTask.Delay((int)(SkillData.ProjectileSpacing * 1000.0f));

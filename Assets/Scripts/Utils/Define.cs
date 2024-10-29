@@ -69,12 +69,13 @@ public static class Define
     public enum SkillType
     {
         None = 0,
-        IcicleArrow = 10001,       //100001 ~ 100005 
+        IcicleArrow = 10001,       //100001 ~ 100006
         Lightning = 10011,
         Slash = 10021,
         Sanctuary = 10031,
         BounceArrow = 10041,
         SpinCutter = 10051,
+        Meteor = 10061,
     }
 
     #region sortingOrder

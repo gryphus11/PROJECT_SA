@@ -1,4 +1,5 @@
 using Data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,12 +77,12 @@ public class ObjectManager
 
             return mc as T;
         }
-        else if (type == typeof(ProjectileController))
+        else if (type == typeof(ProjectileController) || typeof(T).IsSubclassOf(typeof(ProjectileController)))
         {
             GameObject go = Managers.Resource.Instantiate(prefabName, pooling: true);
-            ProjectileController pc = go.GetOrAddComponent<ProjectileController>();
+            T pc = go.GetOrAddComponent<T>();
             go.transform.position = position;
-            Projectiles.Add(pc);
+            Projectiles.Add(pc as ProjectileController);
 
             return pc as T;
         }
@@ -111,14 +112,14 @@ public class ObjectManager
         {
             Gems.Remove(obj as GemController);
             Managers.Resource.Destroy(obj.gameObject);
-            Managers.Game.CurrentMap.Grid.Remove(obj as GemController); 
+            Managers.Game.CurrentMap.Grid.Remove(obj as GemController);
         }
         else if (type == typeof(MagnetController))
         {
             Managers.Resource.Destroy(obj.gameObject);
             Managers.Game.CurrentMap.Grid.Remove(obj as MagnetController);
         }
-        else if (type == typeof(ProjectileController))
+        else if (type == typeof(ProjectileController) || typeof(T).IsSubclassOf(typeof(ProjectileController)))
         {
             Projectiles.Remove(obj as ProjectileController);
             Managers.Resource.Destroy(obj.gameObject);

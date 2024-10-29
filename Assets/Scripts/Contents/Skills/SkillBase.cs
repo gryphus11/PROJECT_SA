@@ -84,7 +84,12 @@ public class SkillBase : BaseController
 
     protected virtual ProjectileController GenerateProjectile(CreatureController Owner, string prefabName, Vector3 startPos, Vector3 dir, Vector3 targetPos, SkillBase skill)
     {
-        ProjectileController pc = Managers.Object.Spawn<ProjectileController>(startPos, prefabName: prefabName);
+        return GenerateProjectile<ProjectileController>(Owner, prefabName, startPos, dir, targetPos, skill);
+    }
+
+    protected virtual T GenerateProjectile<T>(CreatureController Owner, string prefabName, Vector3 startPos, Vector3 dir, Vector3 targetPos, SkillBase skill) where T : ProjectileController
+    {
+        T pc = Managers.Object.Spawn<T>(startPos, prefabName: prefabName);
         pc.SetInfo(Owner, startPos, dir, targetPos, skill);
         return pc;
     }

@@ -29,7 +29,7 @@ public class IcicleArrow : RepeatSkill
                 // 갯수 * 각도로 하되, 좌우 대칭이 되도록
                 float angle = SkillData.AngleBetweenProject * (i - (SkillData.NumProjectiles - 1) / 2f);
                 Vector3 res = Quaternion.AngleAxis(angle, Vector3.forward) * dir;
-                var pc = GenerateProjectile(Managers.Game.Player, prefabName, startPos, res.normalized, Vector3.zero, this);
+                var pc = GenerateProjectile<IcicleArrowProjectileController>(Managers.Game.Player, prefabName, startPos, res.normalized, Vector3.zero, this);
                 var particles = pc.GetComponentsInChildren<ParticleSystem>();
                 foreach (var particle in particles)
                 { 

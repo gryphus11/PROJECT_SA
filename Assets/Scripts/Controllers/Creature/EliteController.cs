@@ -55,7 +55,7 @@ public class EliteController : MonsterController
                 if (dropCount < 2)
                     dropPos = transform.position;
                 else
-                    dropPos = CalculateDropPotion(angleInterval * i);
+                    dropPos = CalculateDropPosition(angleInterval * i);
 
                 switch (dropItem.DropItemType)
                 {
@@ -72,7 +72,7 @@ public class EliteController : MonsterController
         }
     }
 
-    Vector3 CalculateDropPotion(float angle)
+    Vector3 CalculateDropPosition(float angle)
     {
         float dropDistance = Random.Range(1f, 2f);
 

@@ -21,7 +21,7 @@ public class Lightning : RepeatSkill
         {
             if (targets[i].IsValid() == true)
             {
-                GenerateProjectile(Managers.Game.Player, SkillData.PrefabLabel, targets[i].CenterPosition, Vector3.zero, targets[i].CenterPosition, this);
+                GenerateProjectile<LightningProjectileController>(Managers.Game.Player, SkillData.PrefabLabel, targets[i].CenterPosition, Vector3.zero, targets[i].CenterPosition, this);
                 await UniTask.Delay((int)(SkillData.AttackInterval * 1000));
             }
         }

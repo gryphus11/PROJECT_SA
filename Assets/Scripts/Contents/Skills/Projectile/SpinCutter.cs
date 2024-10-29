@@ -20,7 +20,7 @@ public class SpinCutter : RepeatSkill
             {
                 float angle = SkillData.AngleBetweenProject * (i - (SkillData.NumProjectiles - 1) / 2f);
                 Vector3 res = Quaternion.AngleAxis(angle, Vector3.forward) * dir;
-                GenerateProjectile(Managers.Game.Player, prefabName, startPos, res.normalized, Vector3.zero, this);
+                GenerateProjectile<SpinCutterProjectileController>(Managers.Game.Player, prefabName, startPos, res.normalized, Vector3.zero, this);
             }
         }
     }
