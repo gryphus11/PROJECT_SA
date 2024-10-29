@@ -112,9 +112,9 @@ public class GameScene : BaseScene
 
         //엘리트 몬스터 소환
         EliteController elite;
-        for (int i = 0; i < _game.CurrentWaveData.EleteId.Count; i++)
+        for (int i = 0; i < _game.CurrentWaveData.EliteId.Count; i++)
         {
-            elite = Managers.Object.Spawn<EliteController>(spawnPos, _game.CurrentWaveData.EleteId[i]);
+            elite = Managers.Object.Spawn<EliteController>(spawnPos, _game.CurrentWaveData.EliteId[i]);
         }
     }
 

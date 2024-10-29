@@ -93,17 +93,40 @@
       "upMaxHp": 5.0,
       "atk": 2.0,
       "upAtk": 2.0,
-      "def": 0.0,
+      "def": 5.0,
       "moveSpeed": 1.5,
       "totalExp": 200.0,
       "hpRate": 1.0,
       "atkRate": 1.0,
       "defRate": 1.0,
       "moveSpeedRate": 1.0,
-      "iconLabel": "goblin.sprite",
+      "iconLabel": "necromancer.sprite",
       "animationLabels": [
         "Idle_Necromancer",
         "Move_Necromancer"
+      ],
+      "learnableSkill": [],
+      "defaultSkill": 0
+    },
+    {
+      "dataId": 200003,
+      "descriptionTextID": "워울프",
+      "prefabLabel": "Monster",
+      "maxHp": 100.0,
+      "upMaxHp": 5.0,
+      "atk": 5.0,
+      "upAtk": 5.0,
+      "def": 0.0,
+      "moveSpeed": 2.0,
+      "totalExp": 200.0,
+      "hpRate": 1.0,
+      "atkRate": 1.0,
+      "defRate": 1.0,
+      "moveSpeedRate": 1.0,
+      "iconLabel": "werewolf.sprite",
+      "animationLabels": [
+        "Idle_Werewolf",
+        "Move_Werewolf"
       ],
       "learnableSkill": [],
       "defaultSkill": 0

@@ -105,7 +105,7 @@ public static class CsvToJsonConverter
             waveData.SpawnInterval = ConvertValue<float>(row[i++]);
             waveData.OnceSpawnCount = ConvertValue<int>(row[i++]);
             waveData.MonsterId = ConvertList<int>(row[i++]);
-            waveData.EleteId = ConvertList<int>(row[i++]);
+            waveData.EliteId = ConvertList<int>(row[i++]);
             waveData.RemainsTime = ConvertValue<float>(row[i++]);
             waveData.FirstMonsterSpawnRate = ConvertValue<float>(row[i++]);
             waveData.HpIncreaseRate = ConvertValue<float>(row[i++]);

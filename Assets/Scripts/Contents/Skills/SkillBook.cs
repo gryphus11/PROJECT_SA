@@ -130,11 +130,23 @@ public class SkillBook : MonoBehaviour
     public List<SkillBase> RecommendSkills()
     {
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
+        List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
 
-        // 레벨이 5 미만인 스킬
-        List<SkillBase> recommendSkills = skillList.FindAll(s => s.Level < MAX_SKILL_LEVEL);
-        recommendSkills.Shuffle();
-        return recommendSkills.Take(3).ToList();
+        // 모든 스킬 슬롯을 다 채웠다면
+        if (activeSkills.Count == MAX_SKILL_COUNT)
+        {
+            // 배운 스킬들 중 레벨이 5 미만인 스킬
+            List<SkillBase> recommendSkills = activeSkills.FindAll(s => s.Level < MAX_SKILL_LEVEL);
+            recommendSkills.Shuffle();
+            return recommendSkills.Take(3).ToList();
+        }
+        else
+        {
+            // 전체 스킬들 중 레벨이 5 미만인 스킬
+            List<SkillBase> recommendSkills = skillList.FindAll(s => s.Level < MAX_SKILL_LEVEL);
+            recommendSkills.Shuffle();
+            return recommendSkills.Take(3).ToList();
+        }
     }
     #endregion
 }

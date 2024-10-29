@@ -11,7 +11,7 @@ namespace Data
         public float SpawnInterval = 0.5f;
         public int OnceSpawnCount;
         public List<int> MonsterId;
-        public List<int> EleteId;
+        public List<int> EliteId;
         public List<int> BossId;
         public float RemainsTime;
         public float FirstMonsterSpawnRate;

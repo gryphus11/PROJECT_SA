@@ -123,8 +123,15 @@ public class UI_GameScene : UI_Scene
 
     void AddSkillSlot(int index, string iconLabel)
     {
-        GetImage(index).sprite = Managers.Resource.Load<Sprite>(iconLabel);
-        GetImage(index).enabled = true;
+        try
+        {
+            GetImage(index).sprite = Managers.Resource.Load<Sprite>(iconLabel);
+            GetImage(index).enabled = true;
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
     }
 
     void ClearSkillSlot()
