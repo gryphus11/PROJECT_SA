@@ -22,6 +22,8 @@ public class DataManager
     public Dictionary<int, List<WaveData>> WaveDic { get; private set; } = new Dictionary<int, List<WaveData>>();
     public Dictionary<int, Data.LevelUpExpData> LevelUpExpDic { get; private set; } = new Dictionary<int, Data.LevelUpExpData>();
     public Dictionary<int, Data.SkillData> SkillDic { get; private set; } = new Dictionary<int, Data.SkillData>();
+    public Dictionary<int, Data.SupportSkillData> SupportSkillDic { get; private set; } = new Dictionary<int, Data.SupportSkillData>();
+    public Dictionary<int, Data.WeaponUpgradeData> UpgradeWeaponDic { get; private set; } = new Dictionary<int, Data.WeaponUpgradeData>();
 
     public void Init()
     {
@@ -30,6 +32,8 @@ public class DataManager
         WaveDic         = LoadJson<Data.WaveDataLoader, int, List<WaveData>>("WaveTable").MakeDict();
         LevelUpExpDic   = LoadJson<Data.LevelUpExpDataLoader, int, Data.LevelUpExpData>("LevelUpExpTable").MakeDict();
         SkillDic        = LoadJson<Data.SkillDataLoader, int, Data.SkillData>("SkillTable").MakeDict();
+        SupportSkillDic = LoadJson<Data.SupportSkillDataLoader, int, Data.SupportSkillData>("SupportSkillTable").MakeDict();
+        UpgradeWeaponDic = LoadJson<Data.WeaponUpgradeDataLoader, int, Data.WeaponUpgradeData>("UpgradeWeaponTable").MakeDict();
     }
 
     #region Json

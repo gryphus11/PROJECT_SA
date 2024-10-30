@@ -10,18 +10,18 @@ using static Define;
 public class SkillBook : MonoBehaviour
 {
     /// <summary>
-    /// È®ÀÎ¿ë
+    /// í™•ì¸ìš©
     /// </summary>
     [SerializeField]
     private List<SkillBase> _skillList = new List<SkillBase>();
 
     /// <summary>
-    /// ¸ğµç ½ºÅ³À» µé°í ÀÖÀ¸¸ç °ü¸®ÇØ ÁØ´Ù.
+    /// ëª¨ë“  ìŠ¤í‚¬ì„ ë“¤ê³  ìˆìœ¼ë©° ê´€ë¦¬í•´ ì¤€ë‹¤.
     /// </summary>
     public List<SkillBase> SkillList { get { return _skillList; } }
 
     /// <summary>
-    /// ·¹º§ 1 ÀÌ»óÀÇ ½ºÅ³µé¸¸ ¹İÈ¯
+    /// ë ˆë²¨ 1 ì´ìƒì˜ ìŠ¤í‚¬ë“¤ë§Œ ë°˜í™˜
     /// </summary>
     public List<SkillBase> ActivatedSkills
     {
@@ -39,7 +39,7 @@ public class SkillBook : MonoBehaviour
 
     public void LoadSkill(Define.SkillType skillType, int level)
     {
-        //¸ğµç½ºÅ³Àº 0À¸·Î ½ÃÀÛÇÔ. ·¹º§ ¼ö ¸¸Å­ ·¹º§¾÷
+        //ëª¨ë“ ìŠ¤í‚¬ì€ 0ìœ¼ë¡œ ì‹œì‘í•¨. ë ˆë²¨ ìˆ˜ ë§Œí¼ ë ˆë²¨ì—…
         AddSkill(skillType);
         for (int i = 0; i < level; i++)
             LevelUpSkill(skillType);
@@ -50,10 +50,10 @@ public class SkillBook : MonoBehaviour
     {
         string className = skillType.ToString();
 
-        // Melee Å¸ÀÔ
+        // Melee íƒ€ì…
         if (skillType == SkillType.Slash || skillType == SkillType.Sanctuary)
         {
-            // Melee Å¸ÀÔÀº ½ÃÀüÀÚ¸¦ ºÎ¸ğ·Î ºÙ¾î »ı¼º
+            // Melee íƒ€ì…ì€ ì‹œì „ìë¥¼ ë¶€ëª¨ë¡œ ë¶™ì–´ ìƒì„±
             GameObject go = Managers.Resource.Instantiate(skillType.ToString(), gameObject.transform);
             
             if (go != null)
@@ -65,7 +65,7 @@ public class SkillBook : MonoBehaviour
         }
         else
         {
-            // Åõ»çÃ¼ÇüÀº
+            // íˆ¬ì‚¬ì²´í˜•ì€
             RepeatSkill skillBase = gameObject.AddComponent(Type.GetType(className)) as RepeatSkill;
             skillBase.Owner = GetComponent<CreatureController>();
             AddList(skillBase);
@@ -84,7 +84,7 @@ public class SkillBook : MonoBehaviour
 
     bool _stopped = false;
 
-    [ContextMenu("½ºÅ³ Áß´Ü")]
+    [ContextMenu("ìŠ¤í‚¬ ì¤‘ë‹¨")]
     public void StopSkills()
     {
         _stopped = true;
@@ -99,7 +99,7 @@ public class SkillBook : MonoBehaviour
     {
         for (int i = 0; i < SkillList.Count; i++)
         {
-            // ½ºÅ³ Å¸ÀÔÀÌ °°Àº ½ºÅ³À» Ã£¾Æ ·¹º§¾÷
+            // ìŠ¤í‚¬ íƒ€ì…ì´ ê°™ì€ ìŠ¤í‚¬ì„ ì°¾ì•„ ë ˆë²¨ì—…
             if (SkillList[i].SkillType == skillType)
             {
                 SkillList[i].OnLevelUp();
@@ -113,16 +113,16 @@ public class SkillBook : MonoBehaviour
         onSkillChanged?.Invoke();
     }
 
-    #region ½ºÅ³ ¼±ÅÃ °ü·Ã
+    #region ìŠ¤í‚¬ ì„ íƒ ê´€ë ¨
     public SkillBase RecommendDropSkill()
     {
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
 
-        // ¹è¿î ½ºÅ³Áß ·¹º§ÀÌ 5 ¹Ì¸¸ÀÎ ½ºÅ³À» ÃßÃµ
+        // ë°°ìš´ ìŠ¤í‚¬ì¤‘ ë ˆë²¨ì´ 5 ë¯¸ë§Œì¸ ìŠ¤í‚¬ì„ ì¶”ì²œ
         List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
         List<SkillBase> recommendSkills = activeSkills.FindAll(s => s.Level < 5);
 
-        // ¼¯±â
+        // ì„ê¸°
         recommendSkills.Shuffle();
         return recommendSkills[0];
     }
@@ -132,17 +132,17 @@ public class SkillBook : MonoBehaviour
         List<SkillBase> skillList = Managers.Game.Player.Skills.SkillList.ToList();
         List<SkillBase> activeSkills = skillList.FindAll(skill => skill.IsLearnedSkill);
 
-        // ¸ğµç ½ºÅ³ ½½·ÔÀ» ´Ù Ã¤¿ü´Ù¸é
+        // ëª¨ë“  ìŠ¤í‚¬ ìŠ¬ë¡¯ì„ ë‹¤ ì±„ì› ë‹¤ë©´
         if (activeSkills.Count == MAX_SKILL_COUNT)
         {
-            // ¹è¿î ½ºÅ³µé Áß ·¹º§ÀÌ 5 ¹Ì¸¸ÀÎ ½ºÅ³
+            // ë°°ìš´ ìŠ¤í‚¬ë“¤ ì¤‘ ë ˆë²¨ì´ 5 ë¯¸ë§Œì¸ ìŠ¤í‚¬
             List<SkillBase> recommendSkills = activeSkills.FindAll(s => s.Level < MAX_SKILL_LEVEL);
             recommendSkills.Shuffle();
             return recommendSkills.Take(3).ToList();
         }
         else
         {
-            // ÀüÃ¼ ½ºÅ³µé Áß ·¹º§ÀÌ 5 ¹Ì¸¸ÀÎ ½ºÅ³
+            // ì „ì²´ ìŠ¤í‚¬ë“¤ ì¤‘ ë ˆë²¨ì´ 5 ë¯¸ë§Œì¸ ìŠ¤í‚¬
             List<SkillBase> recommendSkills = skillList.FindAll(s => s.Level < MAX_SKILL_LEVEL);
             recommendSkills.Shuffle();
             return recommendSkills.Take(3).ToList();

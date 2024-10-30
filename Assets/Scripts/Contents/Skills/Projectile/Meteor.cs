@@ -39,8 +39,8 @@ public class Meteor : RepeatSkill
 
     public Vector2 GetMeteorPosition(Vector3 target)
     {
-        float angleInRadians = 60f * Mathf.Deg2Rad;
-        float spawnMargin = 1f;
+        float radian = 60.0f * Mathf.Deg2Rad;
+        float spawnOffset = 1.0f;
 
         // 화면의 높이 절반
         float halfHeight = Camera.main.orthographicSize;
@@ -49,8 +49,8 @@ public class Meteor : RepeatSkill
         float halfWidth = Camera.main.aspect * halfHeight;
 
         // 타겟 위치에서 각도 방향에서 일정 거리 떨어진 곳에 생성하기 위함
-        float spawnX = target.x + (halfWidth + spawnMargin) * Mathf.Cos(angleInRadians);
-        float spawnY = target.y + (halfHeight + spawnMargin) * Mathf.Sin(angleInRadians);
+        float spawnX = target.x + (halfWidth + spawnOffset) * Mathf.Cos(radian);
+        float spawnY = target.y + (halfHeight + spawnOffset) * Mathf.Sin(radian);
 
         Vector2 spawnPosition = new Vector2(spawnX, spawnY);
 

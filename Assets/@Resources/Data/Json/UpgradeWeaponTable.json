@@ -1,0 +1,74 @@
+{
+  "upgrades": [
+    {
+      "DataId": 100001,
+      "RequireWeaponsID": [
+        10001
+      ],
+      "RequireSupportsID": [
+        30201
+      ],
+      "ResultWeaponID": 10007
+    },
+    {
+      "DataId": 100002,
+      "RequireWeaponsID": [
+        10011
+      ],
+      "RequireSupportsID": [
+        31301
+      ],
+      "ResultWeaponID": 10017
+    },
+    {
+      "DataId": 100003,
+      "RequireWeaponsID": [
+        10021
+      ],
+      "RequireSupportsID": [
+        31201
+      ],
+      "ResultWeaponID": 10027
+    },
+    {
+      "DataId": 100004,
+      "RequireWeaponsID": [
+        10031
+      ],
+      "RequireSupportsID": [
+        30401
+      ],
+      "ResultWeaponID": 10037
+    },
+    {
+      "DataId": 100005,
+      "RequireWeaponsID": [
+        10041
+      ],
+      "RequireSupportsID": [
+        31001
+      ],
+      "ResultWeaponID": 10047
+    },
+    {
+      "DataId": 100006,
+      "RequireWeaponsID": [
+        10051
+      ],
+      "RequireSupportsID": [
+        30701
+      ],
+      "ResultWeaponID": 10057
+    },
+    {
+      "DataId": 100007,
+      "RequireWeaponsID": [
+        10061
+      ],
+      "RequireSupportsID": [
+        30501
+      ],
+      "ResultWeaponID": 10067
+    }
+  ]
+}

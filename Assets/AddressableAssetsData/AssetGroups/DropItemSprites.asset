@@ -47,6 +47,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcbab3cdf8811456ba472698be675f80
+    m_Address: Potion_Icon.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e9c5b2e1bb824118b8deb06cc2f1780
+    m_Address: Bomb_Icon.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
   m_SchemaSet:

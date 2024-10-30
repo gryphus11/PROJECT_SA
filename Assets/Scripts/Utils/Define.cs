@@ -64,7 +64,7 @@ public static class Define
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÇ ÀÎµ¦½º¸¦ Á¤ÀÇ
+    /// ìŠ¤í‚¬ì˜ ì¸ë±ìŠ¤ë¥¼ ì •ì˜
     /// </summary>
     public enum SkillType
     {
@@ -78,6 +78,50 @@ public static class Define
         Meteor = 10061,
     }
 
+    public enum SupportSkillType
+    {
+        General,
+        Passive,
+        LevelUp,
+        MonsterKill,
+        EliteKill,
+        Special
+    }
+
+    public enum SupportSkillName
+    {
+        Critical,
+        MaxHpBonus,
+        ExpBonus,
+        SoulBonus,
+        DamageReduction,
+        AtkBonusRate,
+        MoveBonusRate,
+        Healing, // ì²´ë ¥ íšŒë³µ 
+        HealBonusRate,//íšŒë³µëŸ‰ ì¦ê°€
+        HpRegen,
+        CriticalDamage,
+        MagneticRange,
+        Resurrection,
+        LevelupMoveSpeed,
+        LevelupReduction,
+        LevelupAtk,
+        LevelupCri,
+        LevelupCriDmg,
+        MonsterKillAtk,
+        MonsterKillMaxHP,
+        MonsterKillReduction,
+        EliteKillExp,
+        EliteKillSoul,
+        IcicleArrow,
+        Lightning,
+        Slash,
+        Sanctuary,
+        BounceArrow,
+        SpinCutter,
+        Meteor,
+    }
+
     #region sortingOrder
     public static readonly int UI_GAMESCENE_SORT_CLOSED = 321;
     public static readonly int DROP_SORT = 105;
@@ -88,8 +132,8 @@ public static class Define
 
     public static readonly float DROP_ITEM_COLLECT_DISTANCE = 2.5f;
 
-    public static float KNOCKBACK_TIME = 0.1f;// ¹Ğ·Á³ª´Â½Ã°£
-    public static float KNOCKBACK_SPEED = 10;  // ¼Óµµ 
+    public static float KNOCKBACK_TIME = 0.1f;// ë°€ë ¤ë‚˜ëŠ”ì‹œê°„
+    public static float KNOCKBACK_SPEED = 10;  // ì†ë„ 
     public static float KNOCKBACK_COOLTIME = 0.7f;
 
     public static int MAX_SKILL_LEVEL = 6;
@@ -97,7 +141,7 @@ public static class Define
 
     public const int ONE_SECOND_TO_MILLISEC = 1000;
 
-    #region º¸¼® °æÇèÄ¡ È¹µæ·®
+    #region ë³´ì„ ê²½í—˜ì¹˜ íšë“ëŸ‰
     public const int SMALL_EXP_AMOUNT = 1;
     public const int GREEN_EXP_AMOUNT = 2;
     public const int BLUE_EXP_AMOUNT = 5;

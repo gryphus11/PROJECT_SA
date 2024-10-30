@@ -118,7 +118,8 @@
       "OnceSpawnCount": 53,
       "MonsterId": [
         200001,
-        200003
+        200003,
+        200004
       ],
       "EliteId": [
         200002
@@ -164,7 +165,8 @@
       "OnceSpawnCount": 73,
       "MonsterId": [
         200001,
-        200003
+        200003,
+        200004
       ],
       "EliteId": [
         200002
@@ -189,7 +191,8 @@
       "OnceSpawnCount": 83,
       "MonsterId": [
         200001,
-        200003
+        200003,
+        200004
       ],
       "EliteId": [],
       "BossId": null,
@@ -210,7 +213,8 @@
       "OnceSpawnCount": 93,
       "MonsterId": [
         200001,
-        200003
+        200003,
+        200004
       ],
       "EliteId": [
         200002

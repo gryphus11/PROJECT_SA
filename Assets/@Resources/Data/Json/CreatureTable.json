@@ -29,7 +29,7 @@
         10051,
         10061
       ],
-      "defaultSkill": 10031
+      "defaultSkill": 10061
     },
     {
       "dataId": 100002,
@@ -127,6 +127,29 @@
       "animationLabels": [
         "Idle_Werewolf",
         "Move_Werewolf"
+      ],
+      "learnableSkill": [],
+      "defaultSkill": 0
+    },
+    {
+      "dataId": 200004,
+      "descriptionTextID": "역병의사",
+      "prefabLabel": "Monster",
+      "maxHp": 35.0,
+      "upMaxHp": 10.0,
+      "atk": 10.0,
+      "upAtk": 10.0,
+      "def": 0.0,
+      "moveSpeed": 3.5,
+      "totalExp": 200.0,
+      "hpRate": 1.0,
+      "atkRate": 1.0,
+      "defRate": 1.0,
+      "moveSpeedRate": 1.5,
+      "iconLabel": "plaguedoctor.sprite",
+      "animationLabels": [
+        "Idle_PlagueDoctor",
+        "Move_PlagueDoctor"
       ],
       "learnableSkill": [],
       "defaultSkill": 0

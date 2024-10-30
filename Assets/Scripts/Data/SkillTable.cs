@@ -11,29 +11,29 @@ namespace Data
         public int DataId;
         public string Name;
         public string Description;
-        public string PrefabLabel; //ÇÁ¸®ÆÕ °æ·Î
-        public string IconLabel;//¾ÆÀÌÄÜ °æ·Î
-        public string SoundLabel;// ¹ßµ¿»ç¿îµå °æ·Î
-        public string Category;//½ºÅ³ Ä«Å×°í¸®
-        public float CoolTime; // ÄðÅ¸ÀÓ
-        public float DamageMultiplier; //½ºÅ³µ¥¹ÌÁö (°öÇÏ±â)
-        public float ProjectileSpacing;// ¹ß»çÃ¼ »çÀÌ °£°Ý
-        public float Duration; //½ºÅ³ Áö¼Ó½Ã°£
-        public float RecognitionRange;//ÀÎ½Ä¹üÀ§
-        public int NumProjectiles;// È¸´ç °ø°ÝÈ½¼ö
-        public string CastingSound; // ½ÃÀü»ç¿îµå
-        public float AngleBetweenProject;// ¹ß»çÃ¼ »çÀÌ °¢µµ
-        public float AttackInterval; //°ø°Ý°£°Ý
-        public int NumBounce;//¹Ù¿î½º È½¼ö
-        public float BounceSpeed;// ¹Ù¿î½º ¼Óµµ
-        public float BounceDistance;//¹Ù¿î½º °Å¸®
-        public int NumPenetrations; //°üÅë È½¼ö
-        public string HitSoundLabel; // È÷Æ®»ç¿îµå
-        public float ProjectileRange; //Åõ»çÃ¼ »ç°Å¸®
-        public float MinCoverage; //ÃÖ¼Ò È¿°ú Àû¿ë ¹üÀ§
-        public float MaxCoverage; // ÃÖ´ë È¿°ú Àû¿ë ¹üÀ§
-        public float RotateSpeed; // È¸Àü ¼Óµµ
-        public float ProjectileSpeed; //¹ß»çÃ¼ ¼Óµµ
+        public string PrefabLabel; //í”„ë¦¬íŒ¹ ê²½ë¡œ
+        public string IconLabel;//ì•„ì´ì½˜ ê²½ë¡œ
+        public string SoundLabel;// ë°œë™ì‚¬ìš´ë“œ ê²½ë¡œ
+        public string Category;//ìŠ¤í‚¬ ì¹´í…Œê³ ë¦¬
+        public float CoolTime; // ì¿¨íƒ€ìž„
+        public float DamageMultiplier; //ìŠ¤í‚¬ë°ë¯¸ì§€ (ê³±í•˜ê¸°)
+        public float ProjectileSpacing;// ë°œì‚¬ì²´ ì‚¬ì´ ê°„ê²©
+        public float Duration; //ìŠ¤í‚¬ ì§€ì†ì‹œê°„
+        public float RecognitionRange;//ì¸ì‹ë²”ìœ„
+        public int NumProjectiles;// íšŒë‹¹ ê³µê²©íšŸìˆ˜
+        public string CastingSound; // ì‹œì „ì‚¬ìš´ë“œ
+        public float AngleBetweenProject;// ë°œì‚¬ì²´ ì‚¬ì´ ê°ë„
+        public float AttackInterval; //ê³µê²©ê°„ê²©
+        public int NumBounce;//ë°”ìš´ìŠ¤ íšŸìˆ˜
+        public float BounceSpeed;// ë°”ìš´ìŠ¤ ì†ë„
+        public float BounceDistance;//ë°”ìš´ìŠ¤ ê±°ë¦¬
+        public int NumPenetrations; //ê´€í†µ íšŸìˆ˜
+        public string HitSoundLabel; // ížˆíŠ¸ì‚¬ìš´ë“œ
+        public float ProjectileRange; //íˆ¬ì‚¬ì²´ ì‚¬ê±°ë¦¬
+        public float MinCoverage; //ìµœì†Œ íš¨ê³¼ ì ìš© ë²”ìœ„
+        public float MaxCoverage; // ìµœëŒ€ íš¨ê³¼ ì ìš© ë²”ìœ„
+        public float RotateSpeed; // íšŒì „ ì†ë„
+        public float ProjectileSpeed; //ë°œì‚¬ì²´ ì†ë„
         public float ScaleMultiplier;
 
         public static SkillType GetSkillTypeFromInt(int value)
@@ -41,7 +41,7 @@ namespace Data
             foreach (SkillType skillType in Enum.GetValues(typeof(SkillType)))
             {
                 int minValue = (int)skillType;
-                int maxValue = minValue + 5; // 100501~ 100506 »çÀÌ °ªÀÌ¸é 100501°ª ¸®ÅÏ
+                int maxValue = minValue + 5; // 100501~ 100506 ì‚¬ì´ ê°’ì´ë©´ 100501ê°’ ë¦¬í„´
 
                 if (value >= minValue && value <= maxValue)
                 {

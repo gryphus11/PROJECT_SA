@@ -41,6 +41,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8a2f4e93b5059f49bc1329cde1790f2
+    m_Address: SupportSkillTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90157ada6b3894849964b57b913509f0
+    m_Address: UpgradeWeaponTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0538bab45ff28f848bdccf8f04a89bf9
     m_Address: WaveTable
     m_ReadOnly: 0

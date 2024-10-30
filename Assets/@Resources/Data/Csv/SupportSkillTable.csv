@@ -1,0 +1,89 @@
+﻿DataId,SupportSkillType,SupportSkillName,Name,Description,IconLabel,HpRegen,HealRate,HealBonusRate,MagneticRange,GetSoul,HpRate,AtkRate,DefRate,MoveSpeedRate,CriRate,CriDmg,DamageReduction,ExpBonusRate,SoulBonusRate,ProjectileSpacing,Duration,NumProjectiles,AttackInterval,NumBounce,NumPenerations,ProjRange,RoatateSpeed,ScaleMultiplier,Price
+20101,General,Critical,치명타 확률 증가,치명타 확률 3% 증가,GeneralSupportSkillIcon_01.sprite,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20102,General,Critical,치명타 확률 증가,치명타 확률 5% 증가,GeneralSupportSkillIcon_01.sprite,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20103,General,Critical,치명타 확률 증가,치명타 확률 7% 증가,GeneralSupportSkillIcon_01.sprite,0,0,0,0,0,0,0,0,0,0.07,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20104,General,Critical,치명타 확률 증가,치명타 확률 9% 증가,GeneralSupportSkillIcon_01.sprite,0,0,0,0,0,0,0,0,0,0.09,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+20201,General,MaxHpBonus,최대 체력 증가,최대 체력 3% 증가,GeneralSupportSkillIcon_02.sprite,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20202,General,MaxHpBonus,최대 체력 증가,최대 체력 6% 증가,GeneralSupportSkillIcon_02.sprite,0,0,0,0,0,0.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20203,General,MaxHpBonus,최대 체력 증가,최대 체력 9% 증가,GeneralSupportSkillIcon_02.sprite,0,0,0,0,0,0.09,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20204,General,MaxHpBonus,최대 체력 증가,최대 체력 12% 증가,GeneralSupportSkillIcon_02.sprite,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+20301,General,ExpBonus,경험치 획득량 증가,경험치 획득량 3% 증가,GeneralSupportSkillIcon_03.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,45
+20302,General,ExpBonus,경험치 획득량 증가,경험치 획득량 6% 증가,GeneralSupportSkillIcon_03.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.06,0,0,0,0,0,0,0,0,0,0,55
+20303,General,ExpBonus,경험치 획득량 증가,경험치 획득량 9% 증가,GeneralSupportSkillIcon_03.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.09,0,0,0,0,0,0,0,0,0,0,80
+20304,General,ExpBonus,경험치 획득량 증가,경험치 획득량 12% 증가,GeneralSupportSkillIcon_03.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,160
+20501,General,DamageReduction,받는 피해량 감소,받는 피해량 5% 감소,GeneralSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,45
+20502,General,DamageReduction,받는 피해량 감소,받는 피해량 8% 감소,GeneralSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,55
+20503,General,DamageReduction,받는 피해량 감소,받는 피해량 10% 감소,GeneralSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,80
+20504,General,DamageReduction,받는 피해량 감소,받는 피해량 12% 감소,GeneralSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,160
+20601,General,AtkBonusRate,공격력 증가,공격력 5% 증가,GeneralSupportSkillIcon_06.sprite,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20602,General,AtkBonusRate,공격력 증가,공격력 8% 증가,GeneralSupportSkillIcon_06.sprite,0,0,0,0,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20603,General,AtkBonusRate,공격력 증가,공격력 10% 증가,GeneralSupportSkillIcon_06.sprite,0,0,0,0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20604,General,AtkBonusRate,공격력 증가,공격력 12% 증가,GeneralSupportSkillIcon_06.sprite,0,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+20701,General,MoveBonusRate,이동속도 증가,이동속도 5% 증가,GeneralSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20702,General,MoveBonusRate,이동속도 증가,이동속도 8% 증가,GeneralSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20703,General,MoveBonusRate,이동속도 증가,이동속도 10% 증가,GeneralSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20704,General,MoveBonusRate,이동속도 증가,이동속도 12% 증가,GeneralSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+20801,General,Healing,체력 회복,최대 체력의 10% 회복,GeneralSupportSkillIcon_08.sprite,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20802,General,Healing,체력 회복,최대 체력의 15% 회복,GeneralSupportSkillIcon_08.sprite,0,0.15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20803,General,Healing,체력 회복,최대 체력의 20% 회복,GeneralSupportSkillIcon_08.sprite,0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20804,General,Healing,체력 회복,최대 체력의 25% 회복,GeneralSupportSkillIcon_08.sprite,0,0.25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+20901,General,HealBonusRate,회복량 증가,회복량 5% 증가,GeneralSupportSkillIcon_09.sprite,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+20902,General,HealBonusRate,회복량 증가,회복량 8% 증가,GeneralSupportSkillIcon_09.sprite,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+20903,General,HealBonusRate,회복량 증가,회복량 10% 증가,GeneralSupportSkillIcon_09.sprite,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+20904,General,HealBonusRate,회복량 증가,회복량 12% 증가,GeneralSupportSkillIcon_09.sprite,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21001,General,HpRegen,체력 재생 증가,1초마다 최대 체력의 0.5% 만큼 회복,GeneralSupportSkillIcon_10.sprite,0.005,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+21002,General,HpRegen,체력 재생 증가,1초마다 최대 체력의 0.8% 만큼 회복,GeneralSupportSkillIcon_10.sprite,0.008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21003,General,HpRegen,체력 재생 증가,1초마다 최대 체력의 1.2% 만큼 회복,GeneralSupportSkillIcon_10.sprite,0.012,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21004,General,HpRegen,체력 재생 증가,1초마다 최대 체력의 1.5% 만큼 회복,GeneralSupportSkillIcon_10.sprite,0.015,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21101,General,CriticalDamage,치명타 데미지 증가,치명타 데미지 5% 증가,GeneralSupportSkillIcon_11.sprite,0,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,45
+21102,General,CriticalDamage,치명타 데미지 증가,치명타 데미지 8% 증가,GeneralSupportSkillIcon_11.sprite,0,0,0,0,0,0,0,0,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,55
+21103,General,CriticalDamage,치명타 데미지 증가,치명타 데미지 12% 증가,GeneralSupportSkillIcon_11.sprite,0,0,0,0,0,0,0,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,80
+21104,General,CriticalDamage,치명타 데미지 증가,치명타 데미지 16% 증가,GeneralSupportSkillIcon_11.sprite,0,0,0,0,0,0,0,0,0,0,0.16,0,0,0,0,0,0,0,0,0,0,0,0,160
+21201,General,MagneticRange,아이템 획득 범위 증가,아이템 획득 범위 5% 증가,GeneralSupportSkillIcon_12.sprite,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45
+21202,General,MagneticRange,아이템 획득 범위 증가,아이템 획득 범위 8% 증가,GeneralSupportSkillIcon_12.sprite,0,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21203,General,MagneticRange,아이템 획득 범위 증가,아이템 획득 범위 10% 증가,GeneralSupportSkillIcon_12.sprite,0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21204,General,MagneticRange,아이템 획득 범위 증가,아이템 획득 범위 12% 증가,GeneralSupportSkillIcon_12.sprite,0,0,0,0.12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21301,Passive,Resurrection,부활,사망 시 체력 30%로 부활 (1회),GeneralSupportSkillIcon_13.sprite,0,0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21302,Passive,Resurrection,부활,사망 시 이동속도 5% 상승 및 체력 50%로 부활 (1회),GeneralSupportSkillIcon_13.sprite,0,0.5,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21303,Passive,Resurrection,부활,사망 시 공격력 15% 상승 및 체력 100%로 부활 (1회),GeneralSupportSkillIcon_13.sprite,0,1,0,0,0,0,0.15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21401,LevelUp,LevelupMoveSpeed,이동속도 증가,레벨업 시 이속 0.15% 증가,GeneralSupportSkillIcon_14.sprite,0,0,0,0,0,0,0,0,0.0015,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21402,LevelUp,LevelupMoveSpeed,이동속도 증가,레벨업 시 이속 0.3% 증가,GeneralSupportSkillIcon_14.sprite,0,0,0,0,0,0,0,0,0.003,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21403,LevelUp,LevelupMoveSpeed,이동속도 증가,레벨업 시 이속 0.5% 증가,GeneralSupportSkillIcon_14.sprite,0,0,0,0,0,0,0,0,0.005,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21501,LevelUp,LevelupReduction,받는 피해량 감소,레벨업 시 받는 피해 0.3% 감소,GeneralSupportSkillIcon_15.sprite,0,0,0,0,0,0,0,0,0,0,0,0.003,0,0,0,0,0,0,0,0,0,0,0,55
+21502,LevelUp,LevelupReduction,받는 피해량 감소,레벨업 시 받는 피해 0.6% 감소,GeneralSupportSkillIcon_15.sprite,0,0,0,0,0,0,0,0,0,0,0,0.006,0,0,0,0,0,0,0,0,0,0,0,80
+21503,LevelUp,LevelupReduction,받는 피해량 감소,레벨업 시 받는 피해 1% 감소,GeneralSupportSkillIcon_15.sprite,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,160
+21601,LevelUp,LevelupAtk,공격력 증가,레벨업 시 공격력 0.3% 증가,GeneralSupportSkillIcon_16.sprite,0,0,0,0,0,0,0.003,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21602,LevelUp,LevelupAtk,공격력 증가,레벨업 시 공격력 0.6% 증가,GeneralSupportSkillIcon_16.sprite,0,0,0,0,0,0,0.006,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21603,LevelUp,LevelupAtk,공격력 증가,레벨업 시 공격력 1% 증가,GeneralSupportSkillIcon_16.sprite,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21701,LevelUp,LevelupCri,치명타 확률 증가,레벨업 시 치명타 확률 1% 증가,GeneralSupportSkillIcon_17.sprite,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21702,LevelUp,LevelupCri,치명타 확률 증가,레벨업 시 치명타 확률 2% 증가,GeneralSupportSkillIcon_17.sprite,0,0,0,0,0,0,0,0,0,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21703,LevelUp,LevelupCri,치명타 확률 증가,레벨업 시 치명타 확률 3% 증가,GeneralSupportSkillIcon_17.sprite,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+21801,LevelUp,LevelupCriDmg,치명타 데미지 증가,레벨업 시 치명타 데미지 3% 증가,GeneralSupportSkillIcon_18.sprite,0,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,55
+21802,LevelUp,LevelupCriDmg,치명타 데미지 증가,레벨업 시 치명타 데미지 4% 증가,GeneralSupportSkillIcon_18.sprite,0,0,0,0,0,0,0,0,0,0,0.04,0,0,0,0,0,0,0,0,0,0,0,0,80
+21803,LevelUp,LevelupCriDmg,치명타 데미지 증가,레벨업 시 치명타 데미지 5% 증가,GeneralSupportSkillIcon_18.sprite,0,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,160
+21901,MonsterKill,MonsterKillAtk,공격력 증가,몬스터 500킬 마다 공격력 0.5% 증가,GeneralSupportSkillIcon_19.sprite,0,0,0,0,0,0,0.005,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+21902,MonsterKill,MonsterKillAtk,공격력 증가,몬스터 500킬 마다 공격력 0.7% 증가,GeneralSupportSkillIcon_19.sprite,0,0,0,0,0,0,0.007,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+21903,MonsterKill,MonsterKillAtk,공격력 증가,몬스터 500킬 마다 공격력 1% 증가,GeneralSupportSkillIcon_19.sprite,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+22001,MonsterKill,MonsterKillMaxHP,체력 회복,몬스터 500킬 마다 체력 5% 회복,GeneralSupportSkillIcon_20.sprite,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55
+22002,MonsterKill,MonsterKillMaxHP,체력 회복,몬스터 500킬 마다 체력 8% 회복,GeneralSupportSkillIcon_20.sprite,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80
+22003,MonsterKill,MonsterKillMaxHP,체력 회복,몬스터 500킬 마다 체력 10% 회복,GeneralSupportSkillIcon_20.sprite,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,160
+22101,MonsterKill,MonsterKillReduction,피해 감소,몬스터 500킬 마다 받는 피해 0.1% 감소,GeneralSupportSkillIcon_21.sprite,0,0,0,0,0,0,0,0,0,0,0,0.001,0,0,0,0,0,0,0,0,0,0,0,55
+22102,MonsterKill,MonsterKillReduction,피해 감소,몬스터 500킬 마다 받는 피해 0.3% 감소,GeneralSupportSkillIcon_21.sprite,0,0,0,0,0,0,0,0,0,0,0,0.003,0,0,0,0,0,0,0,0,0,0,0,80
+22103,MonsterKill,MonsterKillReduction,피해 감소,몬스터 500킬 마다 받는 피해 0.5% 감소,GeneralSupportSkillIcon_21.sprite,0,0,0,0,0,0,0,0,0,0,0,0.005,0,0,0,0,0,0,0,0,0,0,0,160
+22201,EliteKill,EliteKillExp,경험치 획득량 증가,엘리트 킬 마다 경험치 확득량 1% 증가,GeneralSupportSkillIcon_22.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,55
+22202,EliteKill,EliteKillExp,경험치 획득량 증가,엘리트 킬 마다 경험치 확득량 2.5% 증가,GeneralSupportSkillIcon_22.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.025,0,0,0,0,0,0,0,0,0,0,80
+22203,EliteKill,EliteKillExp,경험치 획득량 증가,엘리트 킬 마다 경험치 확득량 5% 증가,GeneralSupportSkillIcon_22.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,160
+30201,Special,IcicleArrow,아이시클 애로우 강화,아이시클 애로우 관통력 +3,SpecialSupportSkillIcon_02.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,160
+30202,Special,IcicleArrow,아이시클 애로우 강화,아이시클 애로우 관통력 +5,SpecialSupportSkillIcon_02.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,320
+30401,Special,Sanctuary,성역 강화,성역 범위 +10,SpecialSupportSkillIcon_04.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1,160
+30402,Special,Sanctuary,성역 강화,성역 범위 +15,SpecialSupportSkillIcon_04.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.15,320
+30501,Special,Meteor,메테오 강화,메테오 공격 횟수 +2,SpecialSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,160
+30502,Special,Meteor,메테오 강화,메테오 공격 횟수 +3,SpecialSupportSkillIcon_05.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,320
+30701,Special,SpinCutter,스핀커터 강화,스핀커터 공격 횟수 +1,SpecialSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,160
+30702,Special,SpinCutter,스핀커터 강화,스핀커터 공격 횟수 +2,SpecialSupportSkillIcon_07.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,320
+31001,Special,BounceArrow,바운스 애로우 강화,바운스 애로우 공격 횟수 +3,SpecialSupportSkillIcon_10.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,400
+31002,Special,BounceArrow,바운스 애로우 강화,바운스 애로우 공격 횟수 +5,SpecialSupportSkillIcon_10.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,800
+31201,Special,Slash,슬래쉬 강화,슬래쉬 범위 +10,SpecialSupportSkillIcon_12.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1,400
+31202,Special,Slash,슬래쉬 강화,슬래쉬 범위 +20,SpecialSupportSkillIcon_12.sprite,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,800
+31301,Special,Lightning,번개 강화,번개 데미지 증가 +10%,SpecialSupportSkillIcon_13.sprite,0,0,0,0,0,0,0,0,0,0,0,0.1,0,0,0,0,3,0,0,0,0,0,0,400
+31302,Special,Lightning,번개 강화,번개 데미지 증가 +20%,SpecialSupportSkillIcon_13.sprite,0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0,0,5,0,0,0,0,0,0,800

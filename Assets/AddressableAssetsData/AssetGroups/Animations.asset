@@ -107,6 +107,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3875729bb2faeb4f998a7d1b560bf70
+    m_Address: Idle_PlagueDoctor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17ee7bae98f382d408b218f85515503d
+    m_Address: Move_PlagueDoctor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c177ed61ef4d154c9e40bc18685da92, type: 2}
   m_SchemaSet:
